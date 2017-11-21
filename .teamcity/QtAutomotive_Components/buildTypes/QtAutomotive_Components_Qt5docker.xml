@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<build-type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="3d918146-04c8-4467-ae69-7d6ce28213ed" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/10.0/project-config.xsd">
+  <name>Qt5_docker</name>
+  <description />
+  <settings>
+    <options>
+      <option name="artifactRules" value="+:%system.teamcity.build.tempDir%/_install_/ =&gt; qt.tar.gz" />
+    </options>
+    <parameters>
+      <param name="debug_release" value="" spec="select label_3='release' display='normal' description='debug_release switch' data_1='-debug' label_1='debug' data_3=''" />
+      <param name="env.CCACHE_PREFIX" value="icecc" />
+      <param name="env.PATH" value="/usr/lib/ccache:%env.PATH%" />
+    </parameters>
+    <build-runners>
+      <runner id="RUNNER_87" name="Submodule clean" type="simpleRunner">
+        <parameters>
+          <param name="command.executable" value="git" />
+          <param name="command.parameters" value="submodule foreach --recursive git reset --hard" />
+          <param name="teamcity.step.mode" value="default" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_83" name="Init repository" type="simpleRunner">
+        <parameters>
+          <param name="command.executable" value="./init-repository" />
+          <param name="command.parameters" value="-f --module-subset=default,-qtwebkit,-qtwebkit-examples,-qtwebengine" />
+          <param name="teamcity.step.mode" value="default" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_84" name="Qt configure" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[mkdir -p %system.teamcity.build.tempDir%/_install_
+%teamcity.build.checkoutDir%/configure %debug_release% -opensource -confirm-license -nomake examples -nomake tests -opengl es2 -prefix /opt/qt/%teamcity.build.vcs.branch.QtAutomotive_Components_CodeQtIoQtQt5git%]]></param>
+          <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%/_builddir_" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_85" name="Make" type="jetbrains-cmake-gnumake">
+        <parameters>
+          <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%/_builddir_" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="ui-jetbrains-cmake-gnumake-additional-cmd-params" value="-j 30" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_86" name="Make install" type="jetbrains-cmake-gnumake">
+        <parameters>
+          <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%/_builddir_" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="ui-jetbrains-cmake-gnumake-additional-cmd-params" value="INSTALL_ROOT=%system.teamcity.build.tempDir%/_install_" />
+          <param name="ui-jetbrains-cmake-gnumake-make-tasks" value="install" />
+        </parameters>
+      </runner>
+    </build-runners>
+    <vcs-settings>
+      <vcs-entry-ref root-id="QtAutomotive_Components_CodeQtIoQtQt5git" />
+    </vcs-settings>
+    <requirements>
+      <equals id="RQ_54" name="teamcity.agent.jvm.os.arch" value="amd64" />
+    </requirements>
+    <build-triggers />
+    <build-extensions>
+      <extension id="swabra" type="swabra">
+        <parameters>
+          <param name="swabra.enabled" value="swabra.before.build" />
+          <param name="swabra.strict" value="true" />
+        </parameters>
+      </extension>
+      <extension id="perfmon" type="perfmon">
+        <parameters />
+      </extension>
+      <extension id="jetbrains.agent.free.space" type="jetbrains.agent.free.space">
+        <parameters>
+          <param name="free-space-work" value="15gb" />
+        </parameters>
+      </extension>
+    </build-extensions>
+    <cleanup />
+  </settings>
+</build-type>
+
