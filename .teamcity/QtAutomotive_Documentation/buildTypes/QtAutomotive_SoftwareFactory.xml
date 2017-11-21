@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<build-type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="31b55987-4168-41d3-950b-9f343034c057" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/10.0/project-config.xsd">
+  <name>Software-factory</name>
+  <description />
+  <settings>
+    <options>
+      <option name="artifactRules" value="docs/html/** =&gt; html.zip" />
+    </options>
+    <parameters />
+    <build-runners>
+      <runner id="RUNNER_67" name="virtualenv" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[mkdir -p /tmp/.pip_download_cache
+export PIP_DOWNLOAD_CACHE=/tmp/.pip_download_cache
+virtualenv ./
+./bin/pip install sphinxcontrib-seqdiag sphinxcontrib-blockdiag          sphinxcontrib-actdiag sphinxcontrib-manpage sphinx_rtd_theme six docutils
+echo "##teamcity[setParameter name='env.PATH' value='`pwd`/bin/:$PATH']"]]></param>
+          <param name="teamcity.build.workingDir" value="pip" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_64" name="" type="jetbrains-cmake-conf">
+        <parameters>
+          <param name="teamcity.step.mode" value="default" />
+          <param name="ui-jetbrains-cmake-conf-cmake-build-type" value="Default" />
+          <param name="ui-jetbrains-cmake-conf-developer-warnings" value="false" />
+          <param name="ui-jetbrains-cmake-conf-source-path" value="CMakeLists.txt" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_63" name="" type="jetbrains-cmake-build">
+        <parameters>
+          <param name="teamcity.step.mode" value="default" />
+          <param name="ui-jetbrains-cmake-build-source-path" value="" />
+        </parameters>
+      </runner>
+    </build-runners>
+    <vcs-settings>
+      <vcs-entry-ref root-id="QtAutomotive_HttpsGithubComPelagicoreSoftwareFactoryGit" />
+    </vcs-settings>
+    <requirements>
+      <contains id="RQ_42" name="teamcity.agent.jvm.os.name" value="Linux" />
+    </requirements>
+    <build-triggers>
+      <build-trigger id="vcsTrigger" type="vcsTrigger">
+        <parameters>
+          <param name="branchFilter" value="+:*" />
+          <param name="quietPeriodMode" value="DO_NOT_USE" />
+        </parameters>
+      </build-trigger>
+    </build-triggers>
+    <build-extensions>
+      <extension id="swabra" type="swabra">
+        <parameters>
+          <param name="swabra.enabled" value="swabra.before.build" />
+          <param name="swabra.strict" value="true" />
+          <param name="swabra.verbose" value="true" />
+        </parameters>
+      </extension>
+      <extension id="perfmon" type="perfmon">
+        <parameters />
+      </extension>
+    </build-extensions>
+    <cleanup />
+  </settings>
+</build-type>
+

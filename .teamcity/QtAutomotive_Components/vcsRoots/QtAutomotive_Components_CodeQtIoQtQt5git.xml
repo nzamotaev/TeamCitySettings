@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vcs-root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="ec6d6c2d-38ab-4a3c-b75a-ae5d6fce55e5" type="jetbrains.git" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/10.0/project-config.xsd">
+  <name>code.qt.io/qt/qt5.git</name>
+  <param name="agentCleanFilesPolicy" value="ALL_UNTRACKED" />
+  <param name="agentCleanPolicy" value="ON_BRANCH_CHANGE" />
+  <param name="authMethod" value="ANONYMOUS" />
+  <param name="branch" value="refs/heads/dev" />
+  <param name="ignoreKnownHosts" value="true" />
+  <param name="submoduleCheckout" value="IGNORE" />
+  <param name="teamcity:branchSpec" value="+:refs/heads/*" />
+  <param name="url" value="git://code.qt.io/qt/qt5.git" />
+  <param name="useAlternates" value="true" />
+  <param name="usernameStyle" value="USERID" />
+</vcs-root>
+

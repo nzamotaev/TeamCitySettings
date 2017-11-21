@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<build-type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="8c6b7fc0-64ee-4aba-8331-310292377108" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/10.0/project-config.xsd">
+  <name>Qt IVI</name>
+  <description />
+  <settings>
+    <parameters />
+    <build-runners>
+      <runner id="RUNNER_98" name="" type="simpleRunner">
+        <parameters>
+          <param name="script.content" value="qmake" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_99" name="" type="simpleRunner">
+        <parameters>
+          <param name="script.content" value="make" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+    </build-runners>
+    <vcs-settings>
+      <vcs-entry-ref root-id="QtAutomotive_Components_CodeQtIoQtQtiviGit" />
+    </vcs-settings>
+    <requirements>
+      <equals id="RQ_60" name="teamcity.agent.jvm.os.arch" value="amd64" />
+      <equals id="RQ_61" name="system.ubuntu.version" value="14.04" />
+    </requirements>
+    <build-triggers />
+    <cleanup />
+  </settings>
+</build-type>
+

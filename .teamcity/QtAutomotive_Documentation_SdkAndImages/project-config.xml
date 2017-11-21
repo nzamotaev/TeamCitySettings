@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" parent-id="QtAutomotive" uuid="a78d5d6e-091d-45ca-bd0b-c85941e2b59f" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/10.0/project-config.xsd">
+  <name>SDK_and_Images</name>
+  <parameters />
+  <cleanup />
+</project>
+

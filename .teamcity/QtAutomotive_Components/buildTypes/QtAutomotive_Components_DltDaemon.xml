@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<build-type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="78217e60-64ee-4737-902e-3d0738d452cd" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/10.0/project-config.xsd">
+  <name>dlt-daemon</name>
+  <description />
+  <settings>
+    <options>
+      <option name="artifactRules" value="%system.teamcity.build.tempDir%/install/** =&gt; dlt.tar.gz" />
+    </options>
+    <parameters />
+    <build-runners>
+      <runner id="RUNNER_90" name="Configure" type="jetbrains-cmake-conf">
+        <parameters>
+          <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%/build/" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="ui-jetbrains-cmake-conf-additional-cmd-params" value="-DCMAKE_INSTALL_PREFIX=/usr" />
+          <param name="ui-jetbrains-cmake-conf-cmake-build-type" value="Default" />
+          <param name="ui-jetbrains-cmake-conf-developer-warnings" value="true" />
+          <param name="ui-jetbrains-cmake-conf-source-path" value="%system.teamcity.build.checkoutDir%" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_89" name="build" type="jetbrains-cmake-build">
+        <parameters>
+          <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%/build/" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="ui-jetbrains-cmake-build-build-target" value="all" />
+          <param name="ui-jetbrains-cmake-build-clean-before-build" value="true" />
+          <param name="ui-jetbrains-cmake-build-native-tool-params" value="DESTDIR=%system.teamcity.build.tempDir%/install/" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_91" name="install" type="jetbrains-cmake-build">
+        <parameters>
+          <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%/build/" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="ui-jetbrains-cmake-build-build-target" value="install" />
+          <param name="ui-jetbrains-cmake-build-clean-before-build" value="true" />
+          <param name="ui-jetbrains-cmake-build-native-tool-params" value="DESTDIR=%system.teamcity.build.tempDir%/install/" />
+        </parameters>
+      </runner>
+    </build-runners>
+    <vcs-settings>
+      <vcs-entry-ref root-id="QtAutomotive_Components_GithubComGeniviDltDaemonGit" />
+    </vcs-settings>
+    <requirements>
+      <contains id="RQ_55" name="teamcity.agent.jvm.os.arch" value="amd64" />
+    </requirements>
+    <build-triggers />
+    <build-extensions>
+      <extension id="swabra" type="swabra">
+        <parameters>
+          <param name="swabra.enabled" value="swabra.before.build" />
+        </parameters>
+      </extension>
+      <extension id="perfmon" type="perfmon">
+        <parameters />
+      </extension>
+    </build-extensions>
+    <cleanup />
+  </settings>
+</build-type>
+

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="1b7709da-432f-4e51-b059-1c09aee09b8c" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/10.0/project-config.xsd">
+  <name>Qt Automotive</name>
+  <parameters />
+  <project-extensions>
+    <extension id="PROJECT_EXT_4" type="versionedSettings">
+      <parameters>
+        <param name="buildSettings" value="ALWAYS_USE_CURRENT" />
+        <param name="enabled" value="true" />
+        <param name="rootId" value="QtAutomotive_GitGithubComNzamotaevTeamCitySettingsGit" />
+        <param name="showChanges" value="true" />
+      </parameters>
+    </extension>
+  </project-extensions>
+  <cleanup>
+    <policy type="days" cleanup-level="HISTORY_ENTRY">
+      <parameters>
+        <param name="keepDays.count" value="365" />
+      </parameters>
+    </policy>
+    <policy type="days" cleanup-level="ARTIFACTS">
+      <parameters>
+        <param name="keepDays.count" value="365" />
+      </parameters>
+    </policy>
+  </cleanup>
+</project>
+
