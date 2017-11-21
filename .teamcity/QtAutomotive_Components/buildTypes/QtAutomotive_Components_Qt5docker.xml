@@ -52,7 +52,9 @@
       </runner>
     </build-runners>
     <vcs-settings>
-      <vcs-entry-ref root-id="QtAutomotive_Components_CodeQtIoQtQt5git" />
+      <vcs-entry-ref root-id="QtAutomotive_Components_CodeQtIoQtQt5git">
+        <checkout-rule rule="+:. =&gt; sources" />
+      </vcs-entry-ref>
       <vcs-entry-ref root-id="GithubComNzamotaevTeamCityDockerScriptsGit">
         <checkout-rule rule="+:QtAutomotive/Components/Qt5 =&gt; Docker" />
       </vcs-entry-ref>
