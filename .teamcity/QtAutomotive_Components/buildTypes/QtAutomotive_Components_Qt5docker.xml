@@ -71,7 +71,7 @@
         <checkout-rule rule="+:. =&gt; sources" />
       </vcs-entry-ref>
       <vcs-entry-ref root-id="GithubComNzamotaevTeamCityDockerScriptsGit">
-        <checkout-rule rule="+:QtAutomotive/Components/Qt5 =&gt; Docker" />
+        <checkout-rule rule="+:. =&gt; Docker" />
       </vcs-entry-ref>
     </vcs-settings>
     <requirements>
