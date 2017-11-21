@@ -53,7 +53,9 @@
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_Components_CodeQtIoQtQt5git" />
-      <vcs-entry-ref root-id="GithubComNzamotaevTeamCityDockerScriptsGit" />
+      <vcs-entry-ref root-id="GithubComNzamotaevTeamCityDockerScriptsGit">
+        <checkout-rule rule="+:QtAutomotive/Components/Qt5 =&gt; Docker" />
+      </vcs-entry-ref>
     </vcs-settings>
     <requirements>
       <equals id="RQ_54" name="teamcity.agent.jvm.os.arch" value="amd64" />
