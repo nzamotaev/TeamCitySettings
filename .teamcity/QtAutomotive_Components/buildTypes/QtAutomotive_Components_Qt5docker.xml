@@ -57,6 +57,14 @@
           <param name="ui-jetbrains-cmake-gnumake-make-tasks" value="install" />
         </parameters>
       </runner>
+      <runner id="RUNNER_104" name="Docker" type="simpleRunner">
+        <parameters>
+          <param name="command.executable" value="./run.sh" />
+          <param name="command.parameters" value="%system.teamcity.build.tempDir% `pwd`/../sources/ ./build.sh %teamcity.build.vcs.branch.QtAutomotive_Components_CodeQtIoQtQt5git% %debug_release%" />
+          <param name="teamcity.build.workingDir" value="Docker" />
+          <param name="teamcity.step.mode" value="default" />
+        </parameters>
+      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_Components_CodeQtIoQtQt5git">
