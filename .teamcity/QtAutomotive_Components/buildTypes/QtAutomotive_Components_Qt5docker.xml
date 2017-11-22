@@ -19,6 +19,14 @@
       <param name="env.PATH" value="/usr/lib/ccache:%env.PATH%" />
     </parameters>
     <build-runners>
+      <runner id="RUNNER_104" name="Docker" type="simpleRunner">
+        <parameters>
+          <param name="script.content" value="./run.sh %system.teamcity.build.tempDir% `pwd`/../../../../sources/ %teamcity.build.vcs.branch.QtAutomotive_Components_CodeQtIoQtQt5git% %debug_release%" />
+          <param name="teamcity.build.workingDir" value="Docker/QtAutomotive/Components/Qt5" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
       <runner id="RUNNER_87" name="Submodule clean" type="simpleRunner">
         <parameters>
           <param name="command.executable" value="git" />
@@ -55,14 +63,6 @@
           <param name="teamcity.step.mode" value="default" />
           <param name="ui-jetbrains-cmake-gnumake-additional-cmd-params" value="INSTALL_ROOT=%system.teamcity.build.tempDir%/_install_" />
           <param name="ui-jetbrains-cmake-gnumake-make-tasks" value="install" />
-        </parameters>
-      </runner>
-      <runner id="RUNNER_104" name="Docker" type="simpleRunner">
-        <parameters>
-          <param name="script.content" value="./run.sh %system.teamcity.build.tempDir% `pwd`/../../../../sources/ %teamcity.build.vcs.branch.QtAutomotive_Components_CodeQtIoQtQt5git% %debug_release%" />
-          <param name="teamcity.build.workingDir" value="Docker/QtAutomotive/Components/Qt5" />
-          <param name="teamcity.step.mode" value="default" />
-          <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
     </build-runners>
