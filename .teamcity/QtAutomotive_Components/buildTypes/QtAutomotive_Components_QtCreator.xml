@@ -51,6 +51,7 @@
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_Components_CodeQtIoQtCreatorQtCreatorGit" />
+      <vcs-entry-ref root-id="GithubComNzamotaevTeamCityDockerScriptsGit" />
     </vcs-settings>
     <requirements>
       <equals id="RQ_57" name="teamcity.agent.jvm.os.arch" value="amd64" />
