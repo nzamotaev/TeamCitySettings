@@ -9,6 +9,7 @@
     <disabled-settings>
       <setting-ref ref="RUNNER_92" />
       <setting-ref ref="RUNNER_93" />
+      <setting-ref ref="RUNNER_94" />
       <setting-ref ref="RUNNER_95" />
     </disabled-settings>
     <parameters />
