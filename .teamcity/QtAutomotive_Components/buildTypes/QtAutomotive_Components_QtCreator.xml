@@ -13,7 +13,9 @@
       <setting-ref ref="RUNNER_94" />
       <setting-ref ref="RUNNER_95" />
     </disabled-settings>
-    <parameters />
+    <parameters>
+      <param name="Qt5 version" value="%dep.QtAutomotive_Components_Qt5.teamcity.build.branch%" />
+    </parameters>
     <build-runners>
       <runner id="RUNNER_92" name="" type="simpleRunner">
         <parameters>
