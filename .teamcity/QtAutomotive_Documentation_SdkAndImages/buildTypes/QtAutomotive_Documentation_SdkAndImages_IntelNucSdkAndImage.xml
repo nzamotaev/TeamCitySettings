@@ -51,12 +51,12 @@ TEMPLATECONF=`pwd`/sources/meta-pelux/conf/variant/%architecture%%imagetype% sou
 
 grep icecc conf/local.conf || cat >> conf/local.conf << EOF
 
-BB_NUMBER_THREADS = "16"
-PARALLEL_MAKE = "-j 8"
+BB_NUMBER_THREADS = "8"
+PARALLEL_MAKE = "-j 4"
 
 ICECC_PATH="/usr/bin/icecc"
 ICECC_USER_CLASS_BL = " native"
-INHERIT +="icecc"
+#INHERIT +="icecc"
 ICECC_USER_PACKAGE_BL = "libgcc gcc-runtime"
 CONNECTIVITY_CHECK_URIS=""
 DL_DIR = "${HOME}/bitbake_downloads"
