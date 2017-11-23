@@ -98,7 +98,7 @@ echo "##teamcity[progressFinish 'Building SDK $IMAGETYPE for $BITBAKE_MACHINE']"
     <build-triggers>
       <build-trigger id="vcsTrigger" type="vcsTrigger">
         <parameters>
-          <param name="branchFilter" value="+:*" />
+          <param name="branchFilter" value="+:master" />
           <param name="quietPeriodMode" value="DO_NOT_USE" />
         </parameters>
       </build-trigger>
