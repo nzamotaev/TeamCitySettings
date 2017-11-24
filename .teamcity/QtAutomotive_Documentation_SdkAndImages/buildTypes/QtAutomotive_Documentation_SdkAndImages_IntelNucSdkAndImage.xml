@@ -11,6 +11,7 @@
     </disabled-settings>
     <parameters>
       <param name="bitbake_image" value="core-image-pelux-qtauto-neptune" />
+      <param name="package_names" value="" spec="text description='Build packages instead of image' label='Package' validationMode='any' display='normal'" />
       <param name="variant_name" value="intel-qtauto" />
     </parameters>
     <build-runners>
