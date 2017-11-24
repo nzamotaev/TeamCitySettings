@@ -46,16 +46,16 @@ chmod a+x ~/bin/repo]]></param>
       <runner id="RUNNER_82" name="configure" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
+
+echo "Setup bitbake %variant_name%"
 mkdir -p $HOME/bitbake_downloads
-echo "Architecture: %architecture%"
-echo "Image type:   %imagetype%"
-echo "`pwd`/sources/meta-pelux/conf/variant/%architecture%%imagetype%"
-TEMPLATECONF=`pwd`/sources/meta-pelux/conf/variant/%architecture%%imagetype% source sources/poky/oe-init-build-env build
+mkdir -p $HOME/bitbake_sstate
+TEMPLATECONF=`pwd`/sources/meta-pelux/conf/variant/%variant_name% source sources/poky/oe-init-build-env build
 
-grep icecc conf/local.conf || cat >> conf/local.conf << EOF
+cat > conf/site.conf << EOF
 
-BB_NUMBER_THREADS = "8"
-PARALLEL_MAKE = "-j 4"
+INHERIT += "own-mirrors"
+SSTATE_MIRRORS ?= "file://$HOME/bitbake_sstate/sstate-cache/PATH"
 
 ICECC_PATH="/usr/bin/icecc"
 ICECC_USER_CLASS_BL = " native"
@@ -66,19 +66,20 @@ DL_DIR = "${HOME}/bitbake_downloads"
 
 EOF
 
-export BITBAKE_MACHINE=`cat conf/local.conf|grep MACHINE|awk -F= '{print $2}'|sed 's/\"//g;s/ //g'`
-echo $BITBAKE_MACHINE
-if [ "x%imagetype" == "x-qtauto" ]; then
-    IMAGETYPE="core-image-pelux-qtauto"
-else
-    IMAGETYPE="core-image-pelux-minimal"
-fi
-echo "##teamcity[progressStart 'Building Image $IMAGETYPE for $BITBAKE_MACHINE']"
-bitbake $IMAGETYPE && echo "##teamcity[publishArtifacts 'bitbake/build/tmp/deploy/images/$BITBAKE_MACHINE/${IMAGETYPE}-${BITBAKE_MACHINE}.wic']"
-echo "##teamcity[progressFinish 'Building Image $IMAGETYPE for $BITBAKE_MACHINE']"
-echo "##teamcity[progressStart 'Building SDK $IMAGETYPE for $BITBAKE_MACHINE']"
-bitbake -c populate_sdk $IMAGETYPE
-echo "##teamcity[progressFinish 'Building SDK $IMAGETYPE for $BITBAKE_MACHINE']"]]></param>
+echo "Stage Fetchall %bitbake_image%"
+echo "##teamcity[progressStart 'FetchAll sources %variant_name% for %bitbake_image%']"
+bitbake -k -c fetchall %bitbake_image%
+echo "##teamcity[progressFinish 'FetchAll sources %variant_name% for %bitbake_image%']"
+
+echo "##teamcity[progressStart 'Building Image %variant_name% for %bitbake_image%']"
+set -e
+bitbake %bitbake_image%
+#echo "##teamcity[publishArtifacts 'bitbake/build/tmp/deploy/images/$BITBAKE_MACHINE/${IMAGETYPE}-${BITBAKE_MACHINE}.wic']"
+echo "##teamcity[progressFinish 'Building Image %variant_name% for %bitbake_image%']"
+
+echo "##teamcity[progressStart 'Building SDK %variant_name% for %bitbake_image%']"
+bitbake -c populate_sdk %bitbake_image%
+echo "##teamcity[progressFinish 'Building SDK %variant_name% for %bitbake_image%']"]]></param>
           <param name="teamcity.build.workingDir" value="bitbake" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
