@@ -12,6 +12,7 @@
     <parameters>
       <param name="architecture" value="intel" spec="select label_3='Raspberry Pi 3' display='normal' description='Target image architecture' label='Architecture' data_1='intel' label_1='Core i7 Intel NUC' data_3='rpi'" />
       <param name="imagetype" value="" spec="select label_3='qtauto' display='normal' description='Image type selection' label='Image' data_1='' label_1='minimal' data_3='-qtauto'" />
+      <param name="variant_name" value="intel-qtauto" />
     </parameters>
     <build-runners>
       <runner id="RUNNER_80" name="Get repo" type="simpleRunner">
