@@ -66,6 +66,7 @@ ICECC_USER_CLASS_BL = " native"
 ICECC_USER_PACKAGE_BL = "libgcc gcc-runtime"
 CONNECTIVITY_CHECK_URIS=""
 DL_DIR = "${HOME}/bitbake_downloads"
+PACKAGE_CLASSES ?= "package_ipk"
 
 EOF
 
