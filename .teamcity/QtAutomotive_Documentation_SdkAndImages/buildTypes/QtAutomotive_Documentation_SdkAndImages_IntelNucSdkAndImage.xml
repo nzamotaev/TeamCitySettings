@@ -72,15 +72,23 @@ echo "##teamcity[progressStart 'FetchAll sources %variant_name% for %bitbake_ima
 bitbake -k -c fetchall %bitbake_image%
 echo "##teamcity[progressFinish 'FetchAll sources %variant_name% for %bitbake_image%']"
 
-echo "##teamcity[progressStart 'Building Image %variant_name% for %bitbake_image%']"
-set -e
-bitbake %bitbake_image%
-#echo "##teamcity[publishArtifacts 'bitbake/build/tmp/deploy/images/$BITBAKE_MACHINE/${IMAGETYPE}-${BITBAKE_MACHINE}.wic']"
-echo "##teamcity[progressFinish 'Building Image %variant_name% for %bitbake_image%']"
+if [ -n "%package_names% ]; then
+    echo "##teamcity[progressStart 'Building Image %variant_name% for %bitbake_image%']"
+    set -e
+    bitbake %bitbake_image%
+    #echo "##teamcity[publishArtifacts 'bitbake/build/tmp/deploy/images/$BITBAKE_MACHINE/${IMAGETYPE}-${BITBAKE_MACHINE}.wic']"
+    echo "##teamcity[progressFinish 'Building Image %variant_name% for %bitbake_image%']"
 
-echo "##teamcity[progressStart 'Building SDK %variant_name% for %bitbake_image%']"
-bitbake -c populate_sdk %bitbake_image%
-echo "##teamcity[progressFinish 'Building SDK %variant_name% for %bitbake_image%']"]]></param>
+    echo "##teamcity[progressStart 'Building SDK %variant_name% for %bitbake_image%']"
+    bitbake -c populate_sdk %bitbake_image%
+    echo "##teamcity[progressFinish 'Building SDK %variant_name% for %bitbake_image%']"
+else
+    echo "##teamcity[progressStart 'Building packages for %variant_name% : %package_names%']"
+    set -e
+    bitbake %package_names%
+    #echo "##teamcity[publishArtifacts 'bitbake/build/tmp/deploy/images/$BITBAKE_MACHINE/${IMAGETYPE}-${BITBAKE_MACHINE}.wic']"
+    echo "##teamcity[progressFinish 'Building packages for %variant_name% : %package_names%']"
+fi]]></param>
           <param name="teamcity.build.workingDir" value="bitbake" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
