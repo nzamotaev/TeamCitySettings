@@ -72,7 +72,7 @@ echo "##teamcity[progressStart 'FetchAll sources %variant_name% for %bitbake_ima
 bitbake -k -c fetchall %bitbake_image%
 echo "##teamcity[progressFinish 'FetchAll sources %variant_name% for %bitbake_image%']"
 
-if [ -n "%package_names% ]; then
+if [ ! -n "%package_names%" ]; then
     echo "##teamcity[progressStart 'Building Image %variant_name% for %bitbake_image%']"
     set -e
     bitbake %bitbake_image%
@@ -86,7 +86,6 @@ else
     echo "##teamcity[progressStart 'Building packages for %variant_name% : %package_names%']"
     set -e
     bitbake %package_names%
-    #echo "##teamcity[publishArtifacts 'bitbake/build/tmp/deploy/images/$BITBAKE_MACHINE/${IMAGETYPE}-${BITBAKE_MACHINE}.wic']"
     echo "##teamcity[progressFinish 'Building packages for %variant_name% : %package_names%']"
 fi]]></param>
           <param name="teamcity.build.workingDir" value="bitbake" />
