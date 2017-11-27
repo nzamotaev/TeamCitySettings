@@ -4,7 +4,7 @@
   <description />
   <settings>
     <options>
-      <option name="artifactRules" value="bitbake/build/tmp/deploy/sdk/*" />
+      <option name="artifactRules" value="bitbake/build/tmp/deploy/sdk/*&#xA;bitbake/build/tmp/deploy/images/%bitbake_image%*.wic" />
     </options>
     <disabled-settings>
       <setting-ref ref="RQ_52" />
