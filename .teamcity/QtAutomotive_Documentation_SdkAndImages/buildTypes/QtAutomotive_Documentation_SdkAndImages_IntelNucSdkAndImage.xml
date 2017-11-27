@@ -80,7 +80,7 @@ if [ ! -n "%package_names%" ]; then
     set -e
     bitbake %bitbake_image%
     pwd
-    find ./tmp/deploy/images/`echo %variant_name%|awk -F- '{print $1}'`* -type l -name *.wic|while read i;do 
+    find `pwd`/tmp/deploy/images/`echo %variant_name%|awk -F- '{print $1}'`* -type l -name *.wic|while read i;do 
         echo "##teamcity[publishArtifacts '$i']"
     done
     echo "##teamcity[progressFinish 'Building Image %variant_name% for %bitbake_image%']"
