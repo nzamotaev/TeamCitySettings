@@ -80,7 +80,7 @@ if [ ! -n "%package_names%" ]; then
     set -e
     bitbake %bitbake_image%
     pwd
-    for i in `pwd`/tmp/deploy/images/%bitbake_image%*.wic;do
+    for i in `pwd`/tmp/deploy/images/intel*/%bitbake_image%*.wic;do
         echo "##teamcity[publishArtifacts '$i']"
     done
     echo "##teamcity[progressFinish 'Building Image %variant_name% for %bitbake_image%']"
