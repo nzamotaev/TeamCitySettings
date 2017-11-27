@@ -79,7 +79,7 @@ if [ ! -n "%package_names%" ]; then
     echo "##teamcity[progressStart 'Building Image %variant_name% for %bitbake_image%']"
     set -e
     bitbake %bitbake_image%
-    for i in bitbake/build/tmp/deploy/images/%bitbake_image%*.wic;do
+    for i in tmp/deploy/images/%bitbake_image%*.wic;do
         echo "##teamcity[publishArtifacts '$i']"
     done
     echo "##teamcity[progressFinish 'Building Image %variant_name% for %bitbake_image%']"
