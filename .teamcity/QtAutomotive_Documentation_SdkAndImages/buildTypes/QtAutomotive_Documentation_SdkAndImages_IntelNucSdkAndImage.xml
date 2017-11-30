@@ -101,24 +101,6 @@ fi]]></param>
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
-      <runner id="RUNNER_108" name="Build specific package" type="simpleRunner">
-        <parameters>
-          <param name="script.content"><![CDATA[. sources/poky/oe-init-build-env build
-
-if [ -n "%package_names%" ]; then
-    echo "##teamcity[progressStart 'Building packages for %variant_name% : %package_names%']"
-    set -e
-    bitbake %package_names%
-    echo "##teamcity[progressFinish 'Building packages for %variant_name% : %package_names%']"
-    echo "##teamcity[progressStart 'Updating package index']"
-    bitbake package-index
-    echo "##teamcity[progressFinish 'Updating package index']"
-fi]]></param>
-          <param name="teamcity.build.workingDir" value="bitbake" />
-          <param name="teamcity.step.mode" value="default" />
-          <param name="use.custom.script" value="true" />
-        </parameters>
-      </runner>
       <runner id="RUNNER_109" name="populate sdk" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
@@ -132,6 +114,24 @@ if [ ! -n "%package_names%" ]; then
     find `pwd`/tmp/deploy/sdk/ -type f|while read i;do
         echo "##teamcity[publishArtifacts '$i']"
     done
+fi]]></param>
+          <param name="teamcity.build.workingDir" value="bitbake" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_108" name="Build specific package" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[. sources/poky/oe-init-build-env build
+
+if [ -n "%package_names%" ]; then
+    echo "##teamcity[progressStart 'Building packages for %variant_name% : %package_names%']"
+    set -e
+    bitbake %package_names%
+    echo "##teamcity[progressFinish 'Building packages for %variant_name% : %package_names%']"
+    echo "##teamcity[progressStart 'Updating package index']"
+    bitbake package-index
+    echo "##teamcity[progressFinish 'Updating package index']"
 fi]]></param>
           <param name="teamcity.build.workingDir" value="bitbake" />
           <param name="teamcity.step.mode" value="default" />
