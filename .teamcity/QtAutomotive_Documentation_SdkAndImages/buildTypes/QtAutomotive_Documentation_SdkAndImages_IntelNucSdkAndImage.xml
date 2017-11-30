@@ -74,7 +74,7 @@ EOF]]></param>
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
-      <runner id="RUNNER_82" name="configure" type="simpleRunner">
+      <runner id="RUNNER_82" name="Build image" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
 source sources/poky/oe-init-build-env build
