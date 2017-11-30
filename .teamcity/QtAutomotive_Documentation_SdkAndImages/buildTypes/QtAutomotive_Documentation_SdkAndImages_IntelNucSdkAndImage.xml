@@ -3,9 +3,6 @@
   <name>Intel NUC SDK and Image</name>
   <description />
   <settings>
-    <options>
-      <option name="artifactRules" value="bitbake/build/tmp/deploy/sdk/*" />
-    </options>
     <disabled-settings>
       <setting-ref ref="RQ_52" />
     </disabled-settings>
