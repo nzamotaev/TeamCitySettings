@@ -115,7 +115,7 @@ fi]]></param>
       </runner>
       <runner id="RUNNER_108" name="Build specific package" type="simpleRunner">
         <parameters>
-          <param name="script.content"><![CDATA[. ./sources/poky/oe-init-build-env build
+          <param name="script.content"><![CDATA[source bitbake/sources/poky/oe-init-build-env build
 
 if [ -n "%package_names%" ]; then
     echo "##teamcity[progressStart 'Building packages for %variant_name% : %package_names%']"
@@ -126,7 +126,6 @@ if [ -n "%package_names%" ]; then
     bitbake package-index
     echo "##teamcity[progressFinish 'Updating package index']"
 fi]]></param>
-          <param name="teamcity.build.workingDir" value="bitbake" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
