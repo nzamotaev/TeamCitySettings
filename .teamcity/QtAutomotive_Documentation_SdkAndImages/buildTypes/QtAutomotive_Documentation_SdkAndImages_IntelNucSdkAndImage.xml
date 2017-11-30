@@ -95,14 +95,6 @@ if [ ! -n "%package_names%" ]; then
     find `pwd`/tmp/deploy/sdk/ -type f|while read i;do
         echo "##teamcity[publishArtifacts '$i']"
     done
-else
-    echo "##teamcity[progressStart 'Building packages for %variant_name% : %package_names%']"
-    set -e
-    bitbake %package_names%
-    echo "##teamcity[progressFinish 'Building packages for %variant_name% : %package_names%']"
-    echo "##teamcity[progressStart 'Updating package index']"
-    bitbake package-index
-    echo "##teamcity[progressFinish 'Updating package index']"
 fi]]></param>
           <param name="teamcity.build.workingDir" value="bitbake" />
           <param name="teamcity.step.mode" value="default" />
