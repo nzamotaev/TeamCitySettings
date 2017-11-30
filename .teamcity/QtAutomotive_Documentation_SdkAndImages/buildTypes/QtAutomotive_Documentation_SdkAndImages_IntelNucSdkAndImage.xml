@@ -102,6 +102,32 @@ fi]]></param>
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
+      <runner id="RUNNER_106" name="" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[echo "Setup bitbake %variant_name%"
+mkdir -p $HOME/bitbake_downloads
+mkdir -p $HOME/bitbake_sstate
+pelux-manifests/vagrant-cookbook/blob/master/yocto/initialize-bitbake.sh bitbake/ bitbake/sources/meta-qtas-demo/conf/variant/%variant_name%
+
+cat > conf/site.conf << EOF
+
+#INHERIT += "own-mirrors"
+#SSTATE_MIRRORS ?= "file://.* file://$HOME/bitbake_sstate/sstate-cache/PATH"
+SSTATE_DIR ?= "$HOME/bitbake_sstate/sstate-cache/PATH"
+
+ICECC_PATH="/usr/bin/icecc"
+ICECC_USER_CLASS_BL = " native"
+#INHERIT +="icecc"
+ICECC_USER_PACKAGE_BL = "libgcc gcc-runtime"
+CONNECTIVITY_CHECK_URIS=""
+DL_DIR = "${HOME}/bitbake_downloads"
+PACKAGE_CLASSES ?= "package_ipk"
+
+EOF]]></param>
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_HttpsGithubComPelagicorePeluxManifestsGit">
