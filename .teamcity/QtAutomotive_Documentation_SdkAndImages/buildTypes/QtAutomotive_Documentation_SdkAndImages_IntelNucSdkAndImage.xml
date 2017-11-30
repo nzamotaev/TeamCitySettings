@@ -46,9 +46,9 @@ chmod a+x ~/bin/repo]]></param>
           <param name="script.content"><![CDATA[echo "Setup bitbake %variant_name%"
 mkdir -p $HOME/bitbake_downloads
 mkdir -p $HOME/bitbake_sstate
-pelux-manifests/vagrant-cookbook/blob/master/yocto/initialize-bitbake.sh bitbake/ bitbake/sources/meta-qtas-demo/conf/variant/%variant_name%
+../pelux-manifests/vagrant-cookbook/yocto/initialize-bitbake.sh ./ ./sources/meta-qtas-demo/conf/variant/%variant_name%
 
-cat > bitbake/build/conf/site.conf << EOF
+cat > build/conf/site.conf << EOF
 
 #INHERIT += "own-mirrors"
 #SSTATE_MIRRORS ?= "file://.* file://$HOME/bitbake_sstate/sstate-cache/PATH"
@@ -63,6 +63,7 @@ DL_DIR = "${HOME}/bitbake_downloads"
 PACKAGE_CLASSES ?= "package_ipk"
 
 EOF]]></param>
+          <param name="teamcity.build.workingDir" value="bitbake" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
