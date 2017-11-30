@@ -116,10 +116,11 @@ fi]]></param>
       <runner id="RUNNER_108" name="Build specific package" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
-. bitbake/sources/poky/oe-init-build-env build
+
 
 if [ -n "%package_names%" ]; then
     echo "##teamcity[progressStart 'Building packages for %variant_name% : %package_names%']"
+    . bitbake/sources/poky/oe-init-build-env build
     set -e
     bitbake %package_names%
     echo "##teamcity[progressFinish 'Building packages for %variant_name% : %package_names%']"
