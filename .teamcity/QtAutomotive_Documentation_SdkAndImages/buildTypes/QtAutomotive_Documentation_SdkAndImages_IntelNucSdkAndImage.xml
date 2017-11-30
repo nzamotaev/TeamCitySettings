@@ -70,28 +70,7 @@ EOF]]></param>
       <runner id="RUNNER_82" name="configure" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
-
-echo "Setup bitbake %variant_name%"
-mkdir -p $HOME/bitbake_downloads
-mkdir -p $HOME/bitbake_sstate
-TEMPLATECONF=`pwd`/sources/meta-pelux/conf/variant/%variant_name% source sources/poky/oe-init-build-env build
-
-cat > conf/site.conf << EOF
-
-#INHERIT += "own-mirrors"
-#SSTATE_MIRRORS ?= "file://.* file://$HOME/bitbake_sstate/sstate-cache/PATH"
-SSTATE_DIR ?= "$HOME/bitbake_sstate/sstate-cache/PATH"
-
-
-ICECC_PATH="/usr/bin/icecc"
-ICECC_USER_CLASS_BL = " native"
-#INHERIT +="icecc"
-ICECC_USER_PACKAGE_BL = "libgcc gcc-runtime"
-CONNECTIVITY_CHECK_URIS=""
-DL_DIR = "${HOME}/bitbake_downloads"
-PACKAGE_CLASSES ?= "package_ipk"
-
-EOF
+source sources/poky/oe-init-build-env build
 
 echo "Stage Fetchall %bitbake_image%"
 echo "##teamcity[progressStart 'FetchAll sources %variant_name% for %bitbake_image%']"
