@@ -97,9 +97,8 @@ fi]]></param>
       <runner id="RUNNER_109" name="populate sdk" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
-source sources/poky/oe-init-build-env build
-
 if [ ! -n "%package_names%" ]; then
+    source sources/poky/oe-init-build-env build
     set -e
     echo "##teamcity[progressStart 'Building SDK %variant_name% for %bitbake_image%']"
     bitbake -c populate_sdk %bitbake_image%
