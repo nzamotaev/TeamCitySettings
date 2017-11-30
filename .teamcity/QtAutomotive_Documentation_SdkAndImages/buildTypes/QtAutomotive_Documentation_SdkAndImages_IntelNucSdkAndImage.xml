@@ -88,13 +88,6 @@ if [ ! -n "%package_names%" ]; then
         echo "##teamcity[publishArtifacts '$i']"
     done
     echo "##teamcity[progressFinish 'Building Image %variant_name% for %bitbake_image%']"
-
-    echo "##teamcity[progressStart 'Building SDK %variant_name% for %bitbake_image%']"
-    bitbake -c populate_sdk %bitbake_image%
-    echo "##teamcity[progressFinish 'Building SDK %variant_name% for %bitbake_image%']"
-    find `pwd`/tmp/deploy/sdk/ -type f|while read i;do
-        echo "##teamcity[publishArtifacts '$i']"
-    done
 fi]]></param>
           <param name="teamcity.build.workingDir" value="bitbake" />
           <param name="teamcity.step.mode" value="default" />
