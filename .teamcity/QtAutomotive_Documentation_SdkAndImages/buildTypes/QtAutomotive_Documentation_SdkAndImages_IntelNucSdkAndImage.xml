@@ -119,7 +119,7 @@ fi]]></param>
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
-      <runner id="RUNNER_109" name="" type="simpleRunner">
+      <runner id="RUNNER_109" name="populate sdk" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
 source sources/poky/oe-init-build-env build
