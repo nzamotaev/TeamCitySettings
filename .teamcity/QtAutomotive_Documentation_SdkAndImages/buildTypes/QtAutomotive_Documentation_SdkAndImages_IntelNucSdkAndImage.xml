@@ -119,6 +119,25 @@ fi]]></param>
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
+      <runner id="RUNNER_109" name="" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[#!/bin/bash
+source sources/poky/oe-init-build-env build
+
+if [ ! -n "%package_names%" ]; then
+    set -e
+    echo "##teamcity[progressStart 'Building SDK %variant_name% for %bitbake_image%']"
+    bitbake -c populate_sdk %bitbake_image%
+    echo "##teamcity[progressFinish 'Building SDK %variant_name% for %bitbake_image%']"
+    find `pwd`/tmp/deploy/sdk/ -type f|while read i;do
+        echo "##teamcity[publishArtifacts '$i']"
+    done
+fi]]></param>
+          <param name="teamcity.build.workingDir" value="bitbake" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_HttpsGithubComPelagicorePeluxManifestsGit">
