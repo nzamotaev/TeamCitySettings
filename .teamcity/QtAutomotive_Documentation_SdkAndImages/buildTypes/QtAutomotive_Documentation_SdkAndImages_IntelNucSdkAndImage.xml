@@ -93,6 +93,9 @@ else
     set -e
     bitbake %package_names%
     echo "##teamcity[progressFinish 'Building packages for %variant_name% : %package_names%']"
+    echo "##teamcity[progressStart 'Updating package index']"
+    bitbake package-index
+    echo "##teamcity[progressFinish 'Updating package index']"
 fi]]></param>
           <param name="teamcity.build.workingDir" value="bitbake" />
           <param name="teamcity.step.mode" value="default" />
