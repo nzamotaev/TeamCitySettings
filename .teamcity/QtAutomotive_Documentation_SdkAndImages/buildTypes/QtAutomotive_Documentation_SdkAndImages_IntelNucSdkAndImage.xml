@@ -54,7 +54,7 @@ cat > build/conf/site.conf << EOF
 
 #INHERIT += "own-mirrors"
 #SSTATE_MIRRORS ?= "file://.* file://$HOME/bitbake_sstate/sstate-cache/PATH"
-SSTATE_DIR ?= "$HOME/bitbake_sstate/sstate-cache/PATH"
+SSTATE_DIR ?= "$HOME/bitbake_sstate/sstate-cache/"
 
 ICECC_PATH="/usr/bin/icecc"
 ICECC_USER_CLASS_BL = " native"
