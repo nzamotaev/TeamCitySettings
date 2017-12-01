@@ -43,10 +43,12 @@ chmod a+x ~/bin/repo]]></param>
       </runner>
       <runner id="RUNNER_106" name="Setup bitbake" type="simpleRunner">
         <parameters>
-          <param name="script.content"><![CDATA[echo "Setup bitbake %variant_name%"
+          <param name="script.content"><![CDATA[#!/bin/bash
+echo "Setup bitbake %variant_name%"
 mkdir -p $HOME/bitbake_downloads
 mkdir -p $HOME/bitbake_sstate
-../pelux-manifests/vagrant-cookbook/yocto/initialize-bitbake.sh `pwd` `pwd`/sources/meta-qtas-demo/conf/variant/%variant_name%
+mkdir -p build
+TEMPLATECONF="`pwd`/sources/meta-qtas-demo/conf/variant/%variant_name%" source sources/poky/oe-init-build-env `pwd`/build
 
 cat > build/conf/site.conf << EOF
 
