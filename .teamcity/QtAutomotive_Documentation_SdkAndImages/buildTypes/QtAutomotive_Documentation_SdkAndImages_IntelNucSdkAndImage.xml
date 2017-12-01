@@ -46,7 +46,7 @@ chmod a+x ~/bin/repo]]></param>
           <param name="script.content"><![CDATA[echo "Setup bitbake %variant_name%"
 mkdir -p $HOME/bitbake_downloads
 mkdir -p $HOME/bitbake_sstate
-../pelux-manifests/vagrant-cookbook/yocto/initialize-bitbake.sh ./ ./sources/meta-qtas-demo/conf/variant/%variant_name%
+../pelux-manifests/vagrant-cookbook/yocto/initialize-bitbake.sh . sources/meta-qtas-demo/conf/variant/%variant_name%
 
 cat > build/conf/site.conf << EOF
 
