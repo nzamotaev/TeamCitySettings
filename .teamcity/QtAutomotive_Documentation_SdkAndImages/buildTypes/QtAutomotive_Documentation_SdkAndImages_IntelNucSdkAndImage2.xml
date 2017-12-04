@@ -9,7 +9,6 @@
       <setting-ref ref="RUNNER_108" />
       <setting-ref ref="RUNNER_109" />
       <setting-ref ref="RUNNER_79" />
-      <setting-ref ref="RUNNER_80" />
       <setting-ref ref="RUNNER_81" />
       <setting-ref ref="RUNNER_82" />
     </disabled-settings>
@@ -19,19 +18,6 @@
       <param name="variant_name" value="intel-qtauto" />
     </parameters>
     <build-runners>
-      <runner id="RUNNER_80" name="Get repo" type="simpleRunner">
-        <parameters>
-          <param name="script.content"><![CDATA[export PATH=$HOME/bin/:$PATH
-echo "##teamcity[setParameter name='env.PATH' value='$PATH']"
-test -x ~/bin/repo && exit 0
-
-mkdir -p ~/bin
-curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
-chmod a+x ~/bin/repo]]></param>
-          <param name="teamcity.step.mode" value="default" />
-          <param name="use.custom.script" value="true" />
-        </parameters>
-      </runner>
       <runner id="RUNNER_79" name="Repo init" type="simpleRunner">
         <parameters>
           <param name="script.content" value="repo init -u ../pelux-manifests/ -m manifest.xml" />
