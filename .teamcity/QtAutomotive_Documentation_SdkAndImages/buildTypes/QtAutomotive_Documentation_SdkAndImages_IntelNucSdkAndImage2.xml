@@ -4,7 +4,6 @@
   <description />
   <settings>
     <disabled-settings>
-      <setting-ref ref="RUNNER_106" />
       <setting-ref ref="RUNNER_107" />
       <setting-ref ref="RUNNER_109" />
       <setting-ref ref="RUNNER_82" />
@@ -15,35 +14,6 @@
       <param name="variant_name" value="intel-qtauto" />
     </parameters>
     <build-runners>
-      <runner id="RUNNER_106" name="Setup bitbake" type="simpleRunner">
-        <parameters>
-          <param name="script.content"><![CDATA[#!/bin/bash
-echo "Setup bitbake %variant_name%"
-mkdir -p $HOME/bitbake_downloads
-mkdir -p $HOME/bitbake_sstate
-mkdir -p build
-TEMPLATECONF="`pwd`/sources/meta-qtas-demo/conf/variant/%variant_name%" source sources/poky/oe-init-build-env `pwd`/build
-
-cat > conf/site.conf << EOF
-
-#INHERIT += "own-mirrors"
-#SSTATE_MIRRORS ?= "file://.* file://$HOME/bitbake_sstate/sstate-cache/PATH"
-SSTATE_DIR ?= "$HOME/bitbake_sstate/sstate-cache/"
-
-ICECC_PATH="/usr/bin/icecc"
-ICECC_USER_CLASS_BL = " native"
-#INHERIT +="icecc"
-ICECC_USER_PACKAGE_BL = "libgcc gcc-runtime"
-CONNECTIVITY_CHECK_URIS=""
-DL_DIR = "${HOME}/bitbake_downloads"
-PACKAGE_CLASSES ?= "package_deb"
-
-EOF]]></param>
-          <param name="teamcity.build.workingDir" value="bitbake" />
-          <param name="teamcity.step.mode" value="default" />
-          <param name="use.custom.script" value="true" />
-        </parameters>
-      </runner>
       <runner id="RUNNER_107" name="Fetch sources" type="simpleRunner">
         <parameters>
           <param name="script.content" value="pelux-manifests/vagrant-cookbook/yocto/fetch-sources-for-recipes.sh bitbake %bitbake_image%" />
