@@ -145,7 +145,8 @@ fi]]></param>
       </runner>
       <runner id="RUNNER_110" name="Groovy" type="simpleRunner">
         <parameters>
-          <param name="script.content" value="groovy --define PACKAGE_NAME=%package_names% Jenkinsfile" />
+          <param name="script.content"><![CDATA[#groovy --define PACKAGE_NAME=%package_names% Jenkinsfile
+groovy Jenkinsfile]]></param>
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
