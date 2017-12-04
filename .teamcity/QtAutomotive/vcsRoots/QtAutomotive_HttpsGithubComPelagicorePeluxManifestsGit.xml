@@ -12,7 +12,6 @@
 +:refs/pull/(*/merge)]]></param>
   <param name="teamcitySshKey" value="teamcity@camembert" />
   <param name="url" value="git@git.pelagicore.net:uxteam/qtas-demo-manifest.git" />
-  <param name="useAlternates" value="true" />
   <param name="usernameStyle" value="USERID" />
 </vcs-root>
 
