@@ -135,9 +135,7 @@ fi]]></param>
       </runner>
     </build-runners>
     <vcs-settings>
-      <vcs-entry-ref root-id="QtAutomotive_HttpsGithubComPelagicorePeluxManifestsGit">
-        <checkout-rule rule="+:. =&gt; pelux-manifests" />
-      </vcs-entry-ref>
+      <vcs-entry-ref root-id="QtAutomotive_HttpsGithubComPelagicorePeluxManifestsGit" />
     </vcs-settings>
     <requirements>
       <contains id="RQ_44" name="teamcity.agent.jvm.os.name" value="Linux" />
