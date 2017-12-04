@@ -145,8 +145,73 @@ fi]]></param>
       </runner>
       <runner id="RUNNER_110" name="Groovy" type="simpleRunner">
         <parameters>
-          <param name="script.content"><![CDATA[#groovy --define PACKAGE_NAME=%package_names% Jenkinsfile
-groovy Jenkinsfile]]></param>
+          <param name="script.content"><![CDATA[#!/bin/bash
+
+function vargant_call {
+    vagrant ssh -c \"$@\"
+}
+
+function stage {
+    echo "##teamcity[progressStart '$1']"
+    cat 
+    echo "##teamcity[progressFinish '$1']"
+}
+
+variant_name="intel-qtauto"
+bitbake_image="core-image-pelux-qtas-demo-dev"
+            
+yoctoDir="/home/vargant_call/pelux_yocto"
+manifest="pelux.xml"
+YOCTO_CACHE_URL="file;///home/vargant_call/yocto-archive"
+YOCTO_CACHE_ARCHIVE_PATH="/home/vargant_call/yocto-archive"
+echo "CACHE URL: ${YOCTO_CACHE_URL}"
+echo "CACHE ARCHIVE PATH: ${YOCTO_CACHE_ARCHIVE_PATH}"
+
+{
+    rm -rf images || true
+    rm -rf sdk || true
+} | stage "Cleanup workspace"
+
+{
+    vagrant destroy -f || true
+    vagrant up
+} | stage "Start vagrant ${variant_name}"
+
+vargant_call "/vagrant/ci-scripts/do_repo_init ${manifest}"| stage "Repo init ${variant_name}"
+
+templateconf="${yoctoDir}/sources//meta-qtas-demo/conf/variant/${variant_name}"
+vargant_call "/vagrant/vagrant-cookbook/yocto/initialize-bitbake.sh ${yoctoDir} ${templateconf}"| stage "Setup bitbake ${variant_name}"
+
+vargant_call "sed 's|%CACHEURL%|${YOCTO_CACHE_URL}|g' /vagrant/site.conf.in > ${yoctoDir}/build/conf/site.conf"
+
+vargant_call "/vagrant/vagrant-cookbook/yocto/fetch-sources-for-recipes.sh ${yoctoDir} ${bitbake_image}" |stage "Fetchall ${variant_name}"
+
+{
+    vargant_call "/vagrant/vagrant-cookbook/yocto/build-images.sh ${yoctoDir} core-image-pelux-qtas-demo"
+    vargant_call "/vagrant/vagrant-cookbook/yocto/build-images.sh ${yoctoDir} core-image-pelux-qtas-demo-dev"
+} | stage "Bitbake ${variant_name}"
+
+vargant_call "/vagrant/vagrant-cookbook/yocto/build-sdk.sh ${yoctoDir} ${bitbake_image}" | stagei "Bitbake ${variant_name} SDK"
+
+{
+    #// Archive the downloads and sstate when the environment variable was set to true
+    #// by the Jenkins job.
+    vargant_call "rsync -trpg ${yoctoDir}/build/downloads/ ${YOCTO_CACHE_ARCHIVE_PATH}/downloads/"
+    vargant_call "rsync -trpg ${yoctoDir}/build/sstate-cache/ ${YOCTO_CACHE_ARCHIVE_PATH}/sstate-cache"
+} | stage "Archive cache ${variant_name}"
+
+{
+    vargant_call "/vagrant/vagrant-cookbook/yocto/build-images.sh ${yoctoDir} package-index"
+    vargant_call "rsync -r -u --exclude 'x86_64*' ${yoctoDir}/build/tmp/deploy/rpm/* ${YOCTO_CACHE_ARCHIVE_PATH}/repo"
+} | stage "Archive Package Repository ${variant_name}"
+
+{
+    vargant_call "rsync -a ${yoctoDir}/build/tmp/deploy/images /vagrant/images"
+    vargant_call "rsync -a ${yoctoDir}/build/tmp/deploy/sdk /vagrant/sdk"
+} | stage "Archive Artifacts ${variant_name}"
+
+#archiveArtifacts artifacts: 'images/**', fingerprint: true
+#archiveArtifacts artifacts: 'sdk/**', fingerprint: true]]></param>
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
