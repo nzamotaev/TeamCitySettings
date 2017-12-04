@@ -182,7 +182,7 @@ vargant_call "/vagrant/ci-scripts/do_repo_init ${manifest}"| stage "Repo init ${
 templateconf="${yoctoDir}/sources//meta-qtas-demo/conf/variant/${variant_name}"
 vargant_call "/vagrant/vagrant-cookbook/yocto/initialize-bitbake.sh ${yoctoDir} ${templateconf}"| stage "Setup bitbake ${variant_name}"
 
-vargant_call "sed 's|%CACHEURL%|${YOCTO_CACHE_URL}|g' /vagrant/site.conf.in > ${yoctoDir}/build/conf/site.conf"
+vargant_call "sed 's|%%CACHEURL%%|${YOCTO_CACHE_URL}|g' /vagrant/site.conf.in > ${yoctoDir}/build/conf/site.conf"
 
 vargant_call "/vagrant/vagrant-cookbook/yocto/fetch-sources-for-recipes.sh ${yoctoDir} ${bitbake_image}" |stage "Fetchall ${variant_name}"
 
