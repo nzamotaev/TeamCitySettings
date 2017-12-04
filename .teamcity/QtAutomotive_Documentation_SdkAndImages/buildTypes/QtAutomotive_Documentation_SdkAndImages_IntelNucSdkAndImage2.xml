@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<build-type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="6f534969-4305-47bd-b08c-c807beb9ef2e" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/10.0/project-config.xsd">
+  <name>Intel NUC SDK and Image 2</name>
+  <description />
+  <settings>
+    <disabled-settings>
+      <setting-ref ref="RQ_52" />
+    </disabled-settings>
+    <parameters>
+      <param name="bitbake_image" value="core-image-pelux-qtauto-neptune" />
+      <param name="package_names" value="" spec="text description='Build packages instead of image' label='Package' validationMode='any' display='normal'" />
+      <param name="variant_name" value="intel-qtauto" />
+    </parameters>
+    <build-runners>
+      <runner id="RUNNER_80" name="Get repo" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[export PATH=$HOME/bin/:$PATH
+echo "##teamcity[setParameter name='env.PATH' value='$PATH']"
+test -x ~/bin/repo && exit 0
+
+mkdir -p ~/bin
+curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+chmod a+x ~/bin/repo]]></param>
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_79" name="Repo init" type="simpleRunner">
+        <parameters>
+          <param name="script.content" value="repo init -u ../pelux-manifests/ -m manifest.xml" />
+          <param name="teamcity.build.workingDir" value="bitbake" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_81" name="repo sync" type="simpleRunner">
+        <parameters>
+          <param name="script.content" value="repo sync" />
+          <param name="teamcity.build.workingDir" value="bitbake" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_106" name="Setup bitbake" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[#!/bin/bash
+echo "Setup bitbake %variant_name%"
+mkdir -p $HOME/bitbake_downloads
+mkdir -p $HOME/bitbake_sstate
+mkdir -p build
+TEMPLATECONF="`pwd`/sources/meta-qtas-demo/conf/variant/%variant_name%" source sources/poky/oe-init-build-env `pwd`/build
+
+cat > conf/site.conf << EOF
+
+#INHERIT += "own-mirrors"
+#SSTATE_MIRRORS ?= "file://.* file://$HOME/bitbake_sstate/sstate-cache/PATH"
+SSTATE_DIR ?= "$HOME/bitbake_sstate/sstate-cache/"
+
+ICECC_PATH="/usr/bin/icecc"
+ICECC_USER_CLASS_BL = " native"
+#INHERIT +="icecc"
+ICECC_USER_PACKAGE_BL = "libgcc gcc-runtime"
+CONNECTIVITY_CHECK_URIS=""
+DL_DIR = "${HOME}/bitbake_downloads"
+PACKAGE_CLASSES ?= "package_deb"
+
+EOF]]></param>
+          <param name="teamcity.build.workingDir" value="bitbake" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_107" name="Fetch sources" type="simpleRunner">
+        <parameters>
+          <param name="script.content" value="pelux-manifests/vagrant-cookbook/yocto/fetch-sources-for-recipes.sh bitbake %bitbake_image%" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_82" name="Build image" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[#!/bin/bash
+
+
+if [ ! -n "%package_names%" ]; then
+    echo "##teamcity[progressStart 'Building Image %variant_name% for %bitbake_image%']"
+    source sources/poky/oe-init-build-env build
+    set -e
+    bitbake %bitbake_image%
+    pwd
+    find `pwd`/tmp/deploy/images/`echo %variant_name%|awk -F- '{print $1}'`* -type l -name *.wic|while read i;do 
+        echo "##teamcity[publishArtifacts '$i']"
+    done
+    echo "##teamcity[progressFinish 'Building Image %variant_name% for %bitbake_image%']"
+fi]]></param>
+          <param name="teamcity.build.workingDir" value="bitbake" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_109" name="populate sdk" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[#!/bin/bash
+if [ ! -n "%package_names%" ]; then
+    echo "##teamcity[progressStart 'Building SDK %variant_name% for %bitbake_image%']"
+    source sources/poky/oe-init-build-env build
+    set -e
+    bitbake -c populate_sdk %bitbake_image%
+    echo "##teamcity[progressFinish 'Building SDK %variant_name% for %bitbake_image%']"
+    find `pwd`/tmp/deploy/sdk/ -type f|while read i;do
+        echo "##teamcity[publishArtifacts '$i']"
+    done
+fi]]></param>
+          <param name="teamcity.build.workingDir" value="bitbake" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_108" name="Build specific package" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[#!/bin/bash
+
+
+if [ -n "%package_names%" ]; then
+    echo "##teamcity[progressStart 'Building packages for %variant_name% : %package_names%']"
+    . sources/poky/oe-init-build-env build
+    set -e
+    bitbake %package_names%
+    echo "##teamcity[progressFinish 'Building packages for %variant_name% : %package_names%']"
+    echo "##teamcity[progressStart 'Updating package index']"
+    bitbake package-index
+    echo "##teamcity[progressFinish 'Updating package index']"
+fi]]></param>
+          <param name="teamcity.build.workingDir" value="bitbake" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+    </build-runners>
+    <vcs-settings>
+      <vcs-entry-ref root-id="QtAutomotive_HttpsGithubComPelagicorePeluxManifestsGit">
+        <checkout-rule rule="+:. =&gt; pelux-manifests" />
+      </vcs-entry-ref>
+    </vcs-settings>
+    <requirements>
+      <contains id="RQ_44" name="teamcity.agent.jvm.os.name" value="Linux" />
+      <equals id="RQ_52" name="system.hasIceCC" value="true" />
+      <equals id="RQ_53" name="system.CanRunBitbake" value="true" />
+    </requirements>
+    <build-triggers>
+      <build-trigger id="vcsTrigger" type="vcsTrigger">
+        <parameters>
+          <param name="branchFilter" value="+:master" />
+          <param name="quietPeriodMode" value="DO_NOT_USE" />
+        </parameters>
+      </build-trigger>
+    </build-triggers>
+    <build-extensions>
+      <extension id="perfmon" type="perfmon">
+        <parameters />
+      </extension>
+      <extension id="jetbrains.agent.free.space" type="jetbrains.agent.free.space">
+        <parameters>
+          <param name="free-space-work" value="80gb" />
+        </parameters>
+      </extension>
+      <extension id="BUILD_EXT_13" type="BuildFailureOnMessage">
+        <parameters>
+          <param name="buildFailureOnMessage.conditionType" value="contains" />
+          <param name="buildFailureOnMessage.messagePattern" value="ERROR:" />
+          <param name="buildFailureOnMessage.reverse" value="false" />
+        </parameters>
+      </extension>
+      <extension id="BUILD_EXT_17" type="BuildFailureOnMessage">
+        <parameters>
+          <param name="buildFailureOnMessage.conditionType" value="contains" />
+          <param name="buildFailureOnMessage.messagePattern" value="Error:" />
+          <param name="buildFailureOnMessage.reverse" value="false" />
+        </parameters>
+      </extension>
+    </build-extensions>
+    <cleanup />
+  </settings>
+</build-type>
+
