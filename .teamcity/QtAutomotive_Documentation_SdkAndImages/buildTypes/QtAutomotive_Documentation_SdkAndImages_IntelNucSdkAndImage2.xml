@@ -3,9 +3,6 @@
   <name>Intel NUC SDK and Image 2</name>
   <description />
   <settings>
-    <disabled-settings>
-      <setting-ref ref="RQ_52" />
-    </disabled-settings>
     <parameters>
       <param name="bitbake_image" value="core-image-pelux-qtauto-neptune" />
       <param name="package_names" value="" spec="text description='Build packages instead of image' label='Package' validationMode='any' display='normal'" />
@@ -144,7 +141,6 @@ fi]]></param>
     </vcs-settings>
     <requirements>
       <contains id="RQ_44" name="teamcity.agent.jvm.os.name" value="Linux" />
-      <equals id="RQ_52" name="system.hasIceCC" value="true" />
       <equals id="RQ_53" name="system.CanRunBitbake" value="true" />
     </requirements>
     <build-triggers>
