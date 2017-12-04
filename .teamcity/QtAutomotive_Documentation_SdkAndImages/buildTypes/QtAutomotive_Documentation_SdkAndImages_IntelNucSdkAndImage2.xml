@@ -5,7 +5,6 @@
   <settings>
     <disabled-settings>
       <setting-ref ref="RUNNER_109" />
-      <setting-ref ref="RUNNER_82" />
     </disabled-settings>
     <parameters>
       <param name="bitbake_image" value="core-image-pelux-qtauto-neptune" />
@@ -13,27 +12,6 @@
       <param name="variant_name" value="intel-qtauto" />
     </parameters>
     <build-runners>
-      <runner id="RUNNER_82" name="Build image" type="simpleRunner">
-        <parameters>
-          <param name="script.content"><![CDATA[#!/bin/bash
-
-
-if [ ! -n "%package_names%" ]; then
-    echo "##teamcity[progressStart 'Building Image %variant_name% for %bitbake_image%']"
-    source sources/poky/oe-init-build-env build
-    set -e
-    bitbake %bitbake_image%
-    pwd
-    find `pwd`/tmp/deploy/images/`echo %variant_name%|awk -F- '{print $1}'`* -type l -name *.wic|while read i;do 
-        echo "##teamcity[publishArtifacts '$i']"
-    done
-    echo "##teamcity[progressFinish 'Building Image %variant_name% for %bitbake_image%']"
-fi]]></param>
-          <param name="teamcity.build.workingDir" value="bitbake" />
-          <param name="teamcity.step.mode" value="default" />
-          <param name="use.custom.script" value="true" />
-        </parameters>
-      </runner>
       <runner id="RUNNER_109" name="populate sdk" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
