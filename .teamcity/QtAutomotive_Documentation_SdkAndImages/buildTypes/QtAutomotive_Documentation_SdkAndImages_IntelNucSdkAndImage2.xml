@@ -4,7 +4,6 @@
   <description />
   <settings>
     <disabled-settings>
-      <setting-ref ref="RUNNER_107" />
       <setting-ref ref="RUNNER_109" />
       <setting-ref ref="RUNNER_82" />
     </disabled-settings>
@@ -14,13 +13,6 @@
       <param name="variant_name" value="intel-qtauto" />
     </parameters>
     <build-runners>
-      <runner id="RUNNER_107" name="Fetch sources" type="simpleRunner">
-        <parameters>
-          <param name="script.content" value="pelux-manifests/vagrant-cookbook/yocto/fetch-sources-for-recipes.sh bitbake %bitbake_image%" />
-          <param name="teamcity.step.mode" value="default" />
-          <param name="use.custom.script" value="true" />
-        </parameters>
-      </runner>
       <runner id="RUNNER_82" name="Build image" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
