@@ -45,7 +45,7 @@ vagrant ssh default -c "/vagrant/ci-scripts/do_repo_init ${manifest}"| stage "Re
 templateconf="${yoctoDir}/sources//meta-qtas-demo/conf/variant/${variant_name}"
 vagrant ssh default -c "/vagrant/vagrant-cookbook/yocto/initialize-bitbake.sh ${yoctoDir} ${templateconf}"| stage "Setup bitbake ${variant_name}"
 
-vagrant ssh default -c "sed 's|%CACHEURL%|${YOCTO_CACHE_URL}|g' /vagrant/site.conf.in > ${yoctoDir}/build/conf/site.conf"
+vagrant ssh default -c "sed 's|%%CACHEURL%%|${YOCTO_CACHE_URL}|g' /vagrant/site.conf.in > ${yoctoDir}/build/conf/site.conf"
 
 vagrant ssh default -c "/vagrant/vagrant-cookbook/yocto/fetch-sources-for-recipes.sh ${yoctoDir} ${bitbake_image}" |stage "Fetchall ${variant_name}"
 
