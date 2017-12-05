@@ -25,8 +25,8 @@ bitbake_image="core-image-pelux-qtas-demo-dev"
             
 yoctoDir="/home/vagrant/pelux_yocto"
 manifest="pelux.xml"
-YOCTO_CACHE_URL="file:///home/vagrant/yocto-archive"
-YOCTO_CACHE_ARCHIVE_PATH="/home/vagrant/yocto-archive"
+YOCTO_CACHE_URL="file:///home/allview/vagrant_caches/yocto-archive"
+YOCTO_CACHE_ARCHIVE_PATH="/home/allview/vagrant_caches/yocto-archive"
 echo "CACHE URL: ${YOCTO_CACHE_URL}"
 echo "CACHE ARCHIVE PATH: ${YOCTO_CACHE_ARCHIVE_PATH}"
 
