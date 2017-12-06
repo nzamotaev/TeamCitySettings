@@ -10,8 +10,8 @@
           <param name="script.content"><![CDATA[cd qt
 tar xvf qt.tar.gz
 cd ..
-echo "qt/opt/qt/%dep.QtAutomotive_Components_Qt5.teamcity.build.branch%/bin/qmake"
-qt/opt/qt/%dep.QtAutomotive_Components_Qt5.teamcity.build.branch%/bin/qmake]]></param>
+echo "qt/opt/qt/%dep.QtAutomotive_Components_Qt5.teamcity.build.vcs.branch.QtAutomotive_Components_CodeQtIoQtQt5git%/bin/qmake"
+qt/opt/qt/%dep.QtAutomotive_Components_Qt5.teamcity.build.vcs.branch.QtAutomotive_Components_CodeQtIoQtQt5git%/bin/qmake]]></param>
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
