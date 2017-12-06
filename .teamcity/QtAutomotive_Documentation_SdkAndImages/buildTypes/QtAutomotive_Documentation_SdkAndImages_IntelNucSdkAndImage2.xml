@@ -3,6 +3,9 @@
   <name>Intel NUC SDK and Image 2</name>
   <description />
   <settings>
+    <disabled-settings>
+      <setting-ref ref="vcsTrigger" />
+    </disabled-settings>
     <parameters>
       <param name="bitbake_image" value="core-image-pelux-qtauto-neptune" />
       <param name="package_names" value="" spec="text description='Build packages instead of image' label='Package' validationMode='any' display='normal'" />
