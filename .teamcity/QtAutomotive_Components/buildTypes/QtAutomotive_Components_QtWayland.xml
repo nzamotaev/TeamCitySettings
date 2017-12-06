@@ -28,6 +28,12 @@
       <equals id="RQ_59" name="system.ubuntu.version" value="14.04" />
     </requirements>
     <build-triggers />
+    <artifact-dependencies>
+      <dependency id="ARTIFACT_DEPENDENCY_11" sourceBuildTypeId="QtAutomotive_Components_Qt5" cleanDestination="false">
+        <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
+        <artifact sourcePath="+:.=&gt;qt" />
+      </dependency>
+    </artifact-dependencies>
     <cleanup />
   </settings>
 </build-type>
