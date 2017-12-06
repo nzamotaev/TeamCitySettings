@@ -55,6 +55,11 @@ qt/opt/qt/%dep.QtAutomotive_Components_Qt5.teamcity.build.vcs.branch.QtAutomotiv
       <extension id="perfmon" type="perfmon">
         <parameters />
       </extension>
+      <extension id="jetbrains.agent.free.space" type="jetbrains.agent.free.space">
+        <parameters>
+          <param name="free-space-work" value="15gb" />
+        </parameters>
+      </extension>
     </build-extensions>
     <artifact-dependencies>
       <dependency id="ARTIFACT_DEPENDENCY_12" sourceBuildTypeId="QtAutomotive_Components_Qt5" cleanDestination="true">
