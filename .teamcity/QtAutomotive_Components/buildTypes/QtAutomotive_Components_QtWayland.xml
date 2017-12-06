@@ -52,6 +52,9 @@ qt/opt/qt/%dep.QtAutomotive_Components_Qt5.teamcity.build.vcs.branch.QtAutomotiv
           <param name="swabra.strict" value="true" />
         </parameters>
       </extension>
+      <extension id="perfmon" type="perfmon">
+        <parameters />
+      </extension>
     </build-extensions>
     <artifact-dependencies>
       <dependency id="ARTIFACT_DEPENDENCY_12" sourceBuildTypeId="QtAutomotive_Components_Qt5" cleanDestination="true">
