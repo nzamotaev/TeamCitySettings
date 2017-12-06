@@ -27,7 +27,20 @@
       <equals id="RQ_56" name="teamcity.agent.jvm.os.arch" value="amd64" />
       <equals id="RQ_59" name="system.ubuntu.version" value="14.04" />
     </requirements>
-    <build-triggers />
+    <build-triggers>
+      <build-trigger id="TRIGGER_11" type="buildDependencyTrigger">
+        <parameters>
+          <param name="afterSuccessfulBuildOnly" value="true" />
+          <param name="branchFilter"><![CDATA[+:<default>
++:5.10
++:5.10.0
++:5.9
++:5.9.0
++:5.9.3]]></param>
+          <param name="dependsOn" value="QtAutomotive_Components_Qt5" />
+        </parameters>
+      </build-trigger>
+    </build-triggers>
     <artifact-dependencies>
       <dependency id="ARTIFACT_DEPENDENCY_11" sourceBuildTypeId="QtAutomotive_Components_Qt5" cleanDestination="false">
         <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
