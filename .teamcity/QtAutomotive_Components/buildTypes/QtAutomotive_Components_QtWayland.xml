@@ -45,6 +45,14 @@ qt/opt/qt/%dep.QtAutomotive_Components_Qt5.teamcity.build.vcs.branch.QtAutomotiv
         </parameters>
       </build-trigger>
     </build-triggers>
+    <build-extensions>
+      <extension id="swabra" type="swabra">
+        <parameters>
+          <param name="swabra.enabled" value="swabra.before.build" />
+          <param name="swabra.strict" value="true" />
+        </parameters>
+      </extension>
+    </build-extensions>
     <artifact-dependencies>
       <dependency id="ARTIFACT_DEPENDENCY_12" sourceBuildTypeId="QtAutomotive_Components_Qt5" cleanDestination="true">
         <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
