@@ -38,6 +38,7 @@ qt/opt/qt/%dep.QtAutomotive_Components_Qt5.teamcity.build.vcs.branch.QtAutomotiv
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_Components_CodeQtIoQtQtwaylandGit" />
+      <vcs-entry-ref root-id="GithubComNzamotaevTeamCityDockerScriptsGit" />
     </vcs-settings>
     <requirements>
       <equals id="RQ_56" name="teamcity.agent.jvm.os.arch" value="amd64" />
