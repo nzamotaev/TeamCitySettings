@@ -37,7 +37,9 @@ qt/opt/qt/%dep.QtAutomotive_Components_Qt5.teamcity.build.vcs.branch.QtAutomotiv
       </runner>
     </build-runners>
     <vcs-settings>
-      <vcs-entry-ref root-id="QtAutomotive_Components_CodeQtIoQtQtwaylandGit" />
+      <vcs-entry-ref root-id="QtAutomotive_Components_CodeQtIoQtQtwaylandGit">
+        <checkout-rule rule="+:. =&gt; sources" />
+      </vcs-entry-ref>
       <vcs-entry-ref root-id="GithubComNzamotaevTeamCityDockerScriptsGit">
         <checkout-rule rule="+:. =&gt; Docker" />
       </vcs-entry-ref>
