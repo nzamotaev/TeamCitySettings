@@ -3,6 +3,9 @@
   <name>Qt Wayland</name>
   <description />
   <settings>
+    <disabled-settings>
+      <setting-ref ref="RUNNER_97" />
+    </disabled-settings>
     <parameters />
     <build-runners>
       <runner id="RUNNER_96" name="" type="simpleRunner">
