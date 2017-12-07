@@ -155,6 +155,8 @@ fi]]></param>
         <parameters>
           <param name="branchFilter" value="+:master" />
           <param name="quietPeriodMode" value="DO_NOT_USE" />
+          <param name="triggerRules"><![CDATA[+:root=QtAutomotive_HttpsGithubComPelagicorePeluxManifestsGit:**
++:root=QtAutomotive_GitGitPelagicoreNetUxteamMetaQtasDemoGit:**]]></param>
         </parameters>
       </build-trigger>
     </build-triggers>
