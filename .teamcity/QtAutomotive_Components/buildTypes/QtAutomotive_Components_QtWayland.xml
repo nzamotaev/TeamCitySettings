@@ -23,6 +23,14 @@ qt/opt/qt/%dep.QtAutomotive_Components_Qt5.teamcity.build.vcs.branch.QtAutomotiv
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
+      <runner id="RUNNER_111" name="Docker" type="simpleRunner">
+        <parameters>
+          <param name="script.content" value="./run.sh %system.teamcity.build.tempDir% `pwd`/../../../../sources/ %teamcity.build.vcs.branch.QtAutomotive_Components_CodeQtIoQtQtwaylandGit% &quot;&quot;" />
+          <param name="teamcity.build.workingDir" value="Docker/QtAutomotive/Components/QtWayland" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_Components_CodeQtIoQtQtwaylandGit" />
