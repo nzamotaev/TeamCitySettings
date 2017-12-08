@@ -87,6 +87,7 @@ if [ ! -n "%package_names%" ]; then
     echo "##teamcity[progressStart 'Building Image %variant_name% for %bitbake_image%']"
     source sources/poky/oe-init-build-env build
     set -e
+    bitbake -c clean %bitbake_image%
     bitbake %bitbake_image%
     pwd
     find `pwd`/tmp/deploy/images/`echo %variant_name%|awk -F- '{print $1}'`* -type l -name *.wic|while read i;do 
