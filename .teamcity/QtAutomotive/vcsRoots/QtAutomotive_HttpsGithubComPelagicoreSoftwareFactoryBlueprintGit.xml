@@ -7,9 +7,7 @@
   <param name="branch" value="refs/heads/master" />
   <param name="ignoreKnownHosts" value="true" />
   <param name="submoduleCheckout" value="CHECKOUT" />
-  <param name="teamcity:branchSpec"><![CDATA[+:refs/heads/*
-+:refs/pull/(*/head)
-+:refs/pull/(*/merge)]]></param>
+  <param name="teamcity:branchSpec" value="+:refs/heads/*" />
   <param name="url" value="https://github.com/Pelagicore/software-factory-blueprint.git" />
   <param name="useAlternates" value="true" />
   <param name="usernameStyle" value="USERID" />
