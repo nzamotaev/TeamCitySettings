@@ -42,7 +42,7 @@
       </runner>
       <runner id="RUNNER_105" name="Docker" type="simpleRunner">
         <parameters>
-          <param name="script.content" value="./run.sh %system.teamcity.build.tempDir% `pwd`/../../../../sources/ %teamcity.build.vcs.branch.QtAutomotive_Components_CodeQtIoQtCreatorQtCreatorGit%" />
+          <param name="script.content" value="./run.sh %system.teamcity.build.tempDir% `pwd`/../../../../ %teamcity.build.vcs.branch.QtAutomotive_Components_CodeQtIoQtCreatorQtCreatorGit%" />
           <param name="teamcity.build.workingDir" value="Docker/QtAutomotive/Components/QtCreator" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
