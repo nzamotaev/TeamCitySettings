@@ -3,6 +3,9 @@
   <name>Qt IVI</name>
   <description />
   <settings>
+    <options>
+      <option name="artifactRules" value="+:%system.teamcity.build.tempDir%/_install_/ =&gt; qtivi.tar.gz" />
+    </options>
     <parameters />
     <build-runners>
       <runner id="RUNNER_98" name="" type="simpleRunner">
