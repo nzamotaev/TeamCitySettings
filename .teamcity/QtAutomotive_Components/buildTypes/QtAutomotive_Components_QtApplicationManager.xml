@@ -46,6 +46,9 @@
           <param name="swabra.strict" value="true" />
         </parameters>
       </extension>
+      <extension id="perfmon" type="perfmon">
+        <parameters />
+      </extension>
     </build-extensions>
     <artifact-dependencies>
       <dependency id="ARTIFACT_DEPENDENCY_15" sourceBuildTypeId="QtAutomotive_Components_DltDaemon" cleanDestination="true">
