@@ -39,6 +39,7 @@
     </vcs-settings>
     <requirements>
       <equals id="RQ_62" name="teamcity.agent.jvm.os.arch" value="amd64" />
+      <equals id="RQ_63" name="system.ubuntu.version" value="16.04" />
     </requirements>
     <build-triggers />
     <build-extensions>
