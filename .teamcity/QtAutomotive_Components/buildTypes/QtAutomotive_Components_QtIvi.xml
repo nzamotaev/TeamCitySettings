@@ -43,6 +43,15 @@
       <equals id="RQ_61" name="system.ubuntu.version" value="14.04" />
     </requirements>
     <build-triggers />
+    <dependencies>
+      <depend-on sourceBuildTypeId="QtAutomotive_Components_Qt5">
+        <options>
+          <option name="run-build-if-dependency-failed" value="RUN_ADD_PROBLEM" />
+          <option name="take-started-build-with-same-revisions" value="true" />
+          <option name="take-successful-builds-only" value="true" />
+        </options>
+      </depend-on>
+    </dependencies>
     <cleanup />
   </settings>
 </build-type>
