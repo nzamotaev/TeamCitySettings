@@ -21,7 +21,9 @@
       </runner>
     </build-runners>
     <vcs-settings>
-      <vcs-entry-ref root-id="QtAutomotive_Components_CodeQtIoQtAppsNeptuneUiGit" />
+      <vcs-entry-ref root-id="QtAutomotive_Components_CodeQtIoQtAppsNeptuneUiGit">
+        <checkout-rule rule="+:.=&gt;sources" />
+      </vcs-entry-ref>
     </vcs-settings>
     <requirements>
       <equals id="RQ_64" name="teamcity.agent.jvm.os.arch" value="amd64" />
