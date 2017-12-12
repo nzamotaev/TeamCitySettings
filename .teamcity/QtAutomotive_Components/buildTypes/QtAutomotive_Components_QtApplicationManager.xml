@@ -39,6 +39,10 @@
         <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
         <artifact sourcePath="+:dlt.tar.gz =&gt; Docker/QtAutomotive/Components/QtApplicationManager/dlt/" />
       </dependency>
+      <dependency id="ARTIFACT_DEPENDENCY_16" sourceBuildTypeId="QtAutomotive_Components_QtIvi" cleanDestination="true">
+        <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
+        <artifact sourcePath="+:qtivi.tar.gz =&gt; Docker/QtAutomotive/Components/QtApplicationManager/qtivi/" />
+      </dependency>
       <dependency id="ARTIFACT_DEPENDENCY_14" sourceBuildTypeId="QtAutomotive_Components_Qt5" cleanDestination="true">
         <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
         <artifact sourcePath="+:qt.tar.gz!** =&gt; ./qt" />
