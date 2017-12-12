@@ -11,7 +11,6 @@
       <setting-ref ref="RUNNER_84" />
       <setting-ref ref="RUNNER_85" />
       <setting-ref ref="RUNNER_86" />
-      <setting-ref ref="RUNNER_87" />
     </disabled-settings>
     <parameters>
       <param name="debug_release" value="" spec="select label_3='release' display='normal' description='debug_release switch' data_1='-debug' label_1='debug' data_3=''" />
@@ -25,13 +24,6 @@
           <param name="teamcity.build.workingDir" value="Docker/QtAutomotive/Components/Qt5" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
-        </parameters>
-      </runner>
-      <runner id="RUNNER_87" name="Submodule clean" type="simpleRunner">
-        <parameters>
-          <param name="command.executable" value="git" />
-          <param name="command.parameters" value="submodule foreach --recursive git reset --hard" />
-          <param name="teamcity.step.mode" value="default" />
         </parameters>
       </runner>
       <runner id="RUNNER_83" name="Init repository" type="simpleRunner">
