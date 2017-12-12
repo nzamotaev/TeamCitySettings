@@ -28,6 +28,13 @@
       <equals id="RQ_65" name="system.ubuntu.version" value="16.04" />
     </requirements>
     <build-triggers />
+    <build-extensions>
+      <extension id="swabra" type="swabra">
+        <parameters>
+          <param name="swabra.enabled" value="swabra.before.build" />
+        </parameters>
+      </extension>
+    </build-extensions>
     <dependencies>
       <depend-on sourceBuildTypeId="QtAutomotive_Components_DltDaemon">
         <options>
