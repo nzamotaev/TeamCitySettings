@@ -37,6 +37,9 @@
         <parameters>
           <param name="branchFilter" value="+:*" />
           <param name="quietPeriodMode" value="DO_NOT_USE" />
+          <param name="triggerRules"><![CDATA[+:root=QtAutomotive_Components_CodeQtIoQtQt5git:**
++:root=GithubComNzamotaevTeamCityDockerScriptsGit:QtAutomotive/Components/Qt5/**
+-:root=GithubComNzamotaevTeamCityDockerScriptsGit:**]]></param>
         </parameters>
       </build-trigger>
     </build-triggers>
