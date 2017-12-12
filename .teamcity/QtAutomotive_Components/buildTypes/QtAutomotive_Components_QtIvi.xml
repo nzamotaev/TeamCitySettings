@@ -49,6 +49,9 @@
           <param name="swabra.enabled" value="swabra.before.build" />
         </parameters>
       </extension>
+      <extension id="perfmon" type="perfmon">
+        <parameters />
+      </extension>
     </build-extensions>
     <artifact-dependencies>
       <dependency id="ARTIFACT_DEPENDENCY_11" sourceBuildTypeId="QtAutomotive_Components_Qt5" cleanDestination="false">
