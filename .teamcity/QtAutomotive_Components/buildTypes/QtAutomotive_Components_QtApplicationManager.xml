@@ -25,6 +25,7 @@
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_Components_CodeQtIoQtQtapplicationmanagerGit" />
+      <vcs-entry-ref root-id="GithubComNzamotaevTeamCityDockerScriptsGit" />
     </vcs-settings>
     <requirements />
     <build-triggers />
