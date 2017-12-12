@@ -64,6 +64,10 @@
       </extension>
     </build-extensions>
     <artifact-dependencies>
+      <dependency id="ARTIFACT_DEPENDENCY_13" sourceBuildTypeId="QtAutomotive_Components_DltDaemon" cleanDestination="true">
+        <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
+        <artifact sourcePath="+:dlt.tar.gz =&gt; ./dlt/" />
+      </dependency>
       <dependency id="ARTIFACT_DEPENDENCY_11" sourceBuildTypeId="QtAutomotive_Components_Qt5" cleanDestination="false">
         <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
         <artifact sourcePath="+:qt.tar.gz!** =&gt; ./qt" />
