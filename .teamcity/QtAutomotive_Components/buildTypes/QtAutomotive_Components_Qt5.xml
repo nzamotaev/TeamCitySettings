@@ -8,7 +8,6 @@
     </options>
     <disabled-settings>
       <setting-ref ref="RUNNER_84" />
-      <setting-ref ref="RUNNER_86" />
     </disabled-settings>
     <parameters>
       <param name="debug_release" value="" spec="select label_3='release' display='normal' description='debug_release switch' data_1='-debug' label_1='debug' data_3=''" />
@@ -31,14 +30,6 @@
           <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%/_builddir_" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
-        </parameters>
-      </runner>
-      <runner id="RUNNER_86" name="Make install" type="jetbrains-cmake-gnumake">
-        <parameters>
-          <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%/_builddir_" />
-          <param name="teamcity.step.mode" value="default" />
-          <param name="ui-jetbrains-cmake-gnumake-additional-cmd-params" value="INSTALL_ROOT=%system.teamcity.build.tempDir%/_install_" />
-          <param name="ui-jetbrains-cmake-gnumake-make-tasks" value="install" />
         </parameters>
       </runner>
     </build-runners>
