@@ -6,6 +6,9 @@
     <options>
       <option name="cleanBuild" value="true" />
     </options>
+    <disabled-settings>
+      <setting-ref ref="RUNNER_100" />
+    </disabled-settings>
     <parameters />
     <build-runners>
       <runner id="RUNNER_100" name="" type="simpleRunner">
