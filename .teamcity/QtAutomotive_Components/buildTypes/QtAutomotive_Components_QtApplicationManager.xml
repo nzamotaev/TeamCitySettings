@@ -49,6 +49,11 @@
       <extension id="perfmon" type="perfmon">
         <parameters />
       </extension>
+      <extension id="jetbrains.agent.free.space" type="jetbrains.agent.free.space">
+        <parameters>
+          <param name="free-space-work" value="3gb" />
+        </parameters>
+      </extension>
     </build-extensions>
     <artifact-dependencies>
       <dependency id="ARTIFACT_DEPENDENCY_15" sourceBuildTypeId="QtAutomotive_Components_DltDaemon" cleanDestination="true">
