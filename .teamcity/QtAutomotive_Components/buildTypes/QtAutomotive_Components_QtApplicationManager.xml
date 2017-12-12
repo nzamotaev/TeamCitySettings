@@ -37,7 +37,9 @@
         <checkout-rule rule="+:. =&gt; Docker" />
       </vcs-entry-ref>
     </vcs-settings>
-    <requirements />
+    <requirements>
+      <equals id="RQ_62" name="teamcity.agent.jvm.os.arch" value="amd64" />
+    </requirements>
     <build-triggers />
     <build-extensions>
       <extension id="swabra" type="swabra">
