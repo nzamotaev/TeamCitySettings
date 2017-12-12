@@ -4,6 +4,7 @@
   <description />
   <settings>
     <options>
+      <option name="artifactRules" value="+:%system.teamcity.build.tempDir%/_install_/ =&gt; qtappman.tar.gz" />
       <option name="cleanBuild" value="true" />
     </options>
     <disabled-settings>
