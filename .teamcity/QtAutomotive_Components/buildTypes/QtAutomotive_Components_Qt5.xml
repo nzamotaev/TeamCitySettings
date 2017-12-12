@@ -8,7 +8,6 @@
     </options>
     <disabled-settings>
       <setting-ref ref="RUNNER_84" />
-      <setting-ref ref="RUNNER_85" />
       <setting-ref ref="RUNNER_86" />
     </disabled-settings>
     <parameters>
@@ -32,13 +31,6 @@
           <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%/_builddir_" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
-        </parameters>
-      </runner>
-      <runner id="RUNNER_85" name="Make" type="jetbrains-cmake-gnumake">
-        <parameters>
-          <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%/_builddir_" />
-          <param name="teamcity.step.mode" value="default" />
-          <param name="ui-jetbrains-cmake-gnumake-additional-cmd-params" value="-j 30" />
         </parameters>
       </runner>
       <runner id="RUNNER_86" name="Make install" type="jetbrains-cmake-gnumake">
