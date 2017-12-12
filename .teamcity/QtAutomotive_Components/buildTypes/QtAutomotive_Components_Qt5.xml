@@ -6,9 +6,6 @@
     <options>
       <option name="artifactRules" value="+:%system.teamcity.build.tempDir%/_install_/ =&gt; qt.tar.gz" />
     </options>
-    <disabled-settings>
-      <setting-ref ref="RUNNER_84" />
-    </disabled-settings>
     <parameters>
       <param name="debug_release" value="" spec="select label_3='release' display='normal' description='debug_release switch' data_1='-debug' label_1='debug' data_3=''" />
       <param name="env.CCACHE_PREFIX" value="icecc" />
@@ -19,15 +16,6 @@
         <parameters>
           <param name="script.content" value="./run.sh %system.teamcity.build.tempDir% `pwd`/../../../../sources/ %teamcity.build.vcs.branch.QtAutomotive_Components_CodeQtIoQtQt5git% %debug_release%" />
           <param name="teamcity.build.workingDir" value="Docker/QtAutomotive/Components/Qt5" />
-          <param name="teamcity.step.mode" value="default" />
-          <param name="use.custom.script" value="true" />
-        </parameters>
-      </runner>
-      <runner id="RUNNER_84" name="Qt configure" type="simpleRunner">
-        <parameters>
-          <param name="script.content"><![CDATA[mkdir -p %system.teamcity.build.tempDir%/_install_
-%teamcity.build.checkoutDir%/configure %debug_release% -opensource -confirm-license -nomake examples -nomake tests -opengl es2 -prefix /opt/qt/%teamcity.build.vcs.branch.QtAutomotive_Components_CodeQtIoQtQt5git%]]></param>
-          <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%/_builddir_" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
