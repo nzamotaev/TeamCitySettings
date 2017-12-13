@@ -43,6 +43,9 @@
           <param name="free-space-work" value="3gb" />
         </parameters>
       </extension>
+      <extension id="perfmon" type="perfmon">
+        <parameters />
+      </extension>
     </build-extensions>
     <cleanup />
   </settings>
