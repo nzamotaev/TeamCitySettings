@@ -56,6 +56,10 @@
         <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
         <artifact sourcePath="+:qtappman.tar.gz =&gt; ./qtappman/" />
       </dependency>
+      <dependency id="ARTIFACT_DEPENDENCY_19" sourceBuildTypeId="QtAutomotive_Components_QtIvi" cleanDestination="true">
+        <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
+        <artifact sourcePath="+:qtivi.tar.gz=&gt;./qtivi/" />
+      </dependency>
     </artifact-dependencies>
     <dependencies>
       <depend-on sourceBuildTypeId="QtAutomotive_Components_DltDaemon">
