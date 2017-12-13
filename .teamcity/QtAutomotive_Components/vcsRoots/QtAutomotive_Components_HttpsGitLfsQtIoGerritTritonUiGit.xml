@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vcs-root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="e9f64d95-40c8-45eb-9b72-5fff5c10b41b" type="jetbrains.git" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/10.0/project-config.xsd">
+  <name>https://git-lfs.qt.io/Gerrit/triton-ui.git</name>
+  <param name="agentCleanFilesPolicy" value="ALL_UNTRACKED" />
+  <param name="agentCleanPolicy" value="ON_BRANCH_CHANGE" />
+  <param name="authMethod" value="PASSWORD" />
+  <param name="branch" value="refs/heads/master" />
+  <param name="ignoreKnownHosts" value="true" />
+  <param name="secure:password" value="zxxb94b8674fd1bca12eabf2903252f2937" />
+  <param name="submoduleCheckout" value="CHECKOUT" />
+  <param name="url" value="https://git-lfs.qt.io/Gerrit/triton-ui.git" />
+  <param name="useAlternates" value="true" />
+  <param name="username" value="yocto" />
+  <param name="usernameStyle" value="USERID" />
+</vcs-root>
+
