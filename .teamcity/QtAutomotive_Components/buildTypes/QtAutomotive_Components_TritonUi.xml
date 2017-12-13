@@ -52,6 +52,10 @@
         <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
         <artifact sourcePath="+:dlt.tar.gz =&gt; ./dlt/" />
       </dependency>
+      <dependency id="ARTIFACT_DEPENDENCY_18" sourceBuildTypeId="QtAutomotive_Components_QtApplicationManager" cleanDestination="false">
+        <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
+        <artifact sourcePath="+:qtappman.tar.gz =&gt; ./qtappman/" />
+      </dependency>
     </artifact-dependencies>
     <dependencies>
       <depend-on sourceBuildTypeId="QtAutomotive_Components_DltDaemon">
