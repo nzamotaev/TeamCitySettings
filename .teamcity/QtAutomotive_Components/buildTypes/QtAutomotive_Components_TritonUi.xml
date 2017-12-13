@@ -52,7 +52,7 @@
         <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
         <artifact sourcePath="+:dlt.tar.gz =&gt; ./dlt/" />
       </dependency>
-      <dependency id="ARTIFACT_DEPENDENCY_18" sourceBuildTypeId="QtAutomotive_Components_QtApplicationManager" cleanDestination="false">
+      <dependency id="ARTIFACT_DEPENDENCY_18" sourceBuildTypeId="QtAutomotive_Components_QtApplicationManager" cleanDestination="true">
         <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
         <artifact sourcePath="+:qtappman.tar.gz =&gt; ./qtappman/" />
       </dependency>
