@@ -26,7 +26,9 @@
         <checkout-rule rule="+:. =&gt; Docker" />
       </vcs-entry-ref>
     </vcs-settings>
-    <requirements />
+    <requirements>
+      <equals id="RQ_66" name="system.ubuntu.version" value="16.04" />
+    </requirements>
     <build-triggers />
     <cleanup />
   </settings>
