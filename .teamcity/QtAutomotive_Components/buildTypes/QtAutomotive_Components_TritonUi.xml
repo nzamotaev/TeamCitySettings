@@ -31,6 +31,14 @@
       <equals id="RQ_67" name="teamcity.agent.jvm.os.arch" value="amd64" />
     </requirements>
     <build-triggers />
+    <build-extensions>
+      <extension id="swabra" type="swabra">
+        <parameters>
+          <param name="swabra.enabled" value="swabra.before.build" />
+          <param name="swabra.strict" value="true" />
+        </parameters>
+      </extension>
+    </build-extensions>
     <cleanup />
   </settings>
 </build-type>
