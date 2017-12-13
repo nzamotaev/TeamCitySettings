@@ -28,6 +28,7 @@
     </vcs-settings>
     <requirements>
       <equals id="RQ_66" name="system.ubuntu.version" value="16.04" />
+      <equals id="RQ_67" name="teamcity.agent.jvm.os.arch" value="amd64" />
     </requirements>
     <build-triggers />
     <cleanup />
