@@ -6,7 +6,9 @@
     <parameters />
     <build-runners />
     <vcs-settings>
-      <vcs-entry-ref root-id="QtAutomotive_Components_HttpsGitLfsQtIoGerritTritonUiGit" />
+      <vcs-entry-ref root-id="QtAutomotive_Components_HttpsGitLfsQtIoGerritTritonUiGit">
+        <checkout-rule rule="+:. =&gt; sources" />
+      </vcs-entry-ref>
     </vcs-settings>
     <requirements />
     <build-triggers />
