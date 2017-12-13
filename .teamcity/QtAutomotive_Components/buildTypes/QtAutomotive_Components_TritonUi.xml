@@ -9,6 +9,7 @@
       <vcs-entry-ref root-id="QtAutomotive_Components_HttpsGitLfsQtIoGerritTritonUiGit">
         <checkout-rule rule="+:. =&gt; sources" />
       </vcs-entry-ref>
+      <vcs-entry-ref root-id="GithubComNzamotaevTeamCityDockerScriptsGit" />
     </vcs-settings>
     <requirements />
     <build-triggers />
