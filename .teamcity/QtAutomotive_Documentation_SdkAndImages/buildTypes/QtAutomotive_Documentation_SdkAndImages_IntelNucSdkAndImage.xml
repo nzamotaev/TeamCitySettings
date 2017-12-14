@@ -65,7 +65,6 @@ CONNECTIVITY_CHECK_URIS=""
 PACKAGE_CLASSES = "package_deb"
 RM_OLD_IMAGE = "1"
 IMAGE_INSTALL_append = " gnupg coreutils"
-SERIAL_CONSOLES = ""
 
 EOF]]></param>
           <param name="teamcity.build.workingDir" value="bitbake" />
