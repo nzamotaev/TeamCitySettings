@@ -77,7 +77,7 @@
       </dependency>
       <dependency id="ARTIFACT_DEPENDENCY_14" sourceBuildTypeId="QtAutomotive_Components_Qt5" cleanDestination="true">
         <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
-        <artifact sourcePath="+:qt.tar.gz!** =&gt; ./qt" />
+        <artifact sourcePath="+:qt.tar.gz =&gt; Docker/QtAutomotive/Components/QtApplicationManager/qt/" />
       </dependency>
     </artifact-dependencies>
     <dependencies>
