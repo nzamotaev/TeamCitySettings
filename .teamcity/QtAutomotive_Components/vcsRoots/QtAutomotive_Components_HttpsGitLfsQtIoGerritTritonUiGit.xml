@@ -7,7 +7,7 @@
   <param name="branch" value="refs/heads/master" />
   <param name="ignoreKnownHosts" value="true" />
   <param name="secure:password" value="zxxb94b8674fd1bca12eabf2903252f2937" />
-  <param name="submoduleCheckout" value="CHECKOUT" />
+  <param name="submoduleCheckout" value="IGNORE" />
   <param name="teamcity:branchSpec" value="+:refs/heads/*" />
   <param name="url" value="https://git-lfs.qt.io/Gerrit/triton-ui.git" />
   <param name="useAlternates" value="true" />
