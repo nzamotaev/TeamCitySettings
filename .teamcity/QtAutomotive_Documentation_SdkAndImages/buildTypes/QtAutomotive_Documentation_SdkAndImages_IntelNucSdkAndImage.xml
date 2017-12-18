@@ -48,6 +48,9 @@ echo "Setup bitbake %variant_name%"
 mkdir -p $HOME/bitbake_downloads
 mkdir -p $HOME/bitbake_sstate
 mkdir -p build
+if [ -d build/conf ]; then
+    rm build/conf/*
+fi
 TEMPLATECONF="`pwd`/sources/meta-qtas-demo/conf/variant/%variant_name%" source sources/poky/oe-init-build-env `pwd`/build
 
 cat > conf/site.conf << EOF
