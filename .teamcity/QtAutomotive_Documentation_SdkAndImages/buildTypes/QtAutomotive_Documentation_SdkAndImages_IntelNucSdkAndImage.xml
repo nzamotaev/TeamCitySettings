@@ -57,7 +57,6 @@ TEMPLATECONF="`pwd`/sources/meta-qtas-demo/conf/variant/%variant_name%" source s
 cat > conf/site.conf << EOF
 
 INHERIT += "own-mirrors"
-SSTATE_MIRRORS ?= "file://.* file:///home/allview/bitbake_sstate/sstate-cache/PATH"
 SOURCE_MIRROR_URL ?= "file:///home/allview/bitbake_downloads/"
 
 ICECC_PATH="/usr/bin/icecc"
