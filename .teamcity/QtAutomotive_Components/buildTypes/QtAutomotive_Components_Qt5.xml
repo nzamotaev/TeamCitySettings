@@ -12,7 +12,7 @@
       <param name="env.PATH" value="/usr/lib/ccache:%env.PATH%" />
     </parameters>
     <build-runners>
-      <runner id="RUNNER_119" name="" type="simpleRunner">
+      <runner id="RUNNER_119" name="Build tagging" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
 echo "##teamcity[buildNumber '`git describe --abbrev=7`']"]]></param>
