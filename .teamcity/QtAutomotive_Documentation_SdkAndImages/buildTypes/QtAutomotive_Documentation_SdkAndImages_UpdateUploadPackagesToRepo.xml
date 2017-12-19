@@ -8,7 +8,7 @@
       <runner id="RUNNER_118" name="do aptly package load" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[for i in *;do
-  /home/teamcity/bin/aptly repo add qtas_demo ${i}/*.deb
+  /home/teamcity/bin/aptly repo add -force-replace=true qtas_demo ${i}/*.deb
 done
 /home/teamcity/bin/aptly publish update pelux]]></param>
           <param name="teamcity.build.workingDir" value="/home/nfsexports/bitbake_repo/deb/" />
