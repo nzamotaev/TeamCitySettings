@@ -18,7 +18,9 @@ done
       </runner>
     </build-runners>
     <vcs-settings />
-    <requirements />
+    <requirements>
+      <equals id="RQ_68" name="system.CanUploadProperty" value="true" />
+    </requirements>
     <build-triggers>
       <build-trigger id="TRIGGER_12" type="buildDependencyTrigger">
         <parameters>
