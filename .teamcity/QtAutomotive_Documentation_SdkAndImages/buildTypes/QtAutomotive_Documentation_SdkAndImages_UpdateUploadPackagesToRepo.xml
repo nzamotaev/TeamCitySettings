@@ -19,7 +19,14 @@ done
     </build-runners>
     <vcs-settings />
     <requirements />
-    <build-triggers />
+    <build-triggers>
+      <build-trigger id="TRIGGER_12" type="buildDependencyTrigger">
+        <parameters>
+          <param name="branchFilter" value="+:&lt;default&gt;" />
+          <param name="dependsOn" value="QtAutomotive_Documentation_SdkAndImages_IntelNucSdkAndImage" />
+        </parameters>
+      </build-trigger>
+    </build-triggers>
     <cleanup />
   </settings>
 </build-type>
