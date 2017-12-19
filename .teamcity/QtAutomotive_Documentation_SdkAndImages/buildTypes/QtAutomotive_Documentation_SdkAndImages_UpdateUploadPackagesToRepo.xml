@@ -4,7 +4,19 @@
   <description />
   <settings>
     <parameters />
-    <build-runners />
+    <build-runners>
+      <runner id="RUNNER_118" name="do aptly package load" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[for i in *;do
+  aptly repo add qtas_demo ${i}/*.deb
+done
+aptly publish update pelux]]></param>
+          <param name="teamcity.build.workingDir" value="/home/nfsexports/bitbake_repo/deb/" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+    </build-runners>
     <vcs-settings />
     <requirements />
     <build-triggers />
