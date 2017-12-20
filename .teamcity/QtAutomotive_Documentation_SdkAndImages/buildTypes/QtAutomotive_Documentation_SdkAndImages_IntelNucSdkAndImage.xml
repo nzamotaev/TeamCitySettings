@@ -106,16 +106,15 @@ fi]]></param>
       <runner id="RUNNER_109" name="populate sdk" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
-if [ ! -n "%package_names%" ]; then
-    echo "##teamcity[progressStart 'Building SDK %variant_name% for %bitbake_image%']"
-    source sources/poky/oe-init-build-env build
-    set -e
-    bitbake -c populate_sdk %bitbake_image%
-    echo "##teamcity[progressFinish 'Building SDK %variant_name% for %bitbake_image%']"
-    find `pwd`/tmp/deploy/sdk/ -type f|while read i;do
-        echo "##teamcity[publishArtifacts '$i']"
-    done
-fi]]></param>
+
+echo "##teamcity[progressStart 'Building SDK %variant_name% for %bitbake_image%']"
+source sources/poky/oe-init-build-env build
+set -e
+bitbake -c populate_sdk %bitbake_image%
+echo "##teamcity[progressFinish 'Building SDK %variant_name% for %bitbake_image%']"
+find `pwd`/tmp/deploy/sdk/ -type f|while read i;do
+    echo "##teamcity[publishArtifacts '$i']"
+done]]></param>
           <param name="teamcity.build.workingDir" value="bitbake" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
