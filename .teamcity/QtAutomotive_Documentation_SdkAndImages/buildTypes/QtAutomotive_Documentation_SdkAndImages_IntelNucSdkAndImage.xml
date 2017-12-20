@@ -235,6 +235,11 @@ fi]]></param>
           <param name="buildFailureOnMessage.reverse" value="false" />
         </parameters>
       </extension>
+      <extension id="BUILD_EXT_26" type="JetBrains.SharedResources">
+        <parameters>
+          <param name="locks-param" value="Bitbake_directory writeLock" />
+        </parameters>
+      </extension>
     </build-extensions>
     <cleanup />
   </settings>
