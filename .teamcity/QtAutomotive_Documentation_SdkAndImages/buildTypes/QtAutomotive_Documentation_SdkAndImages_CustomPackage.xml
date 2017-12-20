@@ -4,6 +4,7 @@
   <description />
   <settings>
     <disabled-settings>
+      <setting-ref ref="BUILD_EXT_26" />
       <setting-ref ref="RQ_52" />
     </disabled-settings>
     <parameters>
