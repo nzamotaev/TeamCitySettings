@@ -22,7 +22,7 @@ chmod a+x pelux-glibc-x86_64-core-image-pelux-qtas-demo-dev-corei7-64-toolchain-
       <runner id="RUNNER_117" name="Build" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
-. %system.teamcity.build.tempDir%/SDK/SDK/environment-setup-corei7-64-pelux-linux
+. %system.teamcity.build.tempDir%/SDK/install/environment-setup-corei7-64-pelux-linux
 qmake
 make -j %teamcity.agent.hardware.cpuCount%
 make install INSTALL_ROOT=%system.teamcity.build.tempDir%/_install_]]></param>
