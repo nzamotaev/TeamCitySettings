@@ -5,7 +5,6 @@
   <settings>
     <disabled-settings>
       <setting-ref ref="RQ_52" />
-      <setting-ref ref="RUNNER_113" />
     </disabled-settings>
     <parameters>
       <param name="package_names" value="" spec="text description='Build packages instead of image' label='Package' validationMode='any' display='normal'" />
@@ -97,14 +96,6 @@ fi]]></param>
       <runner id="RUNNER_112" name="Rsync sources directory" type="simpleRunner">
         <parameters>
           <param name="script.content" value="time rsync -trp build/downloads/ /home/allview/bitbake_downloads/" />
-          <param name="teamcity.build.workingDir" value="bitbake" />
-          <param name="teamcity.step.mode" value="execute_if_failed" />
-          <param name="use.custom.script" value="true" />
-        </parameters>
-      </runner>
-      <runner id="RUNNER_113" name="Rsync sstate" type="simpleRunner">
-        <parameters>
-          <param name="script.content" value="time rsync -trp build/sstate-cache/ /home/allview/bitbake_sstate" />
           <param name="teamcity.build.workingDir" value="bitbake" />
           <param name="teamcity.step.mode" value="execute_if_failed" />
           <param name="use.custom.script" value="true" />
