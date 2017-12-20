@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<build-type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="d5a8f123-3a11-46bf-9a6d-c9460d687171" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/10.0/project-config.xsd">
+  <name>Triton UI for NUC</name>
+  <description />
+  <settings>
+    <options>
+      <option name="artifactRules" value="+:%system.teamcity.build.tempDir%/_install_/ =&gt; tritonui.tar.gz" />
+      <option name="cleanBuild" value="true" />
+    </options>
+    <parameters />
+    <build-runners>
+      <runner id="RUNNER_117" name="Docker" type="simpleRunner">
+        <parameters>
+          <param name="script.content" value="./run.sh %system.teamcity.build.tempDir% `pwd`/../../../../ %teamcity.build.vcs.branch.QtAutomotive_Components_HttpsGitLfsQtIoGerritTritonUiGit% &quot;&quot;" />
+          <param name="teamcity.build.workingDir" value="Docker/QtAutomotive/Components/TritonUI" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+    </build-runners>
+    <vcs-settings>
+      <vcs-entry-ref root-id="QtAutomotive_Components_HttpsGitLfsQtIoGerritTritonUiGit">
+        <checkout-rule rule="+:. =&gt; sources" />
+      </vcs-entry-ref>
+      <vcs-entry-ref root-id="GithubComNzamotaevTeamCityDockerScriptsGit">
+        <checkout-rule rule="+:. =&gt; Docker" />
+      </vcs-entry-ref>
+    </vcs-settings>
+    <requirements>
+      <equals id="RQ_66" name="system.ubuntu.version" value="16.04" />
+      <equals id="RQ_67" name="teamcity.agent.jvm.os.arch" value="amd64" />
+    </requirements>
+    <build-triggers />
+    <build-extensions>
+      <extension id="swabra" type="swabra">
+        <parameters>
+          <param name="swabra.enabled" value="swabra.before.build" />
+          <param name="swabra.strict" value="true" />
+        </parameters>
+      </extension>
+      <extension id="jetbrains.agent.free.space" type="jetbrains.agent.free.space">
+        <parameters>
+          <param name="free-space-work" value="3gb" />
+        </parameters>
+      </extension>
+      <extension id="perfmon" type="perfmon">
+        <parameters />
+      </extension>
+    </build-extensions>
+    <artifact-dependencies>
+      <dependency id="ARTIFACT_DEPENDENCY_17" sourceBuildTypeId="QtAutomotive_Components_DltDaemon" cleanDestination="true">
+        <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
+        <artifact sourcePath="+:dlt.tar.gz =&gt; Docker/QtAutomotive/Components/TritonUI/dlt/" />
+      </dependency>
+      <dependency id="ARTIFACT_DEPENDENCY_18" sourceBuildTypeId="QtAutomotive_Components_QtApplicationManager" cleanDestination="true">
+        <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
+        <artifact sourcePath="+:qtappman.tar.gz =&gt; Docker/QtAutomotive/Components/TritonUI/qtappman/" />
+      </dependency>
+      <dependency id="ARTIFACT_DEPENDENCY_19" sourceBuildTypeId="QtAutomotive_Components_QtIvi" cleanDestination="true">
+        <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
+        <artifact sourcePath="+:qtivi.tar.gz=&gt; Docker/QtAutomotive/Components/TritonUI/qtivi/" />
+      </dependency>
+      <dependency id="ARTIFACT_DEPENDENCY_20" sourceBuildTypeId="QtAutomotive_Components_QtWayland" cleanDestination="true">
+        <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
+        <artifact sourcePath="+:qtwayland.tar.gz =&gt; Docker/QtAutomotive/Components/TritonUI/qtwayland/" />
+      </dependency>
+      <dependency id="ARTIFACT_DEPENDENCY_21" sourceBuildTypeId="QtAutomotive_Components_Qt5" cleanDestination="true">
+        <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
+        <artifact sourcePath="+:qt.tar.gz =&gt; Docker/QtAutomotive/Components/TritonUI/qt/" />
+      </dependency>
+    </artifact-dependencies>
+    <dependencies>
+      <depend-on sourceBuildTypeId="QtAutomotive_Components_DltDaemon">
+        <options>
+          <option name="run-build-if-dependency-failed" value="RUN_ADD_PROBLEM" />
+          <option name="take-started-build-with-same-revisions" value="true" />
+          <option name="take-successful-builds-only" value="true" />
+        </options>
+      </depend-on>
+      <depend-on sourceBuildTypeId="QtAutomotive_Components_QtApplicationManager">
+        <options>
+          <option name="run-build-if-dependency-failed" value="RUN_ADD_PROBLEM" />
+          <option name="take-started-build-with-same-revisions" value="true" />
+          <option name="take-successful-builds-only" value="true" />
+        </options>
+      </depend-on>
+      <depend-on sourceBuildTypeId="QtAutomotive_Components_QtIvi">
+        <options>
+          <option name="run-build-if-dependency-failed" value="RUN_ADD_PROBLEM" />
+          <option name="take-started-build-with-same-revisions" value="true" />
+          <option name="take-successful-builds-only" value="true" />
+        </options>
+      </depend-on>
+      <depend-on sourceBuildTypeId="QtAutomotive_Components_QtWayland">
+        <options>
+          <option name="run-build-if-dependency-failed" value="RUN_ADD_PROBLEM" />
+          <option name="take-started-build-with-same-revisions" value="true" />
+          <option name="take-successful-builds-only" value="true" />
+        </options>
+      </depend-on>
+      <depend-on sourceBuildTypeId="QtAutomotive_Components_Qt5">
+        <options>
+          <option name="run-build-if-dependency-failed" value="RUN_ADD_PROBLEM" />
+          <option name="take-started-build-with-same-revisions" value="true" />
+          <option name="take-successful-builds-only" value="true" />
+        </options>
+      </depend-on>
+    </dependencies>
+    <cleanup />
+  </settings>
+</build-type>
+
