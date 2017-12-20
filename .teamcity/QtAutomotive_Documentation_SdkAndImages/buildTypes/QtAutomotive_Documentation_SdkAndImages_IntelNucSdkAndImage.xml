@@ -8,6 +8,7 @@
       <option name="maximumNumberOfBuilds" value="1" />
     </options>
     <disabled-settings>
+      <setting-ref ref="BUILD_EXT_26" />
       <setting-ref ref="RQ_52" />
       <setting-ref ref="vcsTrigger" />
     </disabled-settings>
