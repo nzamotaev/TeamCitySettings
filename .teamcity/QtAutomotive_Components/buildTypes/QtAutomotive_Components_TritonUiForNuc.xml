@@ -47,10 +47,6 @@ make install INSTALL_ROOT=%system.teamcity.build.tempDir%/_install_]]></param>
       </extension>
     </build-extensions>
     <artifact-dependencies>
-      <dependency id="ARTIFACT_DEPENDENCY_20" sourceBuildTypeId="QtAutomotive_Components_QtWayland" cleanDestination="true">
-        <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
-        <artifact sourcePath="+:qtwayland.tar.gz =&gt; Docker/QtAutomotive/Components/TritonUI/qtwayland/" />
-      </dependency>
       <dependency id="ARTIFACT_DEPENDENCY_21" sourceBuildTypeId="QtAutomotive_Components_Qt5" cleanDestination="true">
         <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
         <artifact sourcePath="+:qt.tar.gz =&gt; Docker/QtAutomotive/Components/TritonUI/qt/" />
