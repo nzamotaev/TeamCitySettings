@@ -46,6 +46,12 @@ make install INSTALL_ROOT=%system.teamcity.build.tempDir%/_install_]]></param>
         <parameters />
       </extension>
     </build-extensions>
+    <artifact-dependencies>
+      <dependency id="ARTIFACT_DEPENDENCY_22" sourceBuildTypeId="QtAutomotive_Documentation_SdkAndImages_IntelNucSdkAndImage" cleanDestination="true">
+        <revisionRule name="lastSuccessful" revision="latest.lastSuccessful" />
+        <artifact sourcePath="pelux-glibc-x86_64-core-image-pelux-qtas-demo-dev-corei7-64-toolchain-2.3.2.sh=&gt; %system.teamcity.build.tempDir%/SDK/" />
+      </dependency>
+    </artifact-dependencies>
     <cleanup />
   </settings>
 </build-type>
