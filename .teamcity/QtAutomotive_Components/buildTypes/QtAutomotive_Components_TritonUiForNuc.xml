@@ -69,13 +69,6 @@ make install INSTALL_ROOT=%system.teamcity.build.tempDir%/_install_]]></param>
       </dependency>
     </artifact-dependencies>
     <dependencies>
-      <depend-on sourceBuildTypeId="QtAutomotive_Components_QtIvi">
-        <options>
-          <option name="run-build-if-dependency-failed" value="RUN_ADD_PROBLEM" />
-          <option name="take-started-build-with-same-revisions" value="true" />
-          <option name="take-successful-builds-only" value="true" />
-        </options>
-      </depend-on>
       <depend-on sourceBuildTypeId="QtAutomotive_Components_QtWayland">
         <options>
           <option name="run-build-if-dependency-failed" value="RUN_ADD_PROBLEM" />
