@@ -26,7 +26,6 @@ chmod a+x pelux-glibc-x86_64-core-image-pelux-qtas-demo-dev-corei7-64-toolchain-
 qmake
 make -j %teamcity.agent.hardware.cpuCount%
 make install INSTALL_ROOT=%system.teamcity.build.tempDir%/_install_]]></param>
-          <param name="teamcity.build.workingDir" value="Docker/QtAutomotive/Components/TritonUI" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
