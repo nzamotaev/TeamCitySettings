@@ -19,9 +19,7 @@
       </runner>
     </build-runners>
     <vcs-settings>
-      <vcs-entry-ref root-id="QtAutomotive_Components_HttpsGitLfsQtIoGerritTritonUiGit">
-        <checkout-rule rule="+:. =&gt; sources" />
-      </vcs-entry-ref>
+      <vcs-entry-ref root-id="QtAutomotive_Components_HttpsGitLfsQtIoGerritTritonUiGit" />
     </vcs-settings>
     <requirements>
       <equals id="RQ_66" name="system.ubuntu.version" value="16.04" />
