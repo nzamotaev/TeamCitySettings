@@ -6,7 +6,6 @@
     <disabled-settings>
       <setting-ref ref="RQ_52" />
       <setting-ref ref="RUNNER_113" />
-      <setting-ref ref="vcsTrigger" />
     </disabled-settings>
     <parameters>
       <param name="bitbake_image" value="core-image-pelux-qtas-demo-dev" />
@@ -182,14 +181,6 @@ fi]]></param>
       <equals id="RQ_53" name="system.CanRunBitbake" value="true" />
     </requirements>
     <build-triggers>
-      <build-trigger id="vcsTrigger" type="vcsTrigger">
-        <parameters>
-          <param name="branchFilter" value="+:master" />
-          <param name="quietPeriodMode" value="DO_NOT_USE" />
-          <param name="triggerRules"><![CDATA[+:root=QtAutomotive_HttpsGithubComPelagicorePeluxManifestsGit:**
-+:root=QtAutomotive_GitGitPelagicoreNetUxteamMetaQtasDemoGit:**]]></param>
-        </parameters>
-      </build-trigger>
       <build-trigger id="TRIGGER_13" type="schedulingTrigger">
         <parameters>
           <param name="branchFilter" value="+:*" />
