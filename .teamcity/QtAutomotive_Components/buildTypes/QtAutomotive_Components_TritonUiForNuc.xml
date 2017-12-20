@@ -47,10 +47,6 @@ make install INSTALL_ROOT=%system.teamcity.build.tempDir%/_install_]]></param>
       </extension>
     </build-extensions>
     <artifact-dependencies>
-      <dependency id="ARTIFACT_DEPENDENCY_18" sourceBuildTypeId="QtAutomotive_Components_QtApplicationManager" cleanDestination="true">
-        <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
-        <artifact sourcePath="+:qtappman.tar.gz =&gt; Docker/QtAutomotive/Components/TritonUI/qtappman/" />
-      </dependency>
       <dependency id="ARTIFACT_DEPENDENCY_19" sourceBuildTypeId="QtAutomotive_Components_QtIvi" cleanDestination="true">
         <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
         <artifact sourcePath="+:qtivi.tar.gz=&gt; Docker/QtAutomotive/Components/TritonUI/qtivi/" />
