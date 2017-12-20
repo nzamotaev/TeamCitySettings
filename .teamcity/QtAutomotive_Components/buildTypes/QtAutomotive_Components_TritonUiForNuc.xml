@@ -21,6 +21,16 @@ make install INSTALL_ROOT=%system.teamcity.build.tempDir%/_install_]]></param>
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
+      <runner id="RUNNER_120" name="Extract SDK" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[#!/bin/bash
+chmod a+x pelux-glibc-x86_64-core-image-pelux-qtas-demo-dev-corei7-64-toolchain-2.3.2.sh
+./pelux-glibc-x86_64-core-image-pelux-qtas-demo-dev-corei7-64-toolchain-2.3.2.sh -y -d `pwd`/install/]]></param>
+          <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%/SDK/" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_Components_HttpsGitLfsQtIoGerritTritonUiGit" />
