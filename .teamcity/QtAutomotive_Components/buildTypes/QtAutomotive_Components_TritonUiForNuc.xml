@@ -7,7 +7,9 @@
       <option name="artifactRules" value="+:%system.teamcity.build.tempDir%/_install_/opt/ =&gt; tritonui.tar.gz" />
       <option name="cleanBuild" value="true" />
     </options>
-    <parameters />
+    <parameters>
+      <param name="heresdkname" value="carlo-sdk-07-Sep-desktop-debug-gcc5-with-resources.tar.gz" spec="text display='normal' description='DO NOT CHANGE WITHOUT GOOD REASON' readOnly='true' label='HERE SDK filename' validationMode='any'" />
+    </parameters>
     <build-runners>
       <runner id="RUNNER_120" name="Extract SDK" type="simpleRunner">
         <parameters>
