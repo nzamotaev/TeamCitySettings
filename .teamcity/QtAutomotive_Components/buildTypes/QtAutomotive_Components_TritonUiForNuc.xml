@@ -9,9 +9,13 @@
     </options>
     <parameters />
     <build-runners>
-      <runner id="RUNNER_117" name="Docker" type="simpleRunner">
+      <runner id="RUNNER_117" name="Build" type="simpleRunner">
         <parameters>
-          <param name="script.content" value="./run.sh %system.teamcity.build.tempDir% `pwd`/../../../../ %teamcity.build.vcs.branch.QtAutomotive_Components_HttpsGitLfsQtIoGerritTritonUiGit% &quot;&quot;" />
+          <param name="script.content"><![CDATA[#!/bin/bash
+. %system.teamcity.build.tempDir%/SDK/environment-setup-corei7-64-pelux-linux
+qmake
+make -j %teamcity.agent.hardware.cpuCount%
+make install INSTALL_ROOT=%system.teamcity.build.tempDir%/_install_]]></param>
           <param name="teamcity.build.workingDir" value="Docker/QtAutomotive/Components/TritonUI" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
