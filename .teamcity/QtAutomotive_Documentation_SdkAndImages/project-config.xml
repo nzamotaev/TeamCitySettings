@@ -2,6 +2,15 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" parent-id="QtAutomotive" uuid="a78d5d6e-091d-45ca-bd0b-c85941e2b59f" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/10.0/project-config.xsd">
   <name>SDK_and_Images</name>
   <parameters />
+  <project-extensions>
+    <extension id="PROJECT_EXT_5" type="JetBrains.SharedResources">
+      <parameters>
+        <param name="name" value="Bitbake_directory" />
+        <param name="quota" value="1" />
+        <param name="type" value="quoted" />
+      </parameters>
+    </extension>
+  </project-extensions>
   <cleanup />
 </project>
 
