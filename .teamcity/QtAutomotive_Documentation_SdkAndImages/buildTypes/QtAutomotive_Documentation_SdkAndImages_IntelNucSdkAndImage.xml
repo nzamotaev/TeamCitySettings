@@ -5,7 +5,6 @@
   <settings>
     <options>
       <option name="allowExternalStatus" value="true" />
-      <option name="maximumNumberOfBuilds" value="1" />
     </options>
     <disabled-settings>
       <setting-ref ref="BUILD_EXT_26" />
