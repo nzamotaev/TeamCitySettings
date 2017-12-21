@@ -44,7 +44,14 @@ make install INSTALL_ROOT=%system.teamcity.build.tempDir%/_install_]]></param>
       <equals id="RQ_66" name="system.ubuntu.version" value="16.04" />
       <equals id="RQ_67" name="teamcity.agent.jvm.os.arch" value="amd64" />
     </requirements>
-    <build-triggers />
+    <build-triggers>
+      <build-trigger id="vcsTrigger" type="vcsTrigger">
+        <parameters>
+          <param name="branchFilter" value="+:ces" />
+          <param name="quietPeriodMode" value="DO_NOT_USE" />
+        </parameters>
+      </build-trigger>
+    </build-triggers>
     <build-extensions>
       <extension id="swabra" type="swabra">
         <parameters>
