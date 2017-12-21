@@ -8,7 +8,7 @@
       <option name="cleanBuild" value="true" />
     </options>
     <parameters>
-      <param name="heresdkname" value="carlo-sdk-07-Sep-desktop-debug-gcc5-with-resources.tar.gz" spec="text display='normal' description='DO NOT CHANGE WITHOUT GOOD REASON' readOnly='true' label='HERE SDK filename' validationMode='any'" />
+      <param name="heresdkname" value="carlo_sdk_Release_cw40_poky_2_2_2-3-with-debug.tar.xz" spec="text description='DO NOT CHANGE WITHOUT GOOD REASON' label='HERE SDK filename' validationMode='any' display='normal'" />
     </parameters>
     <build-runners>
       <runner id="RUNNER_120" name="Extract SDK" type="simpleRunner">
