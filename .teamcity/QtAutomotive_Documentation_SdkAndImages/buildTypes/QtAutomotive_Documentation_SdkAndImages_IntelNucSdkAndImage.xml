@@ -70,7 +70,7 @@ CONNECTIVITY_CHECK_URIS=""
 #DL_DIR = "${HOME}/bitbake_downloads"
 PACKAGE_CLASSES = "package_deb"
 RM_OLD_IMAGE = "1"
-IMAGE_INSTALL_append = " gnupg coreutils gcc-runtime"
+IMAGE_INSTALL_append = " gnupg coreutils"
 
 EOF]]></param>
           <param name="teamcity.build.workingDir" value="bitbake" />
