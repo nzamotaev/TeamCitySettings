@@ -44,6 +44,13 @@ echo "##teamcity[buildNumber '`git describe --abbrev=7`']"]]></param>
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
+      <runner id="RUNNER_84" name="Package" type="simpleRunner">
+        <parameters>
+          <param name="script.content" value="#!/bin/bash" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_Components_GithubComGeniviDltDaemonGit" />
