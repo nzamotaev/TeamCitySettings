@@ -8,6 +8,14 @@
     </options>
     <parameters />
     <build-runners>
+      <runner id="RUNNER_83" name="Get version" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[#!/bin/bash
+echo "##teamcity[buildNumber '`git describe --abbrev=7`']"]]></param>
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
       <runner id="RUNNER_90" name="Configure" type="jetbrains-cmake-conf">
         <parameters>
           <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%/build/" />
@@ -34,14 +42,6 @@
           <param name="ui-jetbrains-cmake-build-build-target" value="install" />
           <param name="ui-jetbrains-cmake-build-clean-before-build" value="true" />
           <param name="ui-jetbrains-cmake-build-native-tool-params" value="DESTDIR=%system.teamcity.build.tempDir%/install/" />
-        </parameters>
-      </runner>
-      <runner id="RUNNER_83" name="Get version" type="simpleRunner">
-        <parameters>
-          <param name="script.content"><![CDATA[#!/bin/bash
-echo "##teamcity[buildNumber '`git describe --abbrev=7`']"]]></param>
-          <param name="teamcity.step.mode" value="default" />
-          <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
       <runner id="RUNNER_84" name="Package" type="simpleRunner">
