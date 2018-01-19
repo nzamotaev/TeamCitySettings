@@ -46,7 +46,29 @@ echo "##teamcity[buildNumber '`git describe --abbrev=7`']"]]></param>
       </runner>
       <runner id="RUNNER_84" name="Package" type="simpleRunner">
         <parameters>
-          <param name="script.content" value="#!/bin/bash" />
+          <param name="script.content"><![CDATA[#!/bin/bash
+mkdir DEBIAN
+cat > DEBIAN/conffiles  << EOF
+/etc/dlt.conf
+/etc/dlt-system.conf
+/etc/dlt-dbus.conf
+/etc/dlt_gateway.conf
+/etc/dlt-kpi.conf
+EOF
+cat > DEBIAN/control << EOF
+Package: dlt-daemon
+Version: %env.BUILD_NUMBER%
+Architecture: amd64
+Maintainer: Nikolay Zamotaev
+Installed-Size: 3900
+Depends: libc6 (>= 2.15), libdbus-1-3 (>= 1.1.1), zlib1g (>= 1:1.1.4), libgcrypt20 (>= 1.6.5), libgpg-error0 (>= 1.21), libpcre3 (>= 2:8.38), libsystemd0 (>=229)
+Section: devel
+Priority: optional
+Homepage: https://github.com/GENIVI/dlt-daemon
+Description: GENIVI DLT
+ Logger for Automotive applications
+EOF]]></param>
+          <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%/install/" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
