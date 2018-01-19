@@ -55,9 +55,10 @@ cat > DEBIAN/conffiles  << EOF
 /etc/dlt_gateway.conf
 /etc/dlt-kpi.conf
 EOF
+export VNUMBER=`echo %env.BUILD_NUMBER%|sed 's/^v//'`
 cat > DEBIAN/control << EOF
 Package: dlt-daemon
-Version: %env.BUILD_NUMBER%
+Version: $VNUMBER
 Architecture: amd64
 Maintainer: Nikolay Zamotaev
 Installed-Size: 3900
