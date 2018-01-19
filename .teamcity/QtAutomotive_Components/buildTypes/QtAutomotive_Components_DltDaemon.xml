@@ -36,7 +36,7 @@
           <param name="ui-jetbrains-cmake-build-native-tool-params" value="DESTDIR=%system.teamcity.build.tempDir%/install/" />
         </parameters>
       </runner>
-      <runner id="RUNNER_83" name="" type="simpleRunner">
+      <runner id="RUNNER_83" name="Get version" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
 echo "##teamcity[buildNumber '`git describe --abbrev=7`']"]]></param>
