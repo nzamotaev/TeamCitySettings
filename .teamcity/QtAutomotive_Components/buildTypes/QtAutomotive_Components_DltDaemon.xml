@@ -67,7 +67,8 @@ Priority: optional
 Homepage: https://github.com/GENIVI/dlt-daemon
 Description: GENIVI DLT
  Logger for Automotive applications
-EOF]]></param>
+EOF
+dpkg-deb -b . ../]]></param>
           <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%/install/" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
