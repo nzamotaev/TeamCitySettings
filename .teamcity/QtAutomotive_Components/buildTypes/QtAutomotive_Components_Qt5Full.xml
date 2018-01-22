@@ -44,7 +44,11 @@ echo %dep.QtAutomotive_Components_QtApplicationManager.teamcity.build.vcs.branch
       </runner>
       <runner id="RUNNER_86" name="Check files" type="simpleRunner">
         <parameters>
-          <param name="script.content" value="ls -la" />
+          <param name="script.content"><![CDATA[#!/bin/bash
+mkdir -p root/DEBIAN
+for i in *.tar.gz;do
+    tar xvf "$i" -C ./root
+done]]></param>
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
