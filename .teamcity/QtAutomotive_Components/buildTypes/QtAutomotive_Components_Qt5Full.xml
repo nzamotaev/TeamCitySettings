@@ -43,7 +43,9 @@ echo "##teamcity[buildNumber '`git describe --abbrev=7`']"]]></param>
       <vcs-entry-ref root-id="QtAutomotive_Components_CodeQtIoQtQtwaylandGit">
         <checkout-rule rule="+:. =&gt; sources/qtwayland" />
       </vcs-entry-ref>
-      <vcs-entry-ref root-id="QtAutomotive_Components_CodeQtIoQtQtiviGit" />
+      <vcs-entry-ref root-id="QtAutomotive_Components_CodeQtIoQtQtiviGit">
+        <checkout-rule rule="+:. =&gt; sources/qtivi" />
+      </vcs-entry-ref>
     </vcs-settings>
     <requirements>
       <equals id="RQ_54" name="teamcity.agent.jvm.os.arch" value="amd64" />
