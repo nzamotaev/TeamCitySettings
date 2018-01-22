@@ -19,7 +19,7 @@
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
 echo "##teamcity[buildNumber '`git describe --abbrev=7`']"]]></param>
-          <param name="teamcity.build.workingDir" value="sources" />
+          <param name="teamcity.build.workingDir" value="sources/qt5" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
