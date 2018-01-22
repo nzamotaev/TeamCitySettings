@@ -102,6 +102,10 @@ done]]></param>
         <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
         <artifact sourcePath="+:qtwayland.tar.gz" />
       </dependency>
+      <dependency id="ARTIFACT_DEPENDENCY_27" sourceBuildTypeId="QtAutomotive_Components_Qt5" cleanDestination="false">
+        <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
+        <artifact sourcePath="+:qt.tar.gz" />
+      </dependency>
     </artifact-dependencies>
     <dependencies>
       <depend-on sourceBuildTypeId="QtAutomotive_Components_QtApplicationManager">
