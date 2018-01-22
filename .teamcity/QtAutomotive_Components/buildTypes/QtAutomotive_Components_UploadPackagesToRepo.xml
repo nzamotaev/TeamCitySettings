@@ -20,7 +20,15 @@
     <requirements>
       <equals id="RQ_69" name="system.CanUploadProperty" value="true" />
     </requirements>
-    <build-triggers />
+    <build-triggers>
+      <build-trigger id="TRIGGER_15" type="buildDependencyTrigger">
+        <parameters>
+          <param name="afterSuccessfulBuildOnly" value="true" />
+          <param name="branchFilter" value="+:*" />
+          <param name="dependsOn" value="QtAutomotive_Components_DltDaemon" />
+        </parameters>
+      </build-trigger>
+    </build-triggers>
     <artifact-dependencies>
       <dependency id="ARTIFACT_DEPENDENCY_23" sourceBuildTypeId="QtAutomotive_Components_DltDaemon" cleanDestination="true">
         <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
