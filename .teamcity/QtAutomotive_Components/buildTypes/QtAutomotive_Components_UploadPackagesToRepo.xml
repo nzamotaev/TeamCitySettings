@@ -4,7 +4,18 @@
   <description>Uploads dlt-daemon/qt packages to repository</description>
   <settings>
     <parameters />
-    <build-runners />
+    <build-runners>
+      <runner id="RUNNER_85" name="" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[#!/bin/bash
+/home/teamcity/bin/aptly repo add qtauto_pc *.deb
+/home/teamcity/bin/aptly publish update xenial qtauto_pc]]></param>
+          <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%/debs/" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+    </build-runners>
     <vcs-settings />
     <requirements>
       <equals id="RQ_69" name="system.CanUploadProperty" value="true" />
