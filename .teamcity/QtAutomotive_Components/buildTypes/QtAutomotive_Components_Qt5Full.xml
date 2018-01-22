@@ -33,6 +33,17 @@ echo "##teamcity[buildNumber '`git describe --abbrev=7`']"]]></param>
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
+      <runner id="RUNNER_86" name="" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[#!/bin/bash
+for i in *;do
+( cd $i;git describe )
+done]]></param>
+          <param name="teamcity.build.workingDir" value="sources/" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_Components_CodeQtIoQtQt5git">
