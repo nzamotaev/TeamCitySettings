@@ -39,6 +39,10 @@
         <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
         <artifact sourcePath="+:*.deb=&gt;%system.teamcity.build.tempDir%/debs/" />
       </dependency>
+      <dependency id="ARTIFACT_DEPENDENCY_28" sourceBuildTypeId="QtAutomotive_Components_Qt5Full" cleanDestination="false">
+        <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
+        <artifact sourcePath="+:*.deb=&gt;%system.teamcity.build.tempDir%/debs/" />
+      </dependency>
     </artifact-dependencies>
     <dependencies>
       <depend-on sourceBuildTypeId="QtAutomotive_Components_DltDaemon">
