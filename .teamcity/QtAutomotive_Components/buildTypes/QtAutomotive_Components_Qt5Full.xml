@@ -18,7 +18,8 @@
       <runner id="RUNNER_119" name="Build tagging/versioning" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
-#echo "##teamcity[buildNumber '`git describe --abbrev=7`']"]]></param>
+#echo "##teamcity[buildNumber '`git describe --abbrev=7`']"
+echo %dep.QtAutomotive_Components_DltDaemon.build.number%]]></param>
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
