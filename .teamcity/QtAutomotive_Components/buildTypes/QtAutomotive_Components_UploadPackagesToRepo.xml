@@ -6,7 +6,9 @@
     <parameters />
     <build-runners />
     <vcs-settings />
-    <requirements />
+    <requirements>
+      <equals id="RQ_69" name="system.CanUploadProperty" value="true" />
+    </requirements>
     <build-triggers />
     <cleanup />
   </settings>
