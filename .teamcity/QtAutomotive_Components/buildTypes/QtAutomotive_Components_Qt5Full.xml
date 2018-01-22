@@ -94,6 +94,10 @@ done]]></param>
         <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
         <artifact sourcePath="+:qtappman.tar.gz=&gt;." />
       </dependency>
+      <dependency id="ARTIFACT_DEPENDENCY_25" sourceBuildTypeId="QtAutomotive_Components_QtIvi" cleanDestination="false">
+        <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
+        <artifact sourcePath="+:qtivi.tar.gz" />
+      </dependency>
     </artifact-dependencies>
     <dependencies>
       <depend-on sourceBuildTypeId="QtAutomotive_Components_QtApplicationManager">
