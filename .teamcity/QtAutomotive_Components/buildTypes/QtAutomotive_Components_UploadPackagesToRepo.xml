@@ -24,7 +24,7 @@
     <artifact-dependencies>
       <dependency id="ARTIFACT_DEPENDENCY_23" sourceBuildTypeId="QtAutomotive_Components_DltDaemon" cleanDestination="true">
         <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
-        <artifact sourcePath="+:.=&gt;%system.teamcity.build.tempDir%/debs/" />
+        <artifact sourcePath="+:*.deb=&gt;%system.teamcity.build.tempDir%/debs/" />
       </dependency>
     </artifact-dependencies>
     <dependencies>
