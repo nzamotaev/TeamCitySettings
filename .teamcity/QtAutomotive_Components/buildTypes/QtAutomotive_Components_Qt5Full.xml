@@ -70,24 +70,24 @@ Priority: optional
 Description: Qt5 from ${BRANCH} branch.
     Built with:
       Qt5
-        build:  %dep.QtAutomotive_Components_Qt5.build.number%
-        hash:   %dep.QtAutomotive_Components_Qt5.build.vcs.number.QtAutomotive_Components_CodeQtIoQtQt5git%
-        branch: %dep.QtAutomotive_Components_Qt5.teamcity.build.vcs.branch.QtAutomotive_Components_CodeQtIoQtQt5git%
+        build  %dep.QtAutomotive_Components_Qt5.build.number%
+        hash   %dep.QtAutomotive_Components_Qt5.build.vcs.number.QtAutomotive_Components_CodeQtIoQtQt5git%
+        branch %dep.QtAutomotive_Components_Qt5.teamcity.build.vcs.branch.QtAutomotive_Components_CodeQtIoQtQt5git%
 
       Qt Wayland
-        build:  %dep.QtAutomotive_Components_QtWayland.build.number%
-        hash:   %dep.QtAutomotive_Components_QtWayland.build.vcs.number.QtAutomotive_Components_CodeQtIoQtQtwaylandGit%
-        branch: %dep.QtAutomotive_Components_QtWayland.teamcity.build.vcs.branch.QtAutomotive_Components_CodeQtIoQtQtwaylandGit%
+        build  %dep.QtAutomotive_Components_QtWayland.build.number%
+        hash   %dep.QtAutomotive_Components_QtWayland.build.vcs.number.QtAutomotive_Components_CodeQtIoQtQtwaylandGit%
+        branch %dep.QtAutomotive_Components_QtWayland.teamcity.build.vcs.branch.QtAutomotive_Components_CodeQtIoQtQtwaylandGit%
 
       QtIVI
-        build:  %dep.QtAutomotive_Components_QtIvi.build.number%
-        hash:   %dep.QtAutomotive_Components_QtIvi.build.vcs.number.QtAutomotive_Components_CodeQtIoQtQtiviGit%
-        branch: %dep.QtAutomotive_Components_QtIvi.teamcity.build.vcs.branch.QtAutomotive_Components_CodeQtIoQtQtiviGit%
+        build  %dep.QtAutomotive_Components_QtIvi.build.number%
+        hash   %dep.QtAutomotive_Components_QtIvi.build.vcs.number.QtAutomotive_Components_CodeQtIoQtQtiviGit%
+        branch %dep.QtAutomotive_Components_QtIvi.teamcity.build.vcs.branch.QtAutomotive_Components_CodeQtIoQtQtiviGit%
 
       Qt Application Manager
-        build:  %dep.QtAutomotive_Components_QtApplicationManager.build.number%
-        hash:   %dep.QtAutomotive_Components_QtApplicationManager.build.vcs.number.QtAutomotive_Components_CodeQtIoQtQtapplicationmanagerGit%
-        branch: %dep.QtAutomotive_Components_QtApplicationManager.teamcity.build.vcs.branch.QtAutomotive_Components_CodeQtIoQtQtapplicationmanagerGit%
+        build  %dep.QtAutomotive_Components_QtApplicationManager.build.number%
+        hash   %dep.QtAutomotive_Components_QtApplicationManager.build.vcs.number.QtAutomotive_Components_CodeQtIoQtQtapplicationmanagerGit%
+        branch %dep.QtAutomotive_Components_QtApplicationManager.teamcity.build.vcs.branch.QtAutomotive_Components_CodeQtIoQtQtapplicationmanagerGit%
 EOF
 dpkg -b ./root/ %system.teamcity.build.tempDir%/]]></param>
           <param name="teamcity.step.mode" value="default" />
