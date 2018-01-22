@@ -92,7 +92,7 @@ done]]></param>
     <artifact-dependencies>
       <dependency id="ARTIFACT_DEPENDENCY_24" sourceBuildTypeId="QtAutomotive_Components_QtApplicationManager" cleanDestination="false">
         <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
-        <artifact sourcePath="+:qtappman.tar.gz=&gt;./root/" />
+        <artifact sourcePath="+:qtappman.tar.gz=&gt;." />
       </dependency>
     </artifact-dependencies>
     <dependencies>
