@@ -68,7 +68,7 @@ Depends: libc6 (>= 2.15)
 Section: devel
 Priority: optional
 Description: Qt5 from ${BRANCH} branch.
-    Built with:
+    Built with
       Qt5
         build  %dep.QtAutomotive_Components_Qt5.build.number%
         hash   %dep.QtAutomotive_Components_Qt5.build.vcs.number.QtAutomotive_Components_CodeQtIoQtQt5git%
