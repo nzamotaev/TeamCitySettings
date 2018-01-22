@@ -98,6 +98,10 @@ done]]></param>
         <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
         <artifact sourcePath="+:qtivi.tar.gz" />
       </dependency>
+      <dependency id="ARTIFACT_DEPENDENCY_26" sourceBuildTypeId="QtAutomotive_Components_QtWayland" cleanDestination="false">
+        <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
+        <artifact sourcePath="+:qtwayland.tar.gz" />
+      </dependency>
     </artifact-dependencies>
     <dependencies>
       <depend-on sourceBuildTypeId="QtAutomotive_Components_QtApplicationManager">
