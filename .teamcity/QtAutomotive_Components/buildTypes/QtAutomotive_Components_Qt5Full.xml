@@ -48,7 +48,7 @@ echo %dep.QtAutomotive_Components_QtApplicationManager.teamcity.build.vcs.branch
           <param name="script.content"><![CDATA[#!/bin/bash
 mkdir -p root/DEBIAN
 for i in *.tar.gz;do
-    tar xvf "$i" -C ./root
+    tar xf "$i" -C ./root
 done]]></param>
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
