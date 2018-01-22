@@ -19,7 +19,25 @@
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
 #echo "##teamcity[buildNumber '`git describe --abbrev=7`']"
-echo %dep.QtAutomotive_Components_DltDaemon.build.number%]]></param>
+echo Qt5
+echo %dep.QtAutomotive_Components_Qt5.build.number%
+echo %dep.QtAutomotive_Components_Qt5.build.vcs.number.QtAutomotive_Components_CodeQtIoQtQt5git%
+echo %dep.QtAutomotive_Components_Qt5.teamcity.build.vcs.branch.QtAutomotive_Components_CodeQtIoQtQt5git%
+
+echo Qt Wayland
+echo %dep.QtAutomotive_Components_QtWayland.build.number%
+echo %dep.QtAutomotive_Components_QtWayland.build.vcs.number.QtAutomotive_Components_CodeQtIoQtQtwaylandGit%
+echo %dep.QtAutomotive_Components_QtWayland.teamcity.build.vcs.branch.QtAutomotive_Components_CodeQtIoQtQtwaylandGit%
+
+echo QtIVI
+echo %dep.QtAutomotive_Components_QtIvi.build.number%
+echo %dep.QtAutomotive_Components_QtIvi.build.vcs.number.QtAutomotive_Components_CodeQtIoQtQtiviGit%
+echo %dep.QtAutomotive_Components_QtIvi.teamcity.build.vcs.branch.QtAutomotive_Components_CodeQtIoQtQtiviGit%
+
+echo Qt Application Manager
+echo %dep.QtAutomotive_Components_QtApplicationManager.build.number%
+echo %dep.QtAutomotive_Components_QtApplicationManager.build.vcs.number.QtAutomotive_Components_CodeQtIoQtQtapplicationmanagerGit%
+echo %dep.QtAutomotive_Components_QtApplicationManager.teamcity.build.vcs.branch.QtAutomotive_Components_CodeQtIoQtQtapplicationmanagerGit%]]></param>
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
