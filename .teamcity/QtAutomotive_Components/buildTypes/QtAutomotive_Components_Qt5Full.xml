@@ -37,7 +37,10 @@ echo "##teamcity[buildNumber '`git describe --abbrev=7`']"]]></param>
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
 for i in *;do
-( cd $i;git describe )
+( cd $i
+  echo $i
+  git describe
+)
 done]]></param>
           <param name="teamcity.build.workingDir" value="sources/" />
           <param name="teamcity.step.mode" value="default" />
