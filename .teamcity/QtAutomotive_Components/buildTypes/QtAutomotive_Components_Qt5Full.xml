@@ -40,6 +40,7 @@ echo "##teamcity[buildNumber '`git describe --abbrev=7`']"]]></param>
       <vcs-entry-ref root-id="GithubComNzamotaevTeamCityDockerScriptsGit">
         <checkout-rule rule="+:. =&gt; Docker" />
       </vcs-entry-ref>
+      <vcs-entry-ref root-id="QtAutomotive_Components_CodeQtIoQtQtwaylandGit" />
     </vcs-settings>
     <requirements>
       <equals id="RQ_54" name="teamcity.agent.jvm.os.arch" value="amd64" />
