@@ -35,7 +35,7 @@ echo "##teamcity[buildNumber '`git describe --abbrev=7`']"]]></param>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_Components_CodeQtIoQtQt5git">
-        <checkout-rule rule="+:. =&gt; sources" />
+        <checkout-rule rule="+:. =&gt; sources/qt5" />
       </vcs-entry-ref>
       <vcs-entry-ref root-id="GithubComNzamotaevTeamCityDockerScriptsGit">
         <checkout-rule rule="+:. =&gt; Docker" />
