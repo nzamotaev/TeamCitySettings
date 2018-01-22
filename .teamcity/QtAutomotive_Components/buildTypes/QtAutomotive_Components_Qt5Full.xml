@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<build-type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="21ff52ce-f3fd-4e99-9894-d12f003dcafa" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/10.0/project-config.xsd">
+  <name>Qt5Full</name>
+  <description />
+  <settings>
+    <options>
+      <option name="artifactRules" value="+:%system.teamcity.build.tempDir%/_install_/ =&gt; qt.tar.gz" />
+    </options>
+    <parameters>
+      <param name="debug_release" value="" spec="select label_3='release' display='normal' description='debug_release switch' data_1='-debug' label_1='debug' data_3=''" />
+      <param name="env.CCACHE_PREFIX" value="icecc" />
+      <param name="env.PATH" value="/usr/lib/ccache:%env.PATH%" />
+    </parameters>
+    <build-runners>
+      <runner id="RUNNER_119" name="Build tagging" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[#!/bin/bash
+echo "##teamcity[buildNumber '`git describe --abbrev=7`']"]]></param>
+          <param name="teamcity.build.workingDir" value="sources" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_104" name="Docker" type="simpleRunner">
+        <parameters>
+          <param name="script.content" value="./run.sh %system.teamcity.build.tempDir% `pwd`/../../../../sources/ %teamcity.build.vcs.branch.QtAutomotive_Components_CodeQtIoQtQt5git% %debug_release%" />
+          <param name="teamcity.build.workingDir" value="Docker/QtAutomotive/Components/Qt5" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+    </build-runners>
+    <vcs-settings>
+      <vcs-entry-ref root-id="QtAutomotive_Components_CodeQtIoQtQt5git">
+        <checkout-rule rule="+:. =&gt; sources" />
+      </vcs-entry-ref>
+      <vcs-entry-ref root-id="GithubComNzamotaevTeamCityDockerScriptsGit">
+        <checkout-rule rule="+:. =&gt; Docker" />
+      </vcs-entry-ref>
+    </vcs-settings>
+    <requirements>
+      <equals id="RQ_54" name="teamcity.agent.jvm.os.arch" value="amd64" />
+    </requirements>
+    <build-triggers>
+      <build-trigger id="vcsTrigger" type="vcsTrigger">
+        <parameters>
+          <param name="branchFilter" value="+:*" />
+          <param name="quietPeriodMode" value="DO_NOT_USE" />
+          <param name="triggerRules"><![CDATA[+:root=QtAutomotive_Components_CodeQtIoQtQt5git:**
++:root=GithubComNzamotaevTeamCityDockerScriptsGit:QtAutomotive/Components/Qt5/**
+-:root=GithubComNzamotaevTeamCityDockerScriptsGit:**]]></param>
+        </parameters>
+      </build-trigger>
+    </build-triggers>
+    <build-extensions>
+      <extension id="swabra" type="swabra">
+        <parameters>
+          <param name="swabra.enabled" value="swabra.before.build" />
+          <param name="swabra.strict" value="true" />
+        </parameters>
+      </extension>
+      <extension id="perfmon" type="perfmon">
+        <parameters />
+      </extension>
+      <extension id="jetbrains.agent.free.space" type="jetbrains.agent.free.space">
+        <parameters>
+          <param name="free-space-work" value="15gb" />
+        </parameters>
+      </extension>
+      <extension id="BUILD_EXT_18" type="BuildFailureOnMetric">
+        <parameters>
+          <param name="anchorBuild" value="lastSuccessful" />
+          <param name="metricKey" value="VisibleArtifactsSize" />
+          <param name="metricThreshold" value="1000000" />
+          <param name="metricUnits" value="metricUnitsDefault" />
+          <param name="moreOrLess" value="less" />
+          <param name="withBuildAnchor" value="false" />
+        </parameters>
+      </extension>
+    </build-extensions>
+    <cleanup />
+  </settings>
+</build-type>
+
