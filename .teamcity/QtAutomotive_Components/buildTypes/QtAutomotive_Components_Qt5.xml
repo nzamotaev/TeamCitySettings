@@ -40,6 +40,7 @@ echo "##teamcity[buildNumber '`git describe --abbrev=7`']"]]></param>
     </vcs-settings>
     <requirements>
       <equals id="RQ_54" name="teamcity.agent.jvm.os.arch" value="amd64" />
+      <equals id="RQ_71" name="system.ubuntu.version" value="16.04" />
     </requirements>
     <build-triggers>
       <build-trigger id="vcsTrigger" type="vcsTrigger">
