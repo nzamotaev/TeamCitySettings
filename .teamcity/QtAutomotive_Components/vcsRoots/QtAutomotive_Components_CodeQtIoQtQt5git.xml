@@ -6,6 +6,7 @@
   <param name="authMethod" value="ANONYMOUS" />
   <param name="branch" value="refs/heads/5.10" />
   <param name="ignoreKnownHosts" value="true" />
+  <param name="reportTagRevisions" value="true" />
   <param name="submoduleCheckout" value="IGNORE" />
   <param name="teamcity:branchSpec" value="+:refs/heads/*" />
   <param name="url" value="git://code.qt.io/qt/qt5.git" />
