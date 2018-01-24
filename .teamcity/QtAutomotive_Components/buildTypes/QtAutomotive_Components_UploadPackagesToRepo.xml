@@ -28,6 +28,13 @@
           <param name="dependsOn" value="QtAutomotive_Components_DltDaemon" />
         </parameters>
       </build-trigger>
+      <build-trigger id="TRIGGER_17" type="buildDependencyTrigger">
+        <parameters>
+          <param name="afterSuccessfulBuildOnly" value="true" />
+          <param name="branchFilter" value="+:*" />
+          <param name="dependsOn" value="QtAutomotive_Components_Qt5Full" />
+        </parameters>
+      </build-trigger>
     </build-triggers>
     <build-extensions>
       <extension id="perfmon" type="perfmon">
