@@ -3,6 +3,10 @@
   <name>Update triton version to latest master</name>
   <description />
   <settings>
+    <options>
+      <option name="checkoutMode" value="MANUAL" />
+      <option name="cleanBuild" value="true" />
+    </options>
     <parameters />
     <build-runners />
     <vcs-settings>
