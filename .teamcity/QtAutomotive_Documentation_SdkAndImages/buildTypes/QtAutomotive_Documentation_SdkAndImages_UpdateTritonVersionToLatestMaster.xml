@@ -33,6 +33,9 @@ ls -la]]></param>
       <extension id="swabra" type="swabra">
         <parameters />
       </extension>
+      <extension id="perfmon" type="perfmon">
+        <parameters />
+      </extension>
     </build-extensions>
     <cleanup />
   </settings>
