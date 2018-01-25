@@ -17,7 +17,10 @@ cat ~/.ssh/id_rsa.pub
 echo %system.build.vcs.number.QtAutomotive_Components_HttpsGitLfsQtIoGerritTritonUiGit%
 git clone git@git.pelagicore.net:uxteam/meta-qtas-demo.git
 git clone git@git.pelagicore.net:uxteam/qtas-demo-manifest.git
+
 cd meta-qtas-demo
+git config user.email "nzamotaev@luxoft.com"
+git config user.name "TeamCity server"
 FILENAME="`find ./ -name triton-ui_git.bb`"
 test -f "$FILENAME"
 sed 's/SRCREV *= *".*"/SRCREV = "%system.build.vcs.number.QtAutomotive_Components_HttpsGitLfsQtIoGerritTritonUiGit%"/' -i "$FILENAME"
