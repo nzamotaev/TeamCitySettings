@@ -24,8 +24,11 @@ git config user.name "TeamCity server"
 FILENAME="`find ./ -name triton-ui_git.bb`"
 test -f "$FILENAME"
 sed 's/SRCREV *= *".*"/SRCREV = "%system.build.vcs.number.QtAutomotive_Components_HttpsGitLfsQtIoGerritTritonUiGit%"/' -i "$FILENAME"
-git commit -m "Updated triton-ui to latest master" "$FILENAME"
-git log |head -n 15]]></param>
+git commit -m "Triton: Automatic update to the latest version of Triton" "$FILENAME"
+git log |head -n 15
+REVISION="`git rev-parse HEAD`"
+cd ..
+cd qtas-demo-manifest]]></param>
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
