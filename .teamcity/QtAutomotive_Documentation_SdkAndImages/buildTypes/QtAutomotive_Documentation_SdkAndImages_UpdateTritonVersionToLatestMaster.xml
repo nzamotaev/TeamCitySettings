@@ -35,6 +35,7 @@ git config user.email "nzamotaev@luxoft.com"
 git config user.name "TeamCity server"
 git commit -m "Automatic update to the latest version of meta-qtas-demo" pelux.xml
 git log |head -n 15]]></param>
+          <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
