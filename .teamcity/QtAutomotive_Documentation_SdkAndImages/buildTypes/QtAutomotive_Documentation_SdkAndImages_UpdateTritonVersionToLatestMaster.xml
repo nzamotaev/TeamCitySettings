@@ -24,7 +24,9 @@ git clone https://github.com/nzamotaev/TeamCityDockerScripts
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_Components_HttpsGitLfsQtIoGerritTritonUiGit" />
     </vcs-settings>
-    <requirements />
+    <requirements>
+      <equals id="RQ_72" name="teamcity.agent.jvm.os.name" value="Linux" />
+    </requirements>
     <build-triggers />
     <build-extensions>
       <extension id="swabra" type="swabra">
