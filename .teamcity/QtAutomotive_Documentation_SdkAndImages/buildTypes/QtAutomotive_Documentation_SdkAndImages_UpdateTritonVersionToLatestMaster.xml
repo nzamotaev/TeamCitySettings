@@ -19,6 +19,7 @@ git clone git@git.pelagicore.net:uxteam/qtas-demo-manifest.git
 git clone https://github.com/nzamotaev/TeamCityDockerScripts
 
 cd meta-qtas-demo
+ls -la
 git config user.email "nzamotaev@luxoft.com"
 git config user.name "TeamCity server"
 FILENAME="`find ./ -name triton-ui_git.bb`"
@@ -30,6 +31,7 @@ REVISION="`git rev-parse HEAD`"
 cd ..
 
 cd qtas-demo-manifest
+ls -la
 ../TeamCityDockerScripts/DocumentationSDK/UpdateTritonVersion/pelux_parse.py pelux.xml "$REVISION"
 git config user.email "nzamotaev@luxoft.com"
 git config user.name "TeamCity server"
