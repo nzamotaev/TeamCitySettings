@@ -26,8 +26,8 @@ FILENAME="`find ./ -name triton-ui_git.bb`"
 echo BB file: $FILENAME
 test -f "$FILENAME"
 sed 's/SRCREV *= *".*"/SRCREV = "%system.build.vcs.number.QtAutomotive_Components_HttpsGitLfsQtIoGerritTritonUiGit%"/' -i "$FILENAME"
-git diff
-git commit -m "Triton: Automatic update to the latest version of Triton" "$FILENAME"
+T=`git diff`
+test "x$T" == "x" || git commit -m "Triton: Automatic update to the latest version of Triton" "$FILENAME"
 git log |head -n 15
 REVISION="`git rev-parse HEAD`"
 echo $REVISION
@@ -38,7 +38,8 @@ ls -la
 ../TeamCityDockerScripts/DocumentationSDK/UpdateTritonVersion/pelux_parse.py pelux.xml "$REVISION"
 git config user.email "nzamotaev@luxoft.com"
 git config user.name "TeamCity server"
-git commit -m "Automatic update to the latest version of meta-qtas-demo" pelux.xml
+T=`git diff`
+test "x$T" == "x" || git commit -m "Automatic update to the latest version of meta-qtas-demo" pelux.xml
 git log |head -n 15]]></param>
           <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%" />
           <param name="teamcity.step.mode" value="default" />
