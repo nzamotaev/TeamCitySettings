@@ -29,6 +29,11 @@ ls -la]]></param>
     </vcs-settings>
     <requirements />
     <build-triggers />
+    <build-extensions>
+      <extension id="swabra" type="swabra">
+        <parameters />
+      </extension>
+    </build-extensions>
     <cleanup />
   </settings>
 </build-type>
