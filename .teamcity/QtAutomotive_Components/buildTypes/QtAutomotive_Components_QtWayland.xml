@@ -67,6 +67,16 @@ echo "##teamcity[buildNumber '`git describe --abbrev=7`']"]]></param>
           <param name="free-space-work" value="15gb" />
         </parameters>
       </extension>
+      <extension id="BUILD_EXT_33" type="BuildFailureOnMetric">
+        <parameters>
+          <param name="anchorBuild" value="lastSuccessful" />
+          <param name="metricKey" value="VisibleArtifactsSize" />
+          <param name="metricThreshold" value="1000" />
+          <param name="metricUnits" value="metricUnitsDefault" />
+          <param name="moreOrLess" value="less" />
+          <param name="withBuildAnchor" value="false" />
+        </parameters>
+      </extension>
     </build-extensions>
     <artifact-dependencies>
       <dependency id="ARTIFACT_DEPENDENCY_12" sourceBuildTypeId="QtAutomotive_Components_Qt5" cleanDestination="true">
