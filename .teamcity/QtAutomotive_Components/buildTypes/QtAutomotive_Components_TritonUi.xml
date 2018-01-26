@@ -52,7 +52,7 @@
           <param name="metricKey" value="VisibleArtifactsSize" />
           <param name="metricThreshold" value="1000000" />
           <param name="metricUnits" value="metricUnitsDefault" />
-          <param name="moreOrLess" value="more" />
+          <param name="moreOrLess" value="less" />
           <param name="withBuildAnchor" value="false" />
         </parameters>
       </extension>
