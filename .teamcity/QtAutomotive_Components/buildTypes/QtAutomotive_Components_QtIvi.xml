@@ -62,6 +62,16 @@
           <param name="free-space-work" value="3gb" />
         </parameters>
       </extension>
+      <extension id="BUILD_EXT_34" type="BuildFailureOnMetric">
+        <parameters>
+          <param name="anchorBuild" value="lastSuccessful" />
+          <param name="metricKey" value="VisibleArtifactsSize" />
+          <param name="metricThreshold" value="1000" />
+          <param name="metricUnits" value="metricUnitsDefault" />
+          <param name="moreOrLess" value="less" />
+          <param name="withBuildAnchor" value="false" />
+        </parameters>
+      </extension>
     </build-extensions>
     <artifact-dependencies>
       <dependency id="ARTIFACT_DEPENDENCY_13" sourceBuildTypeId="QtAutomotive_Components_DltDaemon" cleanDestination="true">
