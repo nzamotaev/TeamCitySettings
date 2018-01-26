@@ -29,6 +29,7 @@ git clone https://github.com/nzamotaev/TeamCityDockerScripts
     </vcs-settings>
     <requirements>
       <equals id="RQ_72" name="teamcity.agent.jvm.os.name" value="Linux" />
+      <equals id="RQ_73" name="teamcity.agent.name" value="Local Agent" />
     </requirements>
     <build-triggers>
       <build-trigger id="TRIGGER_18" type="schedulingTrigger">
