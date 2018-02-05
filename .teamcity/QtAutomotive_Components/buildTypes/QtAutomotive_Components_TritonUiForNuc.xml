@@ -49,7 +49,7 @@ make install INSTALL_ROOT=%system.teamcity.build.tempDir%/_install_]]></param>
     <build-triggers>
       <build-trigger id="vcsTrigger" type="vcsTrigger">
         <parameters>
-          <param name="branchFilter" value="+:ces" />
+          <param name="branchFilter" value="+:*" />
           <param name="quietPeriodMode" value="DO_NOT_USE" />
         </parameters>
       </build-trigger>
