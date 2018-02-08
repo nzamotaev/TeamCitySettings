@@ -33,7 +33,7 @@ tar xvf ./%heresdkname%]]></param>
 qmake HERE_SDK=%system.teamcity.build.tempDir%/SDK/install/sysroots/corei7-64-pelux-linux/ triton-ui.pro 
 #qmake triton-ui.pro 
 make -j %teamcity.agent.hardware.cpuCount%
-make install INSTALL_ROOT=%system.teamcity.build.tempDir%/_install_]]></param>
+fakeroot make install INSTALL_ROOT=%system.teamcity.build.tempDir%/_install_]]></param>
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
