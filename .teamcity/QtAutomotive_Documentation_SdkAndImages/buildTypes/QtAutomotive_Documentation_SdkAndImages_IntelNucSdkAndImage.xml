@@ -70,7 +70,7 @@ CONNECTIVITY_CHECK_URIS=""
 #DL_DIR = "${HOME}/bitbake_downloads"
 PACKAGE_CLASSES = "package_deb"
 RM_OLD_IMAGE = "1"
-IMAGE_INSTALL_append = " gnupg coreutils"
+IMAGE_INSTALL_append = " gnupg coreutils mc openssh-sftp"
 PACKAGE_FEED_URIS = "http://84.47.189.90/repos/debian/temp_repo_bitbake/"
 
 EOF]]></param>
