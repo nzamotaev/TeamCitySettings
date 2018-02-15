@@ -214,7 +214,14 @@ done]]></param>
         </parameters>
       </extension>
     </build-extensions>
-    <cleanup />
+    <cleanup>
+      <policy type="daysAndBuilds" cleanup-level="ARTIFACTS">
+        <parameters>
+          <param name="keepBuilds.count" value="10" />
+          <param name="keepDays.count" value="30" />
+        </parameters>
+      </policy>
+    </cleanup>
   </settings>
 </build-type>
 
