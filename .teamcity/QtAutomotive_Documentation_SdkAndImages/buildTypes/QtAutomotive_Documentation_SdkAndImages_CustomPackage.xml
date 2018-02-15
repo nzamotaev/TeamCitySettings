@@ -51,6 +51,9 @@ mkdir -p build
 if [ -d build/conf ]; then
     rm build/conf/*
 fi
+if [ -d build/tmp/deploy/images/intel-corei7-64/ ]; then
+    rm build/tmp/deploy/images/intel-corei7-64/core-image-*
+fi 
 TEMPLATECONF="`pwd`/sources/meta-qtas-demo/conf/variant/%variant_name%" source sources/poky/oe-init-build-env `pwd`/build
 
 cat > conf/site.conf << EOF
