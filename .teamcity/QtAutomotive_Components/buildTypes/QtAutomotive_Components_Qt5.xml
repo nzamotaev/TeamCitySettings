@@ -46,7 +46,9 @@ echo "##teamcity[buildNumber '`git describe --first-parent --abbrev=7`']"]]></pa
       <build-trigger id="vcsTrigger" type="vcsTrigger">
         <parameters>
           <param name="branchFilter"><![CDATA[+:*
--:wip/*]]></param>
+-:wip/*
+-:5.6
+-:5.7]]></param>
           <param name="quietPeriodMode" value="DO_NOT_USE" />
           <param name="triggerRules"><![CDATA[+:root=QtAutomotive_Components_CodeQtIoQtQt5git:**
 +:root=GithubComNzamotaevTeamCityDockerScriptsGit:QtAutomotive/Components/Qt5/**
