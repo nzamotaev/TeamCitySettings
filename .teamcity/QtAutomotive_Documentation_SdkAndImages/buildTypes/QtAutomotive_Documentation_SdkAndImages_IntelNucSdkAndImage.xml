@@ -57,7 +57,10 @@ if [ -d build/conf ]; then
 fi
 if [ -d build/tmp/deploy/images/intel-corei7-64/ ]; then
     rm build/tmp/deploy/images/intel-corei7-64/core-image-*
-fi 
+fi
+if [ -d build/tmp/deploy/sdk/ ]; then
+    rm build/tmp/deploy/sdk/*
+fi
 TEMPLATECONF="`pwd`/sources/meta-qtas-demo/conf/variant/%variant_name%" source sources/poky/oe-init-build-env `pwd`/build
 
 cat > conf/site.conf << EOF
