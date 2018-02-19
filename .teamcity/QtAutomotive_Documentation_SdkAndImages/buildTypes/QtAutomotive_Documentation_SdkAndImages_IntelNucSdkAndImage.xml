@@ -12,7 +12,7 @@
       <setting-ref ref="vcsTrigger" />
     </disabled-settings>
     <parameters>
-      <param name="bitbake_image" value="core-image-pelux-qtas-demo-dev" />
+      <param name="bitbake_image" value="core-image-pelux-qtas-demo" />
       <param name="variant_name" value="intel-qtauto" />
     </parameters>
     <build-runners>
