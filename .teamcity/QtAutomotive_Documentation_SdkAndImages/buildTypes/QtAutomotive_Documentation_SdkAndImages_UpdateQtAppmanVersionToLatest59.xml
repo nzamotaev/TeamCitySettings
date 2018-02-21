@@ -14,7 +14,7 @@
           <param name="script.content"><![CDATA[#!/bin/bash
 set -e
 git clone https://github.com/nzamotaev/TeamCityDockerScripts
-./TeamCityDockerScripts/DocumentationSDK/UpdateTritonVersion/process_version.sh "%system.build.vcs.number.QtAutomotive_Components_HttpsGitLfsQtIoGerritTritonUiGit%"]]></param>
+./TeamCityDockerScripts/DocumentationSDK/UpdateAppManVersion/process_version.sh "%system.build.vcs.number.QtAutomotive_Components_CodeQtIoQtQtapplicationmanagerGit%]]></param>
           <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
