@@ -40,7 +40,7 @@ git clone https://github.com/nzamotaev/TeamCityDockerScripts
           <param name="cronExpression_sec" value="0" />
           <param name="cronExpression_year" value="*" />
           <param name="dayOfWeek" value="Sunday" />
-          <param name="hour" value="0" />
+          <param name="hour" value="21" />
           <param name="minute" value="30" />
           <param name="promoteWatchedBuild" value="true" />
           <param name="revisionRule" value="lastFinished" />
