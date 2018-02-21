@@ -23,6 +23,7 @@ git clone https://github.com/nzamotaev/TeamCityDockerScripts
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_Components_HttpsGitLfsQtIoGerritTritonUiGit" />
+      <vcs-entry-ref root-id="QtAutomotive_Components_CodeQtIoQtQtapplicationmanagerGit" />
     </vcs-settings>
     <requirements>
       <equals id="RQ_72" name="teamcity.agent.jvm.os.name" value="Linux" />
