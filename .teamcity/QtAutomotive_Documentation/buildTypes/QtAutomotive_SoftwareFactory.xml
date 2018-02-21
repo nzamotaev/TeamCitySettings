@@ -13,7 +13,7 @@
           <param name="script.content"><![CDATA[mkdir -p /tmp/.pip_download_cache
 export PIP_DOWNLOAD_CACHE=/tmp/.pip_download_cache
 virtualenv ./
-./bin/pip install sphinxcontrib-seqdiag sphinxcontrib-blockdiag          sphinxcontrib-actdiag sphinxcontrib-manpage sphinx_rtd_theme six docutils
+./bin/pip install sphinxcontrib-seqdiag sphinxcontrib-blockdiag          sphinxcontrib-actdiag sphinxcontrib-manpage sphinx_rtd_theme six docutils pyenchant
 echo "##teamcity[setParameter name='env.PATH' value='/home/allview/virtualenv/bin:`pwd`/bin/:$PATH']"]]></param>
           <param name="teamcity.build.workingDir" value="pip" />
           <param name="teamcity.step.mode" value="default" />
