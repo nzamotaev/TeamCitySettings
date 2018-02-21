@@ -31,7 +31,7 @@ git clone https://github.com/nzamotaev/TeamCityDockerScripts
     <build-triggers>
       <build-trigger id="TRIGGER_18" type="schedulingTrigger">
         <parameters>
-          <param name="branchFilter" value="+:master" />
+          <param name="branchFilter" value="+:5.9" />
           <param name="cronExpression_dm" value="*" />
           <param name="cronExpression_dw" value="?" />
           <param name="cronExpression_hour" value="*" />
