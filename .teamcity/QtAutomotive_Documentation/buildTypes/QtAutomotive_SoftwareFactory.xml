@@ -24,6 +24,7 @@ echo "##teamcity[setParameter name='env.PATH' value='/home/allview/virtualenv/bi
       <runner id="RUNNER_64" name="" type="jetbrains-cmake-conf">
         <parameters>
           <param name="teamcity.step.mode" value="default" />
+          <param name="ui-jetbrains-cmake-conf-additional-cmd-params" value="-DPERFORM_SPELL_CHECK=OFF" />
           <param name="ui-jetbrains-cmake-conf-cmake-build-type" value="Default" />
           <param name="ui-jetbrains-cmake-conf-developer-warnings" value="false" />
           <param name="ui-jetbrains-cmake-conf-source-path" value="CMakeLists.txt" />
