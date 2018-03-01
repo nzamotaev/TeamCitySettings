@@ -3,14 +3,13 @@
   <name>https://github.com/Pelagicore/pelux-manifests.git</name>
   <param name="agentCleanFilesPolicy" value="ALL_UNTRACKED" />
   <param name="agentCleanPolicy" value="ON_BRANCH_CHANGE" />
-  <param name="authMethod" value="TEAMCITY_SSH_KEY" />
+  <param name="authMethod" value="PRIVATE_KEY_DEFAULT" />
   <param name="branch" value="refs/heads/master" />
   <param name="ignoreKnownHosts" value="true" />
   <param name="submoduleCheckout" value="CHECKOUT" />
   <param name="teamcity:branchSpec"><![CDATA[+:refs/heads/*
 +:refs/pull/(*/head)
 +:refs/pull/(*/merge)]]></param>
-  <param name="teamcitySshKey" value="teamcity@camembert" />
   <param name="url" value="git@git.pelagicore.net:uxteam/qtas-demo-manifest.git" />
   <param name="usernameStyle" value="USERID" />
 </vcs-root>
