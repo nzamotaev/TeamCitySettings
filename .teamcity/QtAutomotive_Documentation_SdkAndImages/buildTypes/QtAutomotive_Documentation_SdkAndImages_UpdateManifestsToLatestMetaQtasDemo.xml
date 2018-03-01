@@ -53,6 +53,13 @@ git clone https://github.com/nzamotaev/TeamCityDockerScripts
           <param name="triggerBuildWithPendingChangesOnly" value="true" />
         </parameters>
       </build-trigger>
+      <build-trigger id="vcsTrigger" type="vcsTrigger">
+        <parameters>
+          <param name="groupCheckinsByCommitter" value="true" />
+          <param name="perCheckinTriggering" value="true" />
+          <param name="quietPeriodMode" value="USE_DEFAULT" />
+        </parameters>
+      </build-trigger>
     </build-triggers>
     <build-extensions>
       <extension id="swabra" type="swabra">
