@@ -7,9 +7,6 @@
       <option name="checkoutMode" value="MANUAL" />
       <option name="cleanBuild" value="true" />
     </options>
-    <disabled-settings>
-      <setting-ref ref="TRIGGER_18" />
-    </disabled-settings>
     <parameters />
     <build-runners>
       <runner id="RUNNER_97" name="Get githash" type="simpleRunner">
@@ -32,27 +29,6 @@ git clone https://github.com/nzamotaev/TeamCityDockerScripts
       <equals id="RQ_73" name="teamcity.agent.name" value="Local Agent" />
     </requirements>
     <build-triggers>
-      <build-trigger id="TRIGGER_18" type="schedulingTrigger">
-        <parameters>
-          <param name="branchFilter" value="+:master" />
-          <param name="cronExpression_dm" value="*" />
-          <param name="cronExpression_dw" value="?" />
-          <param name="cronExpression_hour" value="*" />
-          <param name="cronExpression_min" value="0" />
-          <param name="cronExpression_month" value="*" />
-          <param name="cronExpression_sec" value="0" />
-          <param name="cronExpression_year" value="*" />
-          <param name="dayOfWeek" value="Sunday" />
-          <param name="hour" value="21" />
-          <param name="minute" value="30" />
-          <param name="promoteWatchedBuild" value="true" />
-          <param name="revisionRule" value="lastFinished" />
-          <param name="revisionRuleBuildBranch" value="&lt;default&gt;" />
-          <param name="schedulingPolicy" value="daily" />
-          <param name="timezone" value="SERVER" />
-          <param name="triggerBuildWithPendingChangesOnly" value="true" />
-        </parameters>
-      </build-trigger>
       <build-trigger id="vcsTrigger" type="vcsTrigger">
         <parameters>
           <param name="groupCheckinsByCommitter" value="true" />
