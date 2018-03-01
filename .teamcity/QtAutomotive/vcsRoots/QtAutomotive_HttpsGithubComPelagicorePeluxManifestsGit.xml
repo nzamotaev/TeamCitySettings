@@ -10,7 +10,7 @@
   <param name="teamcity:branchSpec"><![CDATA[+:refs/heads/*
 +:refs/pull/(*/head)
 +:refs/pull/(*/merge)]]></param>
-  <param name="teamcitySshKey" value="teamcity@camembert" />
+  <param name="teamcitySshKey" value="nzamotaev@nzamotaev" />
   <param name="url" value="git@git.pelagicore.net:uxteam/qtas-demo-manifest.git" />
   <param name="usernameStyle" value="USERID" />
 </vcs-root>
