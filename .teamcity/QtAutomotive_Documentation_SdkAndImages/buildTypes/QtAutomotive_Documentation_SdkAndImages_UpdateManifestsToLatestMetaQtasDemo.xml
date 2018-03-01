@@ -9,6 +9,7 @@
     </options>
     <disabled-settings>
       <setting-ref ref="TRIGGER_18" />
+      <setting-ref ref="vcsTrigger" />
     </disabled-settings>
     <parameters />
     <build-runners>
