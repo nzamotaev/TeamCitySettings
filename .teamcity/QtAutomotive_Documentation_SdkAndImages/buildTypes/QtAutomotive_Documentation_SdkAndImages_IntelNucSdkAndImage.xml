@@ -70,7 +70,7 @@ SOURCE_MIRROR_URL ?= "file:///home/allview/bitbake_downloads/"
 
 ICECC_PATH="/usr/bin/icecc"
 ICECC_USER_CLASS_BL = " native"
-#INHERIT +="icecc"
+INHERIT +="icecc"
 ICECC_USER_PACKAGE_BL = "libgcc gcc-runtime"
 CONNECTIVITY_CHECK_URIS=""
 #DL_DIR = "${HOME}/bitbake_downloads"
