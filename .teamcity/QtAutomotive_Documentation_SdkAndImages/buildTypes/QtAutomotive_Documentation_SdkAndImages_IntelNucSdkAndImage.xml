@@ -114,11 +114,11 @@ echo "##teamcity[progressFinish 'Building Image %variant_name% for %bitbake_imag
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
 
-echo "##teamcity[progressStart 'Building SDK %variant_name% for %bitbake_image%']"
+echo "##teamcity[progressStart 'Building SDK %variant_name% for %bitbake_image%-dev']"
 source sources/poky/oe-init-build-env build
 set -e
-bitbake -c populate_sdk %bitbake_image%
-echo "##teamcity[progressFinish 'Building SDK %variant_name% for %bitbake_image%']"
+bitbake -c populate_sdk %bitbake_image%-dev
+echo "##teamcity[progressFinish 'Building SDK %variant_name% for %bitbake_image%-dev']"
 find `pwd`/tmp/deploy/sdk/ -type f|while read i;do
     echo "##teamcity[publishArtifacts '$i']"
 done]]></param>
