@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <build-type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="8d0e0e2a-006c-48c5-9363-34769a2da64b" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/10.0/project-config.xsd">
-  <name>Update qt appman version to latest 5.9</name>
+  <name>Update qt appman version to latest 5.10</name>
   <description />
   <settings>
     <options>
