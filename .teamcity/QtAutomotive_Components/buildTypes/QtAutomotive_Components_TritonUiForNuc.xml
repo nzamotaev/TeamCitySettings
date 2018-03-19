@@ -30,7 +30,7 @@ tar xvf ./%heresdkname%]]></param>
           <param name="script.content"><![CDATA[#!/bin/bash
 . %system.teamcity.build.tempDir%/SDK/install/environment-setup-corei7-64-pelux-linux
 #qmake HERE_SDK=%system.teamcity.build.tempDir%/SDK/carlo/carlo_sdk/ triton-ui.pro 
-qmake HERE_SDK=%system.teamcity.build.tempDir%/SDK/install/sysroots/corei7-64-pelux-linux/ triton-ui.pro 
+qmake HERE_SDK=%system.teamcity.build.tempDir%/SDK/install/sysroots/corei7-64-pelux-linux/ 
 #qmake triton-ui.pro 
 make -j %teamcity.agent.hardware.cpuCount%
 fakeroot make install INSTALL_ROOT=%system.teamcity.build.tempDir%/_install_]]></param>
