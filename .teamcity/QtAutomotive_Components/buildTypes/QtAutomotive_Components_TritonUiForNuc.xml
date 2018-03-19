@@ -49,7 +49,7 @@ fakeroot make install INSTALL_ROOT=%system.teamcity.build.tempDir%/_install_]]><
     <build-triggers>
       <build-trigger id="vcsTrigger" type="vcsTrigger">
         <parameters>
-          <param name="branchFilter" value="+:*" />
+          <param name="branchFilter" value="+:refs/heads/5.10" />
           <param name="quietPeriodMode" value="DO_NOT_USE" />
         </parameters>
       </build-trigger>
