@@ -6,6 +6,7 @@
     <disabled-settings>
       <setting-ref ref="BUILD_EXT_26" />
       <setting-ref ref="RQ_52" />
+      <setting-ref ref="RUNNER_114" />
     </disabled-settings>
     <parameters>
       <param name="package_names" value="neptune3-ui" spec="text display='normal' description='Build packages instead of image' readOnly='true' label='Package' validationMode='any'" />
