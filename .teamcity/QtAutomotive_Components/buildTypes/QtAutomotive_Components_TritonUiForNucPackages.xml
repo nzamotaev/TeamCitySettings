@@ -8,7 +8,7 @@
       <setting-ref ref="RQ_52" />
     </disabled-settings>
     <parameters>
-      <param name="package_names" value="" spec="text description='Build packages instead of image' label='Package' validationMode='any' display='normal'" />
+      <param name="package_names" value="neptune3-ui" spec="text description='Build packages instead of image' label='Package' validationMode='any' display='normal'" />
       <param name="variant_name" value="intel-qtauto" />
     </parameters>
     <build-runners>
