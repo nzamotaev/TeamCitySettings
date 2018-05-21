@@ -6,7 +6,7 @@
   <param name="authMethod" value="PRIVATE_KEY_DEFAULT" />
   <param name="branch" value="refs/heads/master" />
   <param name="ignoreKnownHosts" value="true" />
-  <param name="submoduleCheckout" value="CHECKOUT" />
+  <param name="submoduleCheckout" value="IGNORE" />
   <param name="teamcity:branchSpec"><![CDATA[+:refs/heads/*
 +:refs/pull/(*/head)
 +:refs/pull/(*/merge)]]></param>
