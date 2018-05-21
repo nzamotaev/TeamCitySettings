@@ -116,6 +116,15 @@ fi]]></param>
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
+      <runner id="RUNNER_113" name="update submodules" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[git submodule init
+git submodule update]]></param>
+          <param name="teamcity.build.workingDir" value="pelux-manifests" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_HttpsGithubComPelagicorePeluxManifestsGit">
