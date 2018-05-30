@@ -76,7 +76,7 @@ cat > conf/site.conf << EOF
 
 INHERIT += "own-mirrors"
 SOURCE_MIRROR_URL ?= "file:///home/allview/bitbake_downloads/"
-
+PARALLEL_MAKE = "-l 10 -j 9"
 ICECC_PATH="/usr/bin/icecc"
 ICECC_USER_CLASS_BL = " native"
 #INHERIT +="icecc"
