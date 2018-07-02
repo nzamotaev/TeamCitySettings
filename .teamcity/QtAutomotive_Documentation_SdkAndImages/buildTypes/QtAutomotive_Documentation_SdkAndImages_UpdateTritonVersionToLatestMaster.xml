@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <build-type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="34727edd-3e48-4dcf-89ff-1cae5738dfea" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/10.0/project-config.xsd">
-  <name>Update neptune3 version to latest dev</name>
+  <name>Update neptune3 version to latest dev branch</name>
   <description />
   <settings>
     <options>
