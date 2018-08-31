@@ -75,7 +75,7 @@ TEMPLATECONF="`pwd`/sources/meta-qtas-demo/conf/variant/%variant_name%" source s
 cat > conf/site.conf << EOF
 
 INHERIT += "own-mirrors"
-SOURCE_MIRROR_URL ?= "file:///home/allview/bitbake_downloads/"
+SOURCE_MIRROR_URL ?= "file://${HOME}/bitbake_downloads/"
 ICECC_PATH="/usr/bin/icecc"
 ICECC_USER_CLASS_BL = " native"
 #INHERIT +="icecc"
