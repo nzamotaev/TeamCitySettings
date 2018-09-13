@@ -52,7 +52,7 @@ echo "##teamcity[setParameter name='env.PATH' value='/home/allview/virtualenv/bi
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_HttpsGithubComPelagicoreSoftwareFactoryGit">
-        <checkout-rule rule="+:.=&gt;sources" />
+        <checkout-rule rule="+:. =&gt; sources" />
       </vcs-entry-ref>
       <vcs-entry-ref root-id="GithubComNzamotaevTeamCityDockerScriptsGit">
         <checkout-rule rule="+:. =&gt; Docker" />
