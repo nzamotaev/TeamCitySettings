@@ -41,6 +41,14 @@ echo "##teamcity[setParameter name='env.PATH' value='/home/allview/virtualenv/bi
           <param name="ui-jetbrains-cmake-build-source-path" value="" />
         </parameters>
       </runner>
+      <runner id="RUNNER_103" name="New build step" type="simpleRunner">
+        <parameters>
+          <param name="script.content" value="./run.sh %system.teamcity.build.tempDir% `pwd`/../../../sources/" />
+          <param name="teamcity.build.workingDir" value="Docker/DocumentationSDK/SoftwareFactory" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_HttpsGithubComPelagicoreSoftwareFactoryBlueprintGit">
