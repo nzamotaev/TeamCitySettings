@@ -54,6 +54,7 @@ echo "##teamcity[setParameter name='env.PATH' value='/home/allview/virtualenv/bi
       <vcs-entry-ref root-id="QtAutomotive_HttpsGithubComPelagicoreSoftwareFactoryGit">
         <checkout-rule rule="+:.=&gt;sources" />
       </vcs-entry-ref>
+      <vcs-entry-ref root-id="GithubComNzamotaevTeamCityDockerScriptsGit" />
     </vcs-settings>
     <requirements>
       <contains id="RQ_42" name="teamcity.agent.jvm.os.name" value="Linux" />
