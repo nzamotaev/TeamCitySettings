@@ -43,7 +43,7 @@ echo "##teamcity[setParameter name='env.PATH' value='/home/allview/virtualenv/bi
       </runner>
       <runner id="RUNNER_102" name="" type="simpleRunner">
         <parameters>
-          <param name="script.content" value="./run.sh %system.teamcity.build.tempDir% `pwd`/../../../../sources/" />
+          <param name="script.content" value="./run.sh %system.teamcity.build.tempDir% `pwd`/../../../sources/" />
           <param name="teamcity.build.workingDir" value="Docker/DocumentationSDK/SoftwareFactory" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
