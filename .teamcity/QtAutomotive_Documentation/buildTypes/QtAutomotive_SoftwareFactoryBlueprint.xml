@@ -7,6 +7,7 @@
       <option name="artifactRules" value="docs/html/** =&gt; html.zip" />
     </options>
     <disabled-settings>
+      <setting-ref ref="RUNNER_66" />
       <setting-ref ref="RUNNER_78" />
     </disabled-settings>
     <parameters />
