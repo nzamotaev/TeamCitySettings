@@ -6,6 +6,9 @@
     <options>
       <option name="artifactRules" value="docs/html/** =&gt; html.zip" />
     </options>
+    <disabled-settings>
+      <setting-ref ref="RUNNER_67" />
+    </disabled-settings>
     <parameters />
     <build-runners>
       <runner id="RUNNER_67" name="virtualenv" type="simpleRunner">
