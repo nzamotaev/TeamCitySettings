@@ -48,7 +48,9 @@ echo "##teamcity[buildNumber '`git describe --first-parent --abbrev=7`']"]]></pa
           <param name="branchFilter"><![CDATA[+:*
 -:wip/*
 -:5.6
--:5.7]]></param>
+-:5.7
+-:5.9.7
+-:5.10]]></param>
           <param name="quietPeriodMode" value="DO_NOT_USE" />
           <param name="triggerRules"><![CDATA[+:root=QtAutomotive_Components_CodeQtIoQtQt5git:**
 +:root=GithubComNzamotaevTeamCityDockerScriptsGit:QtAutomotive/Components/Qt5/**
