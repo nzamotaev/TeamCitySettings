@@ -113,9 +113,7 @@ dpkg -b ./root/ %system.teamcity.build.tempDir%/]]></param>
       <build-trigger id="TRIGGER_16" type="buildDependencyTrigger">
         <parameters>
           <param name="afterSuccessfulBuildOnly" value="true" />
-          <param name="branchFilter"><![CDATA[+:*
--:5.9.7
--:5.10]]></param>
+          <param name="branchFilter" value="+:*" />
           <param name="dependsOn" value="QtAutomotive_Components_Qt5" />
         </parameters>
       </build-trigger>
