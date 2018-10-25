@@ -120,7 +120,7 @@ echo "##teamcity[progressFinish 'Building Image %variant_name% for %bitbake_imag
       </runner>
       <runner id="RUNNER_116" name="Compress and upload compressed image version" type="simpleRunner">
         <parameters>
-          <param name="script.content"><![CDATA[find `pwd`/tmp/deploy/images/`echo %variant_name%|awk -F- '{print $1}'`* -type l -name *.wic|while read i;do 
+          <param name="script.content"><![CDATA[find `pwd`/build/tmp/deploy/images/`echo %variant_name%|awk -F- '{print $1}'`* -type l -name *.wic|while read i;do 
     pbzip2 -k -9 "$i"
     echo "##teamcity[publishArtifacts '$i.bz2']"
 done]]></param>
