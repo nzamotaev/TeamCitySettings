@@ -129,6 +129,17 @@ done]]></param>
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
+      <runner id="RUNNER_118" name="Compress and upload compressed image version (1)" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[find `pwd`/build/tmp/deploy/images/`echo %variant_name%|awk -F- '{print $1}'`* -type l -name *.wic|while read i;do 
+    pbzip2 -k -9 "$i"
+    echo "##teamcity[publishArtifacts '$i.bz2']"
+done]]></param>
+          <param name="teamcity.build.workingDir" value="bitbake" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
       <runner id="RUNNER_109" name="populate sdk" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
