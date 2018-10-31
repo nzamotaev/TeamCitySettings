@@ -23,7 +23,9 @@ git clone https://github.com/nzamotaev/TeamCityDockerScripts
       </runner>
     </build-runners>
     <vcs-settings>
-      <vcs-entry-ref root-id="QtAutomotive_GitGitPelagicoreNetUxteamMetaQtasDemoGit" />
+      <vcs-entry-ref root-id="QtAutomotive_GitGitPelagicoreNetUxteamMetaQtasDemoGit">
+        <checkout-rule rule="+:.=&gt;." />
+      </vcs-entry-ref>
     </vcs-settings>
     <requirements>
       <equals id="RQ_72" name="teamcity.agent.jvm.os.name" value="Linux" />
