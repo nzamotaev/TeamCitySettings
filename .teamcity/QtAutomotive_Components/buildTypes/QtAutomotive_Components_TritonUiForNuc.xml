@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <build-type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="d5a8f123-3a11-46bf-9a6d-c9460d687171" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/10.0/project-config.xsd">
-  <name>Triton UI for NUC</name>
+  <name>Neptune3 UI for NUC</name>
   <description />
   <settings>
     <options>
