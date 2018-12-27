@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vcs-root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="b796c47f-4257-475a-a8f3-3364ee9086f5" type="jetbrains.git" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/10.0/project-config.xsd">
-  <name>https://github.com/Pelagicore/pelux-manifests.git</name>
+  <name>git@git.pelagicore.net:uxteam/qtas-demo-manifest.git</name>
   <param name="agentCleanFilesPolicy" value="ALL_UNTRACKED" />
   <param name="agentCleanPolicy" value="ON_BRANCH_CHANGE" />
   <param name="authMethod" value="PRIVATE_KEY_DEFAULT" />
