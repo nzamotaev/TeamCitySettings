@@ -9,7 +9,6 @@
   <param name="submoduleCheckout" value="CHECKOUT" />
   <param name="teamcity:branchSpec" value="+:refs/heads/*" />
   <param name="url" value="https://github.com/GENIVI/dlt-daemon.git" />
-  <param name="useAlternates" value="true" />
   <param name="usernameStyle" value="USERID" />
 </vcs-root>
 
