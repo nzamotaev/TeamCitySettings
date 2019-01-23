@@ -77,9 +77,7 @@ rm -rf DEBIAN]]></param>
         </parameters>
       </runner>
     </build-runners>
-    <vcs-settings>
-      <vcs-entry-ref root-id="QtAutomotive_Components_GithubComGeniviDltDaemonGit" />
-    </vcs-settings>
+    <vcs-settings />
     <requirements>
       <contains id="RQ_55" name="teamcity.agent.jvm.os.arch" value="amd64" />
     </requirements>
