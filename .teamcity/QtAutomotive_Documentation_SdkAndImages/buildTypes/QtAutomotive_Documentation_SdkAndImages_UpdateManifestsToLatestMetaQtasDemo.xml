@@ -14,7 +14,7 @@
           <param name="script.content"><![CDATA[#!/bin/bash
 set -e
 git clone https://github.com/nzamotaev/TeamCityDockerScripts
-./TeamCityDockerScripts/DocumentationSDK/UpdateManifest/process_version.sh "%system.build.vcs.number.QtAutomotive_GitGitPelagicoreNetUxteamMetaQtasDemoGit%"]]></param>
+./TeamCityDockerScripts/DocumentationSDK/UpdateManifest/process_version.sh "%system.build.vcs.number.QtAutomotive_GitGitPelagicoreNetUxteamMetaQtasDemoGit%" "%teamcity.build.checkoutDir%"]]></param>
           <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
