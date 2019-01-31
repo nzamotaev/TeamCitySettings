@@ -48,13 +48,16 @@ echo "##teamcity[buildNumber '`git describe --abbrev=7`']"]]></param>
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
 mkdir DEBIAN
-cat > DEBIAN/conffiles  << EOF
-/etc/dlt.conf
-/etc/dlt-system.conf
-/etc/dlt-dbus.conf
-/etc/dlt_gateway.conf
-/etc/dlt-kpi.conf
-EOF
+for i in etc/*.conf;do
+    echo /${i}
+done > DEBIAN/conffiles
+#cat > DEBIAN/conffiles  << EOF
+#/etc/dlt.conf
+#/etc/dlt-system.conf
+#/etc/dlt-dbus.conf
+#/etc/dlt_gateway.conf
+#/etc/dlt-kpi.conf
+#EOF
 export VNUMBER=`echo %env.BUILD_NUMBER%|sed 's/^v//'`
 cat > DEBIAN/control << EOF
 Package: dlt-daemon
