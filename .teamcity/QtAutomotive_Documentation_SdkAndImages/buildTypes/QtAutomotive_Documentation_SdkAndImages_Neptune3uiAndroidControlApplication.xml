@@ -3,7 +3,9 @@
   <name>Neptune3-ui android control application</name>
   <description />
   <settings>
-    <parameters />
+    <parameters>
+      <param name="env.ANDROID_SDK_ROOT" value="%env.ANDROID_HOME%" />
+    </parameters>
     <build-runners />
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_Components_HttpsGitLfsQtIoGerritTritonUiGit" />
