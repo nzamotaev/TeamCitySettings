@@ -9,7 +9,21 @@
     <parameters>
       <param name="env.ANDROID_SDK_ROOT" value="%env.ANDROID_HOME%" spec="text display='normal' readOnly='true' validationMode='any'" />
     </parameters>
-    <build-runners />
+    <build-runners>
+      <runner id="RUNNER_121" name="" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[mkdir ../install
+%env.ANDROID_QT_SDK%/%QT_VERSION%/android_%BUILDARCH%/bin/qmake %system.teamcity.build.checkoutDir%/settings_app_android.pro -spec android-clang
+make qmake_all
+make -j $(nproc)
+make INSTALL_ROOT=../install/ install
+%env.ANDROID_QT_SDK%/%QT_VERSION%/android_%BUILDARCH%/bin/androiddeployqt --input ./src/remotesettings/app/android-libNeptuneControlApp.so-deployment-settings.json --output ../install --gradle]]></param>
+          <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%/build/" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+    </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_Components_HttpsGitLfsQtIoGerritTritonUiGit" />
     </vcs-settings>
