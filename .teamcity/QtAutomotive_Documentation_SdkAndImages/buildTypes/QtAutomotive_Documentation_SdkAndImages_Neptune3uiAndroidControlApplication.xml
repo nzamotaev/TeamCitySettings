@@ -10,6 +10,7 @@
     </vcs-settings>
     <requirements>
       <equals id="RQ_64" name="teamcity.agent.jvm.os.arch" value="amd64" />
+      <exists id="RQ_65" name="env.ANDROID_HOME" />
     </requirements>
     <build-triggers />
     <cleanup />
