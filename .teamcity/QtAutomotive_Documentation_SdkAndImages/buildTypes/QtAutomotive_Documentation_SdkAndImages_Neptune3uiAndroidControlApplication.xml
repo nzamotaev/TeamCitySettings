@@ -8,7 +8,9 @@
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_Components_HttpsGitLfsQtIoGerritTritonUiGit" />
     </vcs-settings>
-    <requirements />
+    <requirements>
+      <equals id="RQ_64" name="teamcity.agent.jvm.os.arch" value="amd64" />
+    </requirements>
     <build-triggers />
     <cleanup />
   </settings>
