@@ -16,6 +16,14 @@
       <exists id="RQ_74" name="env.ANDROID_NDK_ROOT" />
     </requirements>
     <build-triggers />
+    <build-extensions>
+      <extension id="swabra" type="swabra">
+        <parameters>
+          <param name="swabra.enabled" value="swabra.before.build" />
+          <param name="swabra.strict" value="true" />
+        </parameters>
+      </extension>
+    </build-extensions>
     <cleanup />
   </settings>
 </build-type>
