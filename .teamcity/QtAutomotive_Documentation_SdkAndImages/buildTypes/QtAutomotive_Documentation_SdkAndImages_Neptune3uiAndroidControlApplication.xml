@@ -12,14 +12,15 @@
       <param name="env.ANDROID_SDK_ROOT" value="%env.ANDROID_HOME%" spec="text display='normal' readOnly='true' validationMode='any'" />
     </parameters>
     <build-runners>
-      <runner id="RUNNER_121" name="" type="simpleRunner">
+      <runner id="RUNNER_121" name="Qmake configuration" type="simpleRunner">
         <parameters>
-          <param name="script.content"><![CDATA[mkdir ../install
-%env.ANDROID_QT_SDK%/%QT_VERSION%/android_%BUILDARCH%/bin/qmake %system.teamcity.build.checkoutDir%/settings_app_android.pro -spec android-clang
+          <param name="script.content"><![CDATA[%env.ANDROID_QT_SDK%/%QT_VERSION%/android_%BUILDARCH%/bin/qmake %system.teamcity.build.checkoutDir%/settings_app_android.pro -spec android-clang
+mkdir -p ../install
 make qmake_all
 make -j $(nproc)
 make INSTALL_ROOT=`pwd`/../install/ install
-%env.ANDROID_QT_SDK%/%QT_VERSION%/android_%BUILDARCH%/bin/androiddeployqt --input ./src/remotesettings/app/android-libNeptuneControlApp.so-deployment-settings.json --output ../install --gradle]]></param>
+%env.ANDROID_QT_SDK%/%QT_VERSION%/android_%BUILDARCH%/bin/androiddeployqt --input ./src/remotesettings/app/android-libNeptuneControlApp.so-deployment-settings.json --output ../install --gradle --no-build
+#Here goes gradle]]></param>
           <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%/build/" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
