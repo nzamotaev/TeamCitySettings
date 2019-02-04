@@ -39,16 +39,6 @@ make INSTALL_ROOT=`pwd`/../install/ install]]></param>
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
-      <runner id="RUNNER_125" name="" type="simpleRunner">
-        <parameters>
-          <param name="script.content"><![CDATA[ls -la
-echo "Not implemented yet!"
-exit 1]]></param>
-          <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%/install/" />
-          <param name="teamcity.step.mode" value="default" />
-          <param name="use.custom.script" value="true" />
-        </parameters>
-      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_Components_HttpsGitLfsQtIoGerritTritonUiGit" />
