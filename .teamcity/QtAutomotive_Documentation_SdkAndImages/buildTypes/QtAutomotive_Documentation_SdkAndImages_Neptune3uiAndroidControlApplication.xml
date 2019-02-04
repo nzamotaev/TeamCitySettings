@@ -49,7 +49,15 @@ make INSTALL_ROOT=`pwd`/../install/ install]]></param>
       <exists id="RQ_74" name="env.ANDROID_NDK_ROOT" />
       <exists id="RQ_75" name="env.ANDROID_QT_SDK" />
     </requirements>
-    <build-triggers />
+    <build-triggers>
+      <build-trigger id="vcsTrigger" type="vcsTrigger">
+        <parameters>
+          <param name="branchFilter" value="+:*" />
+          <param name="perCheckinTriggering" value="true" />
+          <param name="quietPeriodMode" value="DO_NOT_USE" />
+        </parameters>
+      </build-trigger>
+    </build-triggers>
     <build-extensions>
       <extension id="swabra" type="swabra">
         <parameters>
