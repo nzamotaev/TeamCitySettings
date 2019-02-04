@@ -33,7 +33,7 @@ make INSTALL_ROOT=`pwd`/../install/ install]]></param>
       </runner>
       <runner id="RUNNER_124" name="Configuring android build" type="simpleRunner">
         <parameters>
-          <param name="script.content" value="%env.ANDROID_QT_SDK%/%QT_VERSION%/android_%BUILDARCH%/bin/androiddeployqt --input ./src/remotesettings/app/android-libNeptuneControlApp.so-deployment-settings.json --output ../install --gradle" />
+          <param name="script.content" value="%env.ANDROID_QT_SDK%/%QT_VERSION%/android_%BUILDARCH%/bin/androiddeployqt --input ./src/remotesettings/app/android-libNeptuneControlApp.so-deployment-settings.json --android-platform android-28 --output ../install --gradle" />
           <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%/build/" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
