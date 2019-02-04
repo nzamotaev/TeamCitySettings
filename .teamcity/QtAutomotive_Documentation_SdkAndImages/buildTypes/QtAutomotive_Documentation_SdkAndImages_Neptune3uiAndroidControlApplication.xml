@@ -20,10 +20,9 @@
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
-      <runner id="RUNNER_123" name="Qmake configuration (1)" type="simpleRunner">
+      <runner id="RUNNER_123" name="Building C++ part" type="simpleRunner">
         <parameters>
-          <param name="script.content"><![CDATA[%env.ANDROID_QT_SDK%/%QT_VERSION%/android_%BUILDARCH%/bin/qmake %system.teamcity.build.checkoutDir%/settings_app_android.pro -spec android-clang
-mkdir -p ../install
+          <param name="script.content"><![CDATA[mkdir -p ../install
 make qmake_all
 make -j $(nproc)
 make INSTALL_ROOT=`pwd`/../install/ install
