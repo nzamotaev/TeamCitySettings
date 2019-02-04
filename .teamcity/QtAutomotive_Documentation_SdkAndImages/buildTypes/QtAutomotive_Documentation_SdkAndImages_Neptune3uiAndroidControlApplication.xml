@@ -33,14 +33,9 @@ make INSTALL_ROOT=`pwd`/../install/ install
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
-      <runner id="RUNNER_124" name="Building C++ part (1)" type="simpleRunner">
+      <runner id="RUNNER_124" name="Configuring android build" type="simpleRunner">
         <parameters>
-          <param name="script.content"><![CDATA[mkdir -p ../install
-make qmake_all
-make -j $(nproc)
-make INSTALL_ROOT=`pwd`/../install/ install
-%env.ANDROID_QT_SDK%/%QT_VERSION%/android_%BUILDARCH%/bin/androiddeployqt --input ./src/remotesettings/app/android-libNeptuneControlApp.so-deployment-settings.json --output ../install --gradle --no-build
-#Here goes gradle]]></param>
+          <param name="script.content" value="%env.ANDROID_QT_SDK%/%QT_VERSION%/android_%BUILDARCH%/bin/androiddeployqt --input ./src/remotesettings/app/android-libNeptuneControlApp.so-deployment-settings.json --output ../install --gradle --no-build" />
           <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%/build/" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
