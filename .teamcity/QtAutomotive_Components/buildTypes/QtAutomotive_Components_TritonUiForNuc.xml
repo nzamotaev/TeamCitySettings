@@ -31,10 +31,10 @@ tar xvf ./%heresdkname%]]></param>
       <runner id="RUNNER_117" name="Build" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
-. %system.teamcity.build.tempDir%/SDK/install/environment-setup-corei7-64-pelux-linux
+. /opt/PeluxSDK/environment-setup-corei7-64-pelux-linux
 #qmake HERE_SDK=%system.teamcity.build.tempDir%/SDK/carlo/carlo_sdk/ triton-ui.pro 
-qmake HERE_SDK=%system.teamcity.build.tempDir%/SDK/install/sysroots/corei7-64-pelux-linux/ neptune3-ui.pro
-#qmake triton-ui.pro 
+#qmake HERE_SDK=%system.teamcity.build.tempDir%/SDK/install/sysroots/corei7-64-pelux-linux/ neptune3-ui.pro
+qmake neptune3-ui.pro
 make -j %teamcity.agent.hardware.cpuCount%
 fakeroot make install INSTALL_ROOT=%system.teamcity.build.tempDir%/_install_]]></param>
           <param name="teamcity.step.mode" value="default" />
