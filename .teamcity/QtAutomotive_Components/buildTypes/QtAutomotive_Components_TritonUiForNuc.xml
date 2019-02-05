@@ -29,6 +29,15 @@ tar xvf ./%heresdkname%]]></param>
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
+      <runner id="RUNNER_128" name="Build tagging" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[#!/bin/bash
+echo "##teamcity[buildNumber '`git describe --first-parent --abbrev=7`']"]]></param>
+          <param name="teamcity.build.workingDir" value="sources" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
       <runner id="RUNNER_117" name="Build" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
@@ -38,15 +47,6 @@ tar xvf ./%heresdkname%]]></param>
 qmake neptune3-ui.pro
 make -j %teamcity.agent.hardware.cpuCount%
 fakeroot make install INSTALL_ROOT=%system.teamcity.build.tempDir%/_install_]]></param>
-          <param name="teamcity.step.mode" value="default" />
-          <param name="use.custom.script" value="true" />
-        </parameters>
-      </runner>
-      <runner id="RUNNER_128" name="Build tagging" type="simpleRunner">
-        <parameters>
-          <param name="script.content"><![CDATA[#!/bin/bash
-echo "##teamcity[buildNumber '`git describe --first-parent --abbrev=7`']"]]></param>
-          <param name="teamcity.build.workingDir" value="sources" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
