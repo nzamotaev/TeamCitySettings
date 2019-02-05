@@ -8,6 +8,7 @@
       <option name="cleanBuild" value="true" />
     </options>
     <disabled-settings>
+      <setting-ref ref="ARTIFACT_DEPENDENCY_22" />
       <setting-ref ref="RUNNER_120" />
     </disabled-settings>
     <parameters>
