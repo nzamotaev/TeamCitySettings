@@ -39,6 +39,15 @@ make INSTALL_ROOT=`pwd`/../install/ install]]></param>
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
+      <runner id="RUNNER_126" name="" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[find ./ -name \*-debug.apk|while read i;do
+    curl -s http://app.testfairy.com/api/upload -F comment="`git log --pretty=format:\"%%h %%ad | %%s%%d [%%an]\" --date=short |head -n 1`" -F api_key=f8c0bc19e03df2b1e88964a64aabe6bcfe8a73af -F apk_file=@$i
+done]]></param>
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_Components_HttpsGitLfsQtIoGerritTritonUiGit" />
