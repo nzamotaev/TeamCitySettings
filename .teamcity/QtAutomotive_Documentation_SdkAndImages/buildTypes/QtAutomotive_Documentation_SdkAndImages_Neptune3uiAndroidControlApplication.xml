@@ -15,6 +15,14 @@
       <param name="env.ANDROID_SDK_ROOT" value="%env.ANDROID_HOME%" spec="text display='normal' readOnly='true' validationMode='any'" />
     </parameters>
     <build-runners>
+      <runner id="RUNNER_129" name="Build tagging" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[#!/bin/bash
+echo "##teamcity[buildNumber '`git describe --first-parent --abbrev=7`']"]]></param>
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
       <runner id="RUNNER_121" name="Qmake configuration" type="simpleRunner">
         <parameters>
           <param name="script.content" value="%env.ANDROID_QT_SDK%/%QT_VERSION%/android_%BUILDARCH%/bin/qmake %system.teamcity.build.checkoutDir%/settings_app_android.pro -spec android-clang" />
@@ -47,14 +55,6 @@ make INSTALL_ROOT=`pwd`/../install/ install]]></param>
           <param name="script.content"><![CDATA[find "%system.teamcity.build.tempDir%/install/" -name \*-debug.apk|while read i;do
     curl -s http://app.testfairy.com/api/upload -F comment="`git log --pretty=format:\"%%h %%ad | %%s%%d [%%an]\" --date=short |head -n 1`" -F api_key=f8c0bc19e03df2b1e88964a64aabe6bcfe8a73af -F apk_file=@$i
 done]]></param>
-          <param name="teamcity.step.mode" value="default" />
-          <param name="use.custom.script" value="true" />
-        </parameters>
-      </runner>
-      <runner id="RUNNER_129" name="Build tagging" type="simpleRunner">
-        <parameters>
-          <param name="script.content"><![CDATA[#!/bin/bash
-echo "##teamcity[buildNumber '`git describe --first-parent --abbrev=7`']"]]></param>
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
