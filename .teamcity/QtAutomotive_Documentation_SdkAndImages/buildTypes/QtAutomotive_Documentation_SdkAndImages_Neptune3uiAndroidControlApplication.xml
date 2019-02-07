@@ -72,6 +72,28 @@ done]]></param>
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
+      <runner id="RUNNER_131" name="Patch AndroidManifest.xml" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[cat > %system.teamcity.build.tempDir%/manifest.py << EOF
+import sys
+from lxml.etree import parse
+filename = sys.argv[1]                                                                              
+versionName = sys.argv[2]                                                                           
+versionCode = sys.argv[3]
+doc = parse(filename)
+for atype in doc.iter():
+    if atype.tag == "manifest":
+        atype.set("{http://schemas.android.com/apk/res/android}versionName",versionName)
+        atype.set("{http://schemas.android.com/apk/res/android}versionCode",versionCode)
+doc.write(filename, xml_declaration=True)
+EOF
+
+python %system.teamcity.build.tempDir%/manifest.py AndroidManifest.xml %build.number% %build.number%]]></param>
+          <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%/install/" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_Components_HttpsGitLfsQtIoGerritTritonUiGit" />
