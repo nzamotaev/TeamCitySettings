@@ -54,7 +54,7 @@ make INSTALL_ROOT=`pwd`/../install/ install]]></param>
         <parameters>
           <param name="script.content"><![CDATA[cat > %system.teamcity.build.tempDir%/manifest.py << EOF
 import sys
-from lxml.etree import parse
+from xml.etree.ElementTree import parse
 filename = sys.argv[1]                                                                              
 versionName = sys.argv[2]                                                                           
 versionCode = sys.argv[3]
