@@ -8,7 +8,8 @@
   <param name="ignoreKnownHosts" value="true" />
   <param name="secure:password" value="zxxb94b8674fd1bca12eabf2903252f2937" />
   <param name="submoduleCheckout" value="IGNORE" />
-  <param name="teamcity:branchSpec" value="+:dev" />
+  <param name="teamcity:branchSpec"><![CDATA[+:dev
++:5.12]]></param>
   <param name="url" value="https://code.qt.io/qt-apps/neptune3-ui.git" />
   <param name="useAlternates" value="true" />
   <param name="username" value="yocto" />
