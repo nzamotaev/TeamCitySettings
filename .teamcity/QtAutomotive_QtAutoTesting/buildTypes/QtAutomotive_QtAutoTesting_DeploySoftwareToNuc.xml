@@ -7,7 +7,10 @@
     <build-runners>
       <runner id="RUNNER_125" name="Power on NUC" type="simpleRunner">
         <parameters>
-          <param name="script.content" value="fdisk -l /dev/sda" />
+          <param name="script.content"><![CDATA[#Turn on the target power
+muxpi-power on
+# List disk partitions
+fdisk -l /dev/sda]]></param>
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
