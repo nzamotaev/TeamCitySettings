@@ -21,6 +21,11 @@ fdisk -l /dev/sda]]></param>
       <equals id="RQ_80" name="teamcity.agent.jvm.os.arch" value="arm" />
     </requirements>
     <build-triggers />
+    <build-extensions>
+      <extension id="perfmon" type="perfmon">
+        <parameters />
+      </extension>
+    </build-extensions>
     <artifact-dependencies>
       <dependency id="ARTIFACT_DEPENDENCY_30" sourceBuildTypeId="QtAutomotive_Documentation_SdkAndImages_IntelNucSdkAndImage" cleanDestination="true">
         <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
