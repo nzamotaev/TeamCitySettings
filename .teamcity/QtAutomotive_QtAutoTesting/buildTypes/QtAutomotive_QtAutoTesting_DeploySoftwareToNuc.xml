@@ -14,7 +14,9 @@
       </runner>
     </build-runners>
     <vcs-settings />
-    <requirements />
+    <requirements>
+      <equals id="RQ_80" name="teamcity.agent.jvm.os.arch" value="arm" />
+    </requirements>
     <build-triggers />
     <cleanup />
   </settings>
