@@ -27,6 +27,14 @@ fdisk -l /dev/sda]]></param>
         <artifact sourcePath="core-image-pelux-qtas-demo-intel-corei7-64.wic.bz2 =&gt; %system.teamcity.build.tempDir%" />
       </dependency>
     </artifact-dependencies>
+    <dependencies>
+      <depend-on sourceBuildTypeId="QtAutomotive_Documentation_SdkAndImages_IntelNucSdkAndImage">
+        <options>
+          <option name="take-started-build-with-same-revisions" value="true" />
+          <option name="take-successful-builds-only" value="true" />
+        </options>
+      </depend-on>
+    </dependencies>
     <cleanup />
   </settings>
 </build-type>
