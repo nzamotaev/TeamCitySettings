@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" parent-id="QtAutomotive" uuid="533a8361-d8ba-40a2-ac7c-f16df8515dd8" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/10.0/project-config.xsd">
+  <name>QtAuto Testing</name>
+  <description>Testing targets for qt automotive</description>
+  <parameters />
+  <cleanup />
+</project>
+
