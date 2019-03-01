@@ -10,10 +10,12 @@
           <param name="script.content"><![CDATA[#Turn on the target power
 muxpi-power on
 # List disk partitions
-while test -f /dev/sda;do
+echo "Waiting for the memory card detection"
+while ! test -e /dev/sda;do
      echo "waiting"
      sleep 1
 done
+echo "Card detected"
 fdisk -l /dev/sda]]></param>
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
