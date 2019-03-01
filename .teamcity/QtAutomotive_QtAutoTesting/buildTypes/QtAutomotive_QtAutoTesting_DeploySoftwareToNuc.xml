@@ -33,7 +33,7 @@ fdisk -l /dev/sda]]></param>
       </extension>
       <extension id="jetbrains.agent.free.space" type="jetbrains.agent.free.space">
         <parameters>
-          <param name="free-space-work" value="2gb" />
+          <param name="free-space-work" value="4gb" />
         </parameters>
       </extension>
     </build-extensions>
