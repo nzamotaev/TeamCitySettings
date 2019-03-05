@@ -17,7 +17,7 @@ while ! test -e /dev/sda;do
 done
 echo "Card detected"
 fdisk -l /dev/sda
-pv -I -r %system.teamcity.build.tempDir%/core-image-pelux-qtas-demo-intel-corei7-64.wic.bz2|bunzip2 > /dev/sda
+pv -I -n -r %system.teamcity.build.tempDir%/core-image-pelux-qtas-demo-intel-corei7-64.wic.bz2|bunzip2 > /dev/sda
 echo "Deploy completed"]]></param>
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
