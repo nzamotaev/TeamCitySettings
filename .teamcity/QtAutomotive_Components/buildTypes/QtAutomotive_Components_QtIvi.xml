@@ -76,7 +76,7 @@
         <parameters>
           <param name="xmlReportParsing.reportDirs"><![CDATA[+:%system.teamcity.build.tempDir%/_build_/**/result.xml
 +:%teamcity.build.checkoutDir%/**/result.xml]]></param>
-          <param name="xmlReportParsing.reportType" value="ctest" />
+          <param name="xmlReportParsing.reportType" value="gtest" />
           <param name="xmlReportParsing.verboseOutput" value="true" />
         </parameters>
       </extension>
