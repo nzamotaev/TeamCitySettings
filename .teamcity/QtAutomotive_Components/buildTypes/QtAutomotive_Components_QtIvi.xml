@@ -72,14 +72,6 @@
           <param name="withBuildAnchor" value="false" />
         </parameters>
       </extension>
-      <extension id="BUILD_EXT_46" type="xml-report-plugin">
-        <parameters>
-          <param name="xmlReportParsing.reportDirs"><![CDATA[+:%system.teamcity.build.tempDir%/_build_/**/result.xml
-+:%teamcity.build.checkoutDir%/**/result.xml]]></param>
-          <param name="xmlReportParsing.reportType" value="gtest" />
-          <param name="xmlReportParsing.verboseOutput" value="true" />
-        </parameters>
-      </extension>
     </build-extensions>
     <artifact-dependencies>
       <dependency id="ARTIFACT_DEPENDENCY_13" sourceBuildTypeId="QtAutomotive_Components_DltDaemon" cleanDestination="true">
