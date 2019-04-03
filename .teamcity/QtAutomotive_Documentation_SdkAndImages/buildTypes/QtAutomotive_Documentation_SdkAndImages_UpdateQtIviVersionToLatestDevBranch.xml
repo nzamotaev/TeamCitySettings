@@ -7,6 +7,9 @@
       <option name="checkoutMode" value="ON_AGENT" />
       <option name="cleanBuild" value="true" />
     </options>
+    <disabled-settings>
+      <setting-ref ref="TRIGGER_18" />
+    </disabled-settings>
     <parameters />
     <build-runners>
       <runner id="RUNNER_97" name="Get githash" type="simpleRunner">
