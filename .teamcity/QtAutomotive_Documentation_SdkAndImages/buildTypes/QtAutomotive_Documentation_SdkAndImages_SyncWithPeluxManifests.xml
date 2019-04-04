@@ -35,6 +35,11 @@ git clone https://github.com/nzamotaev/TeamCityDockerScripts
         </parameters>
       </build-trigger>
     </build-triggers>
+    <build-extensions>
+      <extension id="swabra" type="swabra">
+        <parameters />
+      </extension>
+    </build-extensions>
     <cleanup />
   </settings>
 </build-type>
