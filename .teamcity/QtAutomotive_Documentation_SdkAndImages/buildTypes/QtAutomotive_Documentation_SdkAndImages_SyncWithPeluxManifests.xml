@@ -18,6 +18,7 @@
     </vcs-settings>
     <requirements>
       <equals id="RQ_81" name="teamcity.agent.name" value="Local Agent" />
+      <equals id="RQ_82" name="teamcity.agent.jvm.os.name" value="Linux" />
     </requirements>
     <build-triggers>
       <build-trigger id="vcsTrigger" type="vcsTrigger">
