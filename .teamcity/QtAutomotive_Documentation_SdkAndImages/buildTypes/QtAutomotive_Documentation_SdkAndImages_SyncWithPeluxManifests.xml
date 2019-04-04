@@ -5,7 +5,9 @@
   <settings>
     <parameters />
     <build-runners />
-    <vcs-settings />
+    <vcs-settings>
+      <vcs-entry-ref root-id="QtAutomotive_Documentation_SdkAndImages_PeluxManifestsOnGithub" />
+    </vcs-settings>
     <requirements />
     <build-triggers />
     <cleanup />
