@@ -7,10 +7,10 @@
   <param name="branch" value="refs/heads/master" />
   <param name="ignoreKnownHosts" value="true" />
   <param name="submoduleCheckout" value="IGNORE" />
-  <param name="teamcity:branchSpec" value="+:master" />
   <param name="teamcitySshKey" value="teamcity@camembert" />
-  <param name="url" value="git@github.com:Pelagicore/pelux-manifests.git" />
+  <param name="url" value="github.com:Pelagicore/pelux-manifests.git" />
   <param name="useAlternates" value="true" />
+  <param name="username" value="git" />
   <param name="usernameStyle" value="USERID" />
 </vcs-root>
 
