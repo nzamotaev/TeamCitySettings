@@ -3,6 +3,9 @@
   <name>Sync with PELUX manifests</name>
   <description />
   <settings>
+    <disabled-settings>
+      <setting-ref ref="vcsTrigger" />
+    </disabled-settings>
     <parameters />
     <build-runners>
       <runner id="RUNNER_132" name="" type="simpleRunner">
