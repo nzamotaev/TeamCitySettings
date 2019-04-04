@@ -7,7 +7,11 @@
     <build-runners>
       <runner id="RUNNER_132" name="" type="simpleRunner">
         <parameters>
-          <param name="script.content" value="echo &quot;Sync process started&quot;" />
+          <param name="script.content"><![CDATA[#!/bin/bash
+set -e
+git clone https://github.com/nzamotaev/TeamCityDockerScripts
+./TeamCityDockerScripts/DocumentationSDK/SyncManifestWithPelux/process_version.sh "%teamcity.build.checkoutDir%"]]></param>
+          <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
