@@ -39,6 +39,9 @@ git clone https://github.com/nzamotaev/TeamCityDockerScripts
       <extension id="swabra" type="swabra">
         <parameters />
       </extension>
+      <extension id="perfmon" type="perfmon">
+        <parameters />
+      </extension>
     </build-extensions>
     <cleanup />
   </settings>
