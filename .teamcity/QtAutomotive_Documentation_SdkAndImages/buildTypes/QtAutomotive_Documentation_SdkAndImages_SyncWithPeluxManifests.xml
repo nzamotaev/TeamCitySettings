@@ -31,7 +31,6 @@ git clone https://github.com/nzamotaev/TeamCityDockerScripts
           <param name="groupCheckinsByCommitter" value="true" />
           <param name="perCheckinTriggering" value="true" />
           <param name="quietPeriodMode" value="USE_DEFAULT" />
-          <param name="triggerRules" value="+:root=QtAutomotive_Documentation_SdkAndImages_PeluxManifestsOnGithub:pelux.xml" />
         </parameters>
       </build-trigger>
     </build-triggers>
