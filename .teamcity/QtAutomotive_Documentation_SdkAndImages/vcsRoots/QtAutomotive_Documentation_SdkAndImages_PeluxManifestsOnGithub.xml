@@ -7,6 +7,7 @@
   <param name="branch" value="refs/heads/master" />
   <param name="ignoreKnownHosts" value="true" />
   <param name="submoduleCheckout" value="IGNORE" />
+  <param name="teamcity:branchSpec" value="+:master" />
   <param name="url" value="https://github.com/Pelagicore/pelux-manifests.git" />
   <param name="useAlternates" value="true" />
   <param name="usernameStyle" value="USERID" />
