@@ -5,7 +5,7 @@
   <project-extensions>
     <extension id="PROJECT_EXT_5" type="JetBrains.SharedResources">
       <parameters>
-        <param name="enabled" value="false" />
+        <param name="enabled" value="true" />
         <param name="id" value="PROJECT_EXT_5" />
         <param name="name" value="Bitbake_directory" />
         <param name="quota" value="1" />
