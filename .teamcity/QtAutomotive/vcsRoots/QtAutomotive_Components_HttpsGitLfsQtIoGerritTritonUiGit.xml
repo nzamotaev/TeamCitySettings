@@ -7,7 +7,8 @@
   <param name="branch" value="5.13" />
   <param name="ignoreKnownHosts" value="true" />
   <param name="submoduleCheckout" value="IGNORE" />
-  <param name="teamcity:branchSpec" value="+:*" />
+  <param name="teamcity:branchSpec"><![CDATA[+:*
+-:refs/changes/*/meta]]></param>
   <param name="url" value="https://codereview.qt-project.org/qt-apps/neptune3-ui" />
   <param name="useAlternates" value="true" />
   <param name="usernameStyle" value="USERID" />
