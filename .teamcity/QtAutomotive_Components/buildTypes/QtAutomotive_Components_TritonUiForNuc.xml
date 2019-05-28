@@ -45,7 +45,8 @@ echo "##teamcity[buildNumber '`git describe --first-parent --abbrev=7`']"]]></pa
 #qmake HERE_SDK=%system.teamcity.build.tempDir%/SDK/install/sysroots/corei7-64-pelux-linux/ neptune3-ui.pro
 qmake neptune3-ui.pro
 make -j %teamcity.agent.hardware.cpuCount%
-fakeroot make install INSTALL_ROOT=%system.teamcity.build.tempDir%/_install_]]></param>
+fakeroot make install INSTALL_ROOT=%system.teamcity.build.tempDir%/_install_
+(cd %system.teamcity.build.tempDir%/_install_/opt/neptune3/ && ln -s am-config-neptune.yaml am-config.yaml)]]></param>
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
