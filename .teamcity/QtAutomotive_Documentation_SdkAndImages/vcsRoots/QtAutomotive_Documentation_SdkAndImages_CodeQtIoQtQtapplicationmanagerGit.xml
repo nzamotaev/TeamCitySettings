@@ -7,11 +7,7 @@
   <param name="branch" value="refs/heads/%Tracking branch%" />
   <param name="ignoreKnownHosts" value="true" />
   <param name="submoduleCheckout" value="CHECKOUT" />
-  <param name="teamcity:branchSpec"><![CDATA[+:refs/heads/dev
-+:refs/heads/5.12
-+:refs/heads/5.13
-+:5.12
-+:5.13]]></param>
+  <param name="teamcity:branchSpec" value="+:refs/heads/*" />
   <param name="url" value="git://code.qt.io/qt/qtapplicationmanager.git" />
   <param name="useAlternates" value="true" />
   <param name="usernameStyle" value="USERID" />
