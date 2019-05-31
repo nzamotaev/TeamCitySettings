@@ -17,7 +17,12 @@ while ! test -e /dev/sda;do
 done
 echo "Card detected"
 fdisk -l /dev/sda
-pv -I -n -r %system.teamcity.build.tempDir%/core-image-pelux-qtas-demo-intel-corei7-64.wic.bz2|pbzip2 -d > /dev/sda
+##teamcity[progressMessage '<message>']
+echo "##teamcity[progressStart 'Writing card']"
+(pv -I -n -r %system.teamcity.build.tempDir%/core-image-pelux-qtas-demo-intel-corei7-64.wic.bz2|pbzip2 -d > /dev/sda) 2>&1|while read i;do
+    echo "##teamcity[progressMessage 'Writing card $i%%']"
+done
+echo "##teamcity[progressFinish 'Writing card']"
 echo "Deploy completed"]]></param>
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
