@@ -7,7 +7,7 @@
   <param name="branch" value="refs/heads/5.13" />
   <param name="ignoreKnownHosts" value="true" />
   <param name="reportTagRevisions" value="true" />
-  <param name="submoduleCheckout" value="IGNORE" />
+  <param name="submoduleCheckout" value="CHECKOUT" />
   <param name="teamcity:branchSpec" value="+:refs/heads/*" />
   <param name="url" value="git://code.qt.io/qt/qt5.git" />
   <param name="usernameStyle" value="USERID" />
