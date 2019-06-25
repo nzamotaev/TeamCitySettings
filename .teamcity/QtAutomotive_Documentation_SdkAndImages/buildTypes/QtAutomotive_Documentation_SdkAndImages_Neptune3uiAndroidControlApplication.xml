@@ -18,7 +18,7 @@
       <runner id="RUNNER_129" name="Build tagging" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
-echo "##teamcity[buildNumber '`git describe --first-parent --abbrev=7 --always`']"]]></param>
+echo "##teamcity[buildNumber '`git describe --tags --abbrev=7 --always`']"]]></param>
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
