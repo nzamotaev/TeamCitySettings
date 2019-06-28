@@ -11,7 +11,6 @@
       <setting-ref ref="RUNNER_106" />
       <setting-ref ref="RUNNER_107" />
       <setting-ref ref="RUNNER_109" />
-      <setting-ref ref="RUNNER_110" />
       <setting-ref ref="RUNNER_112" />
       <setting-ref ref="RUNNER_114" />
       <setting-ref ref="RUNNER_116" />
@@ -45,15 +44,6 @@ chmod a+x ~/bin/repo]]></param>
           <param name="script.content"><![CDATA[if [ ! -d mirror ]; then
    ../meta-boot2qt/b2qt-init-build-env mirror
 fi]]></param>
-          <param name="teamcity.step.mode" value="default" />
-          <param name="use.custom.script" value="true" />
-        </parameters>
-      </runner>
-      <runner id="RUNNER_110" name="update submodules" type="simpleRunner">
-        <parameters>
-          <param name="script.content"><![CDATA[git submodule init
-git submodule update]]></param>
-          <param name="teamcity.build.workingDir" value="pelux-manifests" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
