@@ -9,6 +9,7 @@
     <disabled-settings>
       <setting-ref ref="RQ_52" />
       <setting-ref ref="RUNNER_110" />
+      <setting-ref ref="RUNNER_79" />
       <setting-ref ref="RUNNER_80" />
       <setting-ref ref="TRIGGER_12" />
       <setting-ref ref="TRIGGER_13" />
