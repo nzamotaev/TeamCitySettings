@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <build-type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="90b07ed1-bd52-4882-97c1-7690d5ad7918" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/10.0/project-config.xsd">
-  <name>PELUX Intel NUC SDK and Image</name>
+  <name>Intel NUC SDK and Image</name>
   <description />
   <settings>
     <options>
