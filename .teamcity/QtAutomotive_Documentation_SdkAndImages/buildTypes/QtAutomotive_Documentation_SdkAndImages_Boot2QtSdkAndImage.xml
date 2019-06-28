@@ -75,7 +75,7 @@ EOF]]></param>
       </runner>
       <runner id="RUNNER_107" name="Fetch sources" type="simpleRunner">
         <parameters>
-          <param name="script.content"><![CDATA[source setup-environment.sh
+          <param name="script.content"><![CDATA[. setup-environment.sh
 bitbake --runall fetch %bitbake_image% %bitbake_sdk%]]></param>
           <param name="teamcity.build.workingDir" value="build-%env.MACHINE%" />
           <param name="teamcity.step.mode" value="default" />
