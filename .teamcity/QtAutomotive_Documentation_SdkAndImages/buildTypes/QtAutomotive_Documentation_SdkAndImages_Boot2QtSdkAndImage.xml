@@ -93,7 +93,7 @@ set -e
 bitbake -c clean %bitbake_image%
 bitbake %bitbake_image%
 pwd
-find `pwd`/tmp/deploy/images/%env.MACHINE%/* -type l -name *.wic|while read i;do 
+find `pwd`/tmp/deploy/images/%env.MACHINE%/ -type l -name *.wic|while read i;do 
     echo "##teamcity[publishArtifacts '$i']"
 done
 echo "##teamcity[progressFinish 'Building Image %bitbake_image% for %env.MACHINE%']"]]></param>
