@@ -16,7 +16,6 @@
       <setting-ref ref="RUNNER_114" />
       <setting-ref ref="RUNNER_116" />
       <setting-ref ref="RUNNER_118" />
-      <setting-ref ref="RUNNER_79" />
       <setting-ref ref="RUNNER_81" />
       <setting-ref ref="RUNNER_82" />
       <setting-ref ref="TRIGGER_12" />
@@ -56,14 +55,6 @@ fi]]></param>
           <param name="script.content"><![CDATA[git submodule init
 git submodule update]]></param>
           <param name="teamcity.build.workingDir" value="pelux-manifests" />
-          <param name="teamcity.step.mode" value="default" />
-          <param name="use.custom.script" value="true" />
-        </parameters>
-      </runner>
-      <runner id="RUNNER_79" name="Repo init" type="simpleRunner">
-        <parameters>
-          <param name="script.content" value="repo init -u ../pelux-manifests/ -m manifest.xml" />
-          <param name="teamcity.build.workingDir" value="bitbake" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
