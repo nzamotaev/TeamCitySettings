@@ -25,7 +25,7 @@
       <setting-ref ref="vcsTrigger" />
     </disabled-settings>
     <parameters>
-      <param name="bitbake_image" value="b2qt-automotive-qt5-image" />
+      <param name="bitbake_image" value="b2qt-automotive-qt5-image" spec="text display='normal' readOnly='true' validationMode='not_empty'" />
       <param name="bitbake_sdk" value="meta-toolchain-b2qt-automotive-qt5-sdk" spec="text display='normal' readOnly='true' validationMode='not_empty'" />
       <param name="env.MACHINE" value="intel-corei7-64" spec="select description='Targer for image build' data_11='emulator' data_33='smarc-samx6i' data_10='ebisu' data_32='salvator-x' data_13='imx6qdlsabresd' data_12='h3ulcb' data_34='tegra-t18x' data_31='raspberrypi' data_30='raspberrypi3' data_19='jetson-tx1' data_18='intel-corei7-64' data_15='imx7s-warp' data_14='imx7dsabresd' data_17='imx8qmmek' data_16='imx8mqevk' display='normal' label='Machine' data_22='nitrogen6x' data_21='m3ulcb' data_02='apalis-imx8' data_24='qemuarm64' data_01='apalis-imx6' data_23='nitrogen7' data_20='jetson-tx2' data_08='colibri-vf' data_07='colibri-imx8qxp' data_29='raspberrypi2' data_09='draak' data_04='colibri-imx6ull' data_26='qemumips64' data_03='colibri-imx6' data_25='qemuarmv7' data_06='colibri-imx7-emmc' data_28='raspberrypi0' data_05='colibri-imx7' data_27='qemumips'" />
     </parameters>
