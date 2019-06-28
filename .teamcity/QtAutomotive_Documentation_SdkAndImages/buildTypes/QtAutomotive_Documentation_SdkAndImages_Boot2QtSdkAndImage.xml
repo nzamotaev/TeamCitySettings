@@ -61,39 +61,19 @@ fi]]></param>
       <runner id="RUNNER_106" name="Setup bitbake" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
-echo "Setup bitbake %variant_name%"
-mkdir -p $HOME/bitbake_downloads
-mkdir -p $HOME/bitbake_sstate
-mkdir -p build
-if [ -d build/conf ]; then
-    rm build/conf/*
-fi
-if [ -d build/tmp/deploy/images/intel-corei7-64/ ]; then
-    rm build/tmp/deploy/images/intel-corei7-64/core-image-*
-fi
-if [ -d build/tmp/deploy/sdk/ ]; then
-    rm build/tmp/deploy/sdk/*
-fi
-TEMPLATECONF="`pwd`/sources/meta-qtas-demo/conf/variant/%variant_name%" source sources/poky/oe-init-build-env `pwd`/build
-
 cat > conf/site.conf << EOF
-
-INHERIT += "own-mirrors"
-SOURCE_MIRROR_URL ?= "file://${HOME}/bitbake_downloads/"
 ICECC_PATH="/usr/bin/icecc"
 ICECC_USER_CLASS_BL = " native"
-INHERIT +="icecc"
 ICECC_PARALLEL_MAKE = "-j 36"
-ICECC_USER_PACKAGE_BL = "libgcc gcc-runtime zlib grub grub-efi json-c"
+INHERIT += "icecc"
+INHERIT += "rm_work"
+INHERIT += "own-mirrors"
+ICECC_USER_PACKAGE_BL = "grub grub-efi libgcc gcc-runtime zlib gcc-sanitizers systemtap json-c"
 CONNECTIVITY_CHECK_URIS=""
-#DL_DIR = "${HOME}/bitbake_downloads"
-PACKAGE_CLASSES = "package_deb"
+SOURCE_MIRROR_URL ?= "file://${HOME}/bitbake_downloads/"
 RM_OLD_IMAGE = "1"
-IMAGE_INSTALL_append = " gnupg coreutils less"
-PACKAGE_FEED_URIS = "http://84.47.189.90/repos/debian/temp_repo_bitbake/"
-
 EOF]]></param>
-          <param name="teamcity.build.workingDir" value="bitbake" />
+          <param name="teamcity.build.workingDir" value="build-%env.MACHINE%" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
