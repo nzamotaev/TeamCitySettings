@@ -11,7 +11,6 @@
       <setting-ref ref="RUNNER_109" />
       <setting-ref ref="RUNNER_112" />
       <setting-ref ref="RUNNER_114" />
-      <setting-ref ref="RUNNER_118" />
       <setting-ref ref="TRIGGER_12" />
       <setting-ref ref="TRIGGER_13" />
       <setting-ref ref="vcsTrigger" />
