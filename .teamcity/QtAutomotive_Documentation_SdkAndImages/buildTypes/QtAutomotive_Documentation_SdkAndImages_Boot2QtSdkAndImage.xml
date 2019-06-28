@@ -177,7 +177,9 @@ done]]></param>
         </parameters>
       </runner>
     </build-runners>
-    <vcs-settings />
+    <vcs-settings>
+      <vcs-entry-ref root-id="QtAutomotive_Documentation_SdkAndImages_MetaBoot2Qt" />
+    </vcs-settings>
     <requirements>
       <contains id="RQ_44" name="teamcity.agent.jvm.os.name" value="Linux" />
       <equals id="RQ_52" name="system.hasIceCC" value="true" />
