@@ -116,7 +116,7 @@ done]]></param>
           <param name="script.content"><![CDATA[find `pwd`/build/tmp/deploy/images/%env.MACHINE%/ -type l -name *.wic.bz2|while read i;do 
     rm "$i"
 done]]></param>
-          <param name="teamcity.build.workingDir" value="bitbake" />
+          <param name="teamcity.build.workingDir" value="build-%env.MACHINE%" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
