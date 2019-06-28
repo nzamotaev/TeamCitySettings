@@ -88,17 +88,17 @@ bitbake --runall fetch %bitbake_image% %bitbake_sdk%]]></param>
       <runner id="RUNNER_82" name="Build image" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
-echo "##teamcity[progressStart 'Building Image %variant_name% for %bitbake_image%']"
-source sources/poky/oe-init-build-env build
+echo "##teamcity[progressStart 'Building Image %bitbake_image% for %env.MACHINE%']"
+source setup-environment.sh
 set -e
 bitbake -c clean %bitbake_image%
 bitbake %bitbake_image%
 pwd
-find `pwd`/tmp/deploy/images/`echo %variant_name%|awk -F- '{print $1}'`* -type l -name *.wic|while read i;do 
+find `pwd`/tmp/deploy/images/%env.MACHINE%/* -type l -name *.wic|while read i;do 
     echo "##teamcity[publishArtifacts '$i']"
 done
-echo "##teamcity[progressFinish 'Building Image %variant_name% for %bitbake_image%']"]]></param>
-          <param name="teamcity.build.workingDir" value="bitbake" />
+echo "##teamcity[progressFinish 'Building Image %bitbake_image% for %env.MACHINE%']"]]></param>
+          <param name="teamcity.build.workingDir" value="build-%env.MACHINE%" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
