@@ -178,6 +178,14 @@ done]]></param>
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
+      <runner id="RUNNER_138" name="build init" type="simpleRunner">
+        <parameters>
+          <param name="script.content" value="../meta-boot2qt/b2qt-init-build-env init --device ${MACHINE} --reference `pwd`/../mirror/" />
+          <param name="teamcity.build.workingDir" value="build-%env.MACHINE%" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_Documentation_SdkAndImages_MetaBoot2Qt">
