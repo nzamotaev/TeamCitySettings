@@ -188,6 +188,15 @@ done]]></param>
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
+      <runner id="RUNNER_136" name="Create mirror if needed" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[if [ ! -d mirror ]; then
+   ../meta-boot2qt/b2qt-init-build-env mirror
+fi]]></param>
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_Documentation_SdkAndImages_MetaBoot2Qt">
