@@ -48,6 +48,13 @@ fi]]></param>
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
+      <runner id="RUNNER_137" name="" type="simpleRunner">
+        <parameters>
+          <param name="script.content" value="ls -laR" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
       <runner id="RUNNER_106" name="Setup bitbake" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
@@ -166,13 +173,6 @@ done]]></param>
           <param name="script.content" value="time rsync -r -u --exclude 'x86_64*' build/tmp/deploy/deb/* ${HOME}/bitbake_repo/deb/" />
           <param name="teamcity.build.workingDir" value="bitbake" />
           <param name="teamcity.step.mode" value="execute_if_failed" />
-          <param name="use.custom.script" value="true" />
-        </parameters>
-      </runner>
-      <runner id="RUNNER_137" name="" type="simpleRunner">
-        <parameters>
-          <param name="script.content" value="ls -laR" />
-          <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
