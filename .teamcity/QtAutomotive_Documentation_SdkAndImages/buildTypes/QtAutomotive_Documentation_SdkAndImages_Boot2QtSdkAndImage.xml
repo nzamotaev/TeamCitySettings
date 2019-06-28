@@ -106,7 +106,7 @@ echo "##teamcity[progressFinish 'Building Image %bitbake_image% for %env.MACHINE
     pbzip2 -k -9 "$i"
     echo "##teamcity[publishArtifacts '$i.bz2']"
 done]]></param>
-          <param name="teamcity.build.workingDir" value="bitbake" />
+          <param name="teamcity.build.workingDir" value="build-%env.MACHINE%" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
