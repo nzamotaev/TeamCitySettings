@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<build-type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="b196b5ad-1a28-4923-abfe-0e7cd381de0c" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/10.0/project-config.xsd">
+  <name>Boot2Qt SDK and Image</name>
+  <description />
+  <settings>
+    <options>
+      <option name="allowExternalStatus" value="true" />
+    </options>
+    <disabled-settings>
+      <setting-ref ref="RQ_52" />
+      <setting-ref ref="vcsTrigger" />
+    </disabled-settings>
+    <parameters>
+      <param name="bitbake_image" value="core-image-pelux-qtas-demo" />
+      <param name="variant_name" value="intel-qtauto" />
+    </parameters>
+    <build-runners>
+      <runner id="RUNNER_110" name="update submodules" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[git submodule init
+git submodule update]]></param>
+          <param name="teamcity.build.workingDir" value="pelux-manifests" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_80" name="Get repo" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[export PATH=$HOME/bin/:$PATH
+echo "##teamcity[setParameter name='env.PATH' value='$PATH']"
+test -x ~/bin/repo && exit 0
+
+mkdir -p ~/bin
+curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+chmod a+x ~/bin/repo]]></param>
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_79" name="Repo init" type="simpleRunner">
+        <parameters>
+          <param name="script.content" value="repo init -u ../pelux-manifests/ -m manifest.xml" />
+          <param name="teamcity.build.workingDir" value="bitbake" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_81" name="repo sync" type="simpleRunner">
+        <parameters>
+          <param name="script.content" value="repo sync" />
+          <param name="teamcity.build.workingDir" value="bitbake" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_106" name="Setup bitbake" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[#!/bin/bash
+echo "Setup bitbake %variant_name%"
+mkdir -p $HOME/bitbake_downloads
+mkdir -p $HOME/bitbake_sstate
+mkdir -p build
+if [ -d build/conf ]; then
+    rm build/conf/*
+fi
+if [ -d build/tmp/deploy/images/intel-corei7-64/ ]; then
+    rm build/tmp/deploy/images/intel-corei7-64/core-image-*
+fi
+if [ -d build/tmp/deploy/sdk/ ]; then
+    rm build/tmp/deploy/sdk/*
+fi
+TEMPLATECONF="`pwd`/sources/meta-qtas-demo/conf/variant/%variant_name%" source sources/poky/oe-init-build-env `pwd`/build
+
+cat > conf/site.conf << EOF
+
+INHERIT += "own-mirrors"
+SOURCE_MIRROR_URL ?= "file://${HOME}/bitbake_downloads/"
+ICECC_PATH="/usr/bin/icecc"
+ICECC_USER_CLASS_BL = " native"
+INHERIT +="icecc"
+ICECC_PARALLEL_MAKE = "-j 36"
+ICECC_USER_PACKAGE_BL = "libgcc gcc-runtime zlib grub grub-efi json-c"
+CONNECTIVITY_CHECK_URIS=""
+#DL_DIR = "${HOME}/bitbake_downloads"
+PACKAGE_CLASSES = "package_deb"
+RM_OLD_IMAGE = "1"
+IMAGE_INSTALL_append = " gnupg coreutils less"
+PACKAGE_FEED_URIS = "http://84.47.189.90/repos/debian/temp_repo_bitbake/"
+
+EOF]]></param>
+          <param name="teamcity.build.workingDir" value="bitbake" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_107" name="Fetch sources" type="simpleRunner">
+        <parameters>
+          <param name="script.content" value="pelux-manifests/vagrant-cookbook/yocto/fetch-sources-for-recipes.sh bitbake %bitbake_image%" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_82" name="Build image" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[#!/bin/bash
+echo "##teamcity[progressStart 'Building Image %variant_name% for %bitbake_image%']"
+source sources/poky/oe-init-build-env build
+set -e
+bitbake -c clean %bitbake_image%
+bitbake %bitbake_image%
+pwd
+find `pwd`/tmp/deploy/images/`echo %variant_name%|awk -F- '{print $1}'`* -type l -name *.wic|while read i;do 
+    echo "##teamcity[publishArtifacts '$i']"
+done
+echo "##teamcity[progressFinish 'Building Image %variant_name% for %bitbake_image%']"]]></param>
+          <param name="teamcity.build.workingDir" value="bitbake" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_116" name="Compress and upload compressed image version" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[find `pwd`/build/tmp/deploy/images/`echo %variant_name%|awk -F- '{print $1}'`* -type l -name *.wic|while read i;do 
+    pbzip2 -k -9 "$i"
+    echo "##teamcity[publishArtifacts '$i.bz2']"
+done]]></param>
+          <param name="teamcity.build.workingDir" value="bitbake" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_118" name="Cleanup" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[find `pwd`/build/tmp/deploy/images/`echo %variant_name%|awk -F- '{print $1}'`* -type l -name *.wic.bz2|while read i;do 
+    rm "$i"
+done]]></param>
+          <param name="teamcity.build.workingDir" value="bitbake" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_109" name="populate sdk" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[#!/bin/bash
+
+echo "##teamcity[progressStart 'Building SDK %variant_name% for %bitbake_image%-dev']"
+source sources/poky/oe-init-build-env build
+set -e
+bitbake -c clean %bitbake_image%-dev
+bitbake -c populate_sdk %bitbake_image%-dev
+echo "##teamcity[progressFinish 'Building SDK %variant_name% for %bitbake_image%-dev']"
+bitbake package-index
+find `pwd`/tmp/deploy/sdk/ -type f|while read i;do
+    echo "##teamcity[publishArtifacts '$i']"
+done]]></param>
+          <param name="teamcity.build.workingDir" value="bitbake" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_112" name="Rsync sources directory" type="simpleRunner">
+        <parameters>
+          <param name="script.content" value="time rsync -trp build/downloads/ ${HOME}/bitbake_downloads/" />
+          <param name="teamcity.build.workingDir" value="bitbake" />
+          <param name="teamcity.step.mode" value="execute_if_failed" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_114" name="Rsync repo" type="simpleRunner">
+        <parameters>
+          <param name="script.content" value="time rsync -r -u --exclude 'x86_64*' build/tmp/deploy/deb/* ${HOME}/bitbake_repo/deb/" />
+          <param name="teamcity.build.workingDir" value="bitbake" />
+          <param name="teamcity.step.mode" value="execute_if_failed" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+    </build-runners>
+    <vcs-settings>
+      <vcs-entry-ref root-id="QtAutomotive_HttpsGithubComPelagicorePeluxManifestsGit">
+        <checkout-rule rule="+:. =&gt; pelux-manifests" />
+      </vcs-entry-ref>
+    </vcs-settings>
+    <requirements>
+      <contains id="RQ_44" name="teamcity.agent.jvm.os.name" value="Linux" />
+      <equals id="RQ_52" name="system.hasIceCC" value="true" />
+      <equals id="RQ_53" name="system.CanRunBitbake" value="true" />
+    </requirements>
+    <build-triggers>
+      <build-trigger id="vcsTrigger" type="vcsTrigger">
+        <parameters>
+          <param name="branchFilter" value="+:master" />
+          <param name="quietPeriodMode" value="DO_NOT_USE" />
+          <param name="triggerRules"><![CDATA[+:root=QtAutomotive_HttpsGithubComPelagicorePeluxManifestsGit:**
++:root=QtAutomotive_GitGitPelagicoreNetUxteamMetaQtasDemoGit:**]]></param>
+        </parameters>
+      </build-trigger>
+      <build-trigger id="TRIGGER_13" type="schedulingTrigger">
+        <parameters>
+          <param name="branchFilter" value="+:*" />
+          <param name="cronExpression_dm" value="*" />
+          <param name="cronExpression_dw" value="?" />
+          <param name="cronExpression_hour" value="22" />
+          <param name="cronExpression_min" value="0" />
+          <param name="cronExpression_month" value="*" />
+          <param name="cronExpression_sec" value="0" />
+          <param name="cronExpression_year" value="*" />
+          <param name="dayOfWeek" value="Sunday" />
+          <param name="hour" value="22" />
+          <param name="minute" value="0" />
+          <param name="promoteWatchedBuild" value="true" />
+          <param name="revisionRule" value="lastFinished" />
+          <param name="revisionRuleBuildBranch" value="&lt;default&gt;" />
+          <param name="schedulingPolicy" value="daily" />
+          <param name="timezone" value="SERVER" />
+          <param name="triggerBuildWithPendingChangesOnly" value="true" />
+        </parameters>
+      </build-trigger>
+      <build-trigger id="TRIGGER_12" type="schedulingTrigger">
+        <parameters>
+          <param name="branchFilter" value="+:*" />
+          <param name="cronExpression_dm" value="*" />
+          <param name="cronExpression_dw" value="?" />
+          <param name="cronExpression_hour" value="*" />
+          <param name="cronExpression_min" value="0" />
+          <param name="cronExpression_month" value="*" />
+          <param name="cronExpression_sec" value="0" />
+          <param name="cronExpression_year" value="*" />
+          <param name="dayOfWeek" value="Sunday" />
+          <param name="hour" value="5" />
+          <param name="minute" value="0" />
+          <param name="promoteWatchedBuild" value="true" />
+          <param name="revisionRule" value="lastFinished" />
+          <param name="revisionRuleBuildBranch" value="&lt;default&gt;" />
+          <param name="schedulingPolicy" value="weekly" />
+          <param name="timezone" value="SERVER" />
+          <param name="triggerBuildOnAllCompatibleAgents" value="true" />
+        </parameters>
+      </build-trigger>
+    </build-triggers>
+    <build-extensions>
+      <extension id="perfmon" type="perfmon">
+        <parameters />
+      </extension>
+      <extension id="jetbrains.agent.free.space" type="jetbrains.agent.free.space">
+        <parameters>
+          <param name="free-space-work" value="50gb" />
+        </parameters>
+      </extension>
+      <extension id="BUILD_EXT_13" type="BuildFailureOnMessage">
+        <parameters>
+          <param name="buildFailureOnMessage.conditionType" value="contains" />
+          <param name="buildFailureOnMessage.messagePattern" value="ERROR:" />
+          <param name="buildFailureOnMessage.reverse" value="false" />
+        </parameters>
+      </extension>
+      <extension id="BUILD_EXT_17" type="BuildFailureOnMessage">
+        <parameters>
+          <param name="buildFailureOnMessage.conditionType" value="contains" />
+          <param name="buildFailureOnMessage.messagePattern" value="Error:" />
+          <param name="buildFailureOnMessage.reverse" value="false" />
+        </parameters>
+      </extension>
+      <extension id="BUILD_EXT_26" type="JetBrains.SharedResources">
+        <parameters>
+          <param name="locks-param" value="Bitbake_directory writeLock" />
+        </parameters>
+      </extension>
+    </build-extensions>
+    <cleanup>
+      <policy type="daysAndBuilds" cleanup-level="ARTIFACTS">
+        <parameters>
+          <param name="keepBuilds.count" value="10" />
+          <param name="keepDays.count" value="30" />
+        </parameters>
+      </policy>
+    </cleanup>
+  </settings>
+</build-type>
+
