@@ -114,7 +114,7 @@ done]]></param>
       </runner>
       <runner id="RUNNER_118" name="Cleanup" type="simpleRunner">
         <parameters>
-          <param name="script.content"><![CDATA[find `pwd`/tmp/deploy/images/%env.MACHINE%/ -type l -name *.wic.bz2|while read i;do 
+          <param name="script.content"><![CDATA[find `pwd`/build-%env.MACHINE%/tmp/deploy/images/%env.MACHINE%/ -type l -name *.wic.bz2|while read i;do 
     rm "$i"
 done]]></param>
           <param name="teamcity.build.workingDir" value="build-%env.MACHINE%" />
