@@ -87,7 +87,7 @@ echo "##teamcity[buildNumber '`git describe --abbrev=7`']"]]></param>
     </build-extensions>
     <artifact-dependencies>
       <dependency id="ARTIFACT_DEPENDENCY_15" sourceBuildTypeId="QtAutomotive_Components_DltDaemon" cleanDestination="true">
-        <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
+        <revisionRule name="lastSuccessful" revision="latest.lastSuccessful" />
         <artifact sourcePath="+:dlt.tar.gz =&gt; Docker/QtAutomotive/Components/QtApplicationManager/dlt/" />
       </dependency>
       <dependency id="ARTIFACT_DEPENDENCY_16" sourceBuildTypeId="QtAutomotive_Components_QtIvi" cleanDestination="true">
