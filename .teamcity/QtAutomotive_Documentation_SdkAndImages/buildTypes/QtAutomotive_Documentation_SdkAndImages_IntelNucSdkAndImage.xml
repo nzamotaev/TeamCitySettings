@@ -109,9 +109,9 @@ set -e
 bitbake -c clean %bitbake_image%
 bitbake %bitbake_image%
 pwd
-find `pwd`/tmp/deploy/images/`echo %variant_name%|awk -F- '{print $1}'`* -type l -name *.wic|while read i;do 
-    echo "##teamcity[publishArtifacts '$i']"
-done
+#find `pwd`/tmp/deploy/images/`echo %variant_name%|awk -F- '{print $1}'`* -type l -name *.wic|while read i;do 
+#    echo "##teamcity[publishArtifacts '$i']"
+#done
 echo "##teamcity[progressFinish 'Building Image %variant_name% for %bitbake_image%']"]]></param>
           <param name="teamcity.build.workingDir" value="bitbake" />
           <param name="teamcity.step.mode" value="default" />
