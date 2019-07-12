@@ -111,7 +111,10 @@ done]]></param>
           <param name="groupCheckinsByCommitter" value="true" />
           <param name="perCheckinTriggering" value="true" />
           <param name="quietPeriodMode" value="USE_DEFAULT" />
-          <param name="triggerRules" value="-:doc/**" />
+          <param name="triggerRules"><![CDATA[+:.
+-:doc/**
+-:dev/**
+-:apps/**]]></param>
         </parameters>
       </build-trigger>
       <build-trigger id="TRIGGER_14" type="buildDependencyTrigger">
