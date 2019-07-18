@@ -141,8 +141,8 @@ done]]></param>
       </runner>
       <runner id="RUNNER_112" name="Rsync sources directory" type="simpleRunner">
         <parameters>
-          <param name="script.content" value="time rsync -trp build/downloads/ ${HOME}/bitbake_downloads/" />
-          <param name="teamcity.build.workingDir" value="bitbake" />
+          <param name="script.content" value="time rsync -trp downloads/ ${HOME}/bitbake_downloads/" />
+          <param name="teamcity.build.workingDir" value="build-%env.MACHINE%" />
           <param name="teamcity.step.mode" value="execute_if_failed" />
           <param name="use.custom.script" value="true" />
         </parameters>
