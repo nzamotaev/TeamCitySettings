@@ -103,7 +103,7 @@ echo "##teamcity[progressFinish 'Building Image %bitbake_image% for %env.MACHINE
       <runner id="RUNNER_116" name="Compress and upload compressed image version" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[find `pwd`/build-%env.MACHINE%/tmp/deploy/images/%env.MACHINE%/ -type l -name *.wic|while read i;do 
-    pbzip2 -k -9 "$i"
+    pbzip2 -k -f -9 "$i"
     echo "##teamcity[publishArtifacts '$i.bz2']"
 done]]></param>
           <param name="teamcity.build.workingDir" value="build-%env.MACHINE%" />
