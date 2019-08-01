@@ -175,6 +175,14 @@ done]]></param>
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
+      <runner id="RUNNER_137" name="Rsync repo (1)" type="simpleRunner">
+        <parameters>
+          <param name="script.content" value="time rsync -r -u --exclude 'x86_64*' build/tmp/deploy/deb/* ${HOME}/bitbake_repo/deb/" />
+          <param name="teamcity.build.workingDir" value="bitbake" />
+          <param name="teamcity.step.mode" value="execute_if_failed" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_HttpsGithubComPelagicorePeluxManifestsGit">
