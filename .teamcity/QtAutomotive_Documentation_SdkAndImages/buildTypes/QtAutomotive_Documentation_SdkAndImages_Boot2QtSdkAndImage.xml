@@ -159,8 +159,7 @@ done]]></param>
       </runner>
       <runner id="RUNNER_140" name="Rsync sstate" type="simpleRunner">
         <parameters>
-          <param name="script.content" value="time rsync -rlptD build/sstate-cache/ /net/192.168.5.2/DataVolume/bitbake_exports/bitbake_sstate/" />
-          <param name="teamcity.build.workingDir" value="bitbake" />
+          <param name="script.content" value="time rsync -rlptD sstate-cache/ /net/192.168.5.2/DataVolume/bitbake_exports/bitbake_sstate/" />
           <param name="teamcity.step.mode" value="execute_if_failed" />
           <param name="use.custom.script" value="true" />
         </parameters>
