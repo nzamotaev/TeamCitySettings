@@ -66,6 +66,8 @@ ICECC_USER_PACKAGE_BL = "grub grub-efi libgcc gcc-runtime zlib gcc-sanitizers sy
 CONNECTIVITY_CHECK_URIS=""
 SOURCE_MIRROR_URL ?= "file://${HOME}/bitbake_downloads/"
 RM_OLD_IMAGE = "1"
+SSTATE_MIRRORS ?= "file://.* file:///net/192.168.5.2/DataVolume/bitbake_exports/bitbake_sstate/PATH"
+
 EOF]]></param>
           <param name="teamcity.build.workingDir" value="build-%env.MACHINE%" />
           <param name="teamcity.step.mode" value="default" />
