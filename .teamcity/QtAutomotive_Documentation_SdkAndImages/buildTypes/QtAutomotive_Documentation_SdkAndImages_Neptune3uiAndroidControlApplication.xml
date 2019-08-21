@@ -114,7 +114,8 @@ done]]></param>
           <param name="triggerRules"><![CDATA[+:.
 -:doc/**
 -:dev/**
--:apps/**]]></param>
+-:apps/**
+-:comment=.*WIP.*:**]]></param>
         </parameters>
       </build-trigger>
       <build-trigger id="TRIGGER_14" type="buildDependencyTrigger">
