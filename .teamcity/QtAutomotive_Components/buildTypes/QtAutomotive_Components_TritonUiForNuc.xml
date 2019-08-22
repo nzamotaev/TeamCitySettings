@@ -10,6 +10,7 @@
     <disabled-settings>
       <setting-ref ref="ARTIFACT_DEPENDENCY_22" />
       <setting-ref ref="RUNNER_120" />
+      <setting-ref ref="vcsTrigger" />
     </disabled-settings>
     <parameters>
       <param name="heresdkname" value="carlo_sdk_Release_cw40_poky_2_2_2-3-with-debug.tar.xz" spec="text display='normal' description='DO NOT CHANGE WITHOUT GOOD REASON' readOnly='true' label='HERE SDK filename' validationMode='any'" />
