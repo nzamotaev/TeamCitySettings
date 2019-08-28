@@ -115,7 +115,7 @@ done]]></param>
 -:doc/**
 -:dev/**
 -:apps/**
--:comment=.*WIP.*:**
+-:comment=*WIP*:**
 -:user=abetouni:**]]></param>
         </parameters>
       </build-trigger>
