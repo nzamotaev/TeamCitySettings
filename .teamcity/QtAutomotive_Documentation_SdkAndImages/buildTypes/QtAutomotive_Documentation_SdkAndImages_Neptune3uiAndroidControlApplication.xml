@@ -115,7 +115,8 @@ done]]></param>
 -:doc/**
 -:dev/**
 -:apps/**
--:comment=.*WIP.*:**]]></param>
+-:comment=.*WIP.*:**
+-:user=abetouni:**]]></param>
         </parameters>
       </build-trigger>
       <build-trigger id="TRIGGER_14" type="buildDependencyTrigger">
