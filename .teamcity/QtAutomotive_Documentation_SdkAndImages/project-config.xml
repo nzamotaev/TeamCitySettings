@@ -14,6 +14,16 @@
         <param name="type" value="quoted" />
       </parameters>
     </extension>
+    <extension id="PROJECT_EXT_7" type="IssueTracker">
+      <parameters>
+        <param name="host" value="https://bugreports.qt.io/" />
+        <param name="idPrefix" value="QTBUG AUTOSUITE" />
+        <param name="name" value="qt.io" />
+        <param name="secure:password" value="zxx775d03cbe80d301b" />
+        <param name="type" value="jira" />
+        <param name="username" value="" />
+      </parameters>
+    </extension>
   </project-extensions>
   <cleanup />
 </project>
