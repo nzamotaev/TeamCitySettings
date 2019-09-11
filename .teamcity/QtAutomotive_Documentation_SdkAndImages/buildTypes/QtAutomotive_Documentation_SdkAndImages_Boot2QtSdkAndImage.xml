@@ -173,7 +173,9 @@ done]]></param>
       <vcs-entry-ref root-id="QtAutomotive_Documentation_SdkAndImages_MetaBoot2Qt">
         <checkout-rule rule="+:.=&gt;meta-boot2qt" />
       </vcs-entry-ref>
-      <vcs-entry-ref root-id="QtAutomotive_GitGitPelagicoreNetUxteamMetaQtasDemoGit" />
+      <vcs-entry-ref root-id="QtAutomotive_GitGitPelagicoreNetUxteamMetaQtasDemoGit">
+        <checkout-rule rule="+:.=&gt;meta-qtas-demo" />
+      </vcs-entry-ref>
     </vcs-settings>
     <requirements>
       <contains id="RQ_44" name="teamcity.agent.jvm.os.name" value="Linux" />
