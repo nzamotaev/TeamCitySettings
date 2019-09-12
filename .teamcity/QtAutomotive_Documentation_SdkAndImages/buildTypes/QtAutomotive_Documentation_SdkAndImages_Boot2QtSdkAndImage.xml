@@ -70,6 +70,7 @@ SSTATE_MIRRORS ?= "file://.* file:///net/192.168.5.2/DataVolume/bitbake_exports/
 
 BBMASK += "meta-qtas-demo/layers/b2qt/recipes-core/images/core-image-pelux-qtas-demo-dev.bb"
 BBMASK += "meta-qtas-demo/layers/b2qt/recipes-core/images/core-image-pelux-qtas-demo.bb"
+BBMASK += "meta-qtas-demo/layers/b2qt/recipes-core/images/updater-image.bb"
 
 EOF
 
