@@ -78,7 +78,7 @@ EOF
 
 bitbake-layers add-layer %teamcity.build.checkoutDir%/meta-qtas-demo/
 
-echo "##teamcity[buildStatus text='{build.status.text} `bitbake-layers show-recipes gammaray neptune3-ui qmllive qtapplicationmanager qtivi qtwebbrowser qtsaferenderer 2>&1|grep -v ^WARNING:`']"]]></param>
+echo "##teamcity[buildStatus text='{build.status.text} `bitbake-layers show-recipes gammaray neptune3-ui qmllive qtapplicationmanager qtivi qtwebbrowser qtsaferenderer 2>&1|grep -v ^WARNING:|tr -d '\n'`']"]]></param>
           <param name="teamcity.build.workingDir" value="build-%env.MACHINE%" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
