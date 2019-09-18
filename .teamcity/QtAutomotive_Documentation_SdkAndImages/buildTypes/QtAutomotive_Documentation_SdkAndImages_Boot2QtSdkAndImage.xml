@@ -79,7 +79,8 @@ bitbake-layers add-layer %teamcity.build.checkoutDir%/meta-qtas-demo/
 
 echo "<html><body><pre>" > %system.teamcity.build.tempDir%/versions.html
 bitbake-layers show-recipes gammaray neptune3-ui qmllive qtapplicationmanager qtivi qtwebbrowser qtsaferenderer 2>&1|grep -v ^WARNING:  >> %system.teamcity.build.tempDir%/versions.html
-echo "</pre></body></html>" >> %system.teamcity.build.tempDir%/versions.html]]></param>
+echo "</pre></body></html>" >> %system.teamcity.build.tempDir%/versions.html
+echo "##teamcity[publishArtifacts '%system.teamcity.build.tempDir%/versions.html']"]]></param>
           <param name="teamcity.build.workingDir" value="build-%env.MACHINE%" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
