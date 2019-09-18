@@ -9,7 +9,6 @@
     <disabled-settings>
       <setting-ref ref="RQ_52" />
       <setting-ref ref="RUNNER_114" />
-      <setting-ref ref="TRIGGER_12" />
       <setting-ref ref="vcsTrigger" />
     </disabled-settings>
     <parameters>
