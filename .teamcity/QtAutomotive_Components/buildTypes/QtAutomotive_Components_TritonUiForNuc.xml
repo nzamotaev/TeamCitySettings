@@ -41,7 +41,8 @@ echo "##teamcity[buildNumber '`git describe --always --tags --abbrev=7`']"]]></p
       <runner id="RUNNER_117" name="Build" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
-. /opt/PeluxSDK/environment-setup-corei7-64-pelux-linux
+#. /opt/PeluxSDK/environment-setup-corei7-64-pelux-linux
+. /opt/Boot2QtSDK/environment-setup-corei7-64-poky-linux
 #qmake HERE_SDK=%system.teamcity.build.tempDir%/SDK/carlo/carlo_sdk/ triton-ui.pro 
 #qmake HERE_SDK=%system.teamcity.build.tempDir%/SDK/install/sysroots/corei7-64-pelux-linux/ neptune3-ui.pro
 qmake neptune3-ui.pro
