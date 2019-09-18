@@ -274,6 +274,11 @@ done]]></param>
           <param name="locks-param" value="Bitbake_directory writeLock" />
         </parameters>
       </extension>
+      <extension id="BUILD_EXT_46" type="BuildResultDecorator">
+        <parameters>
+          <param name="artifactFilename" value="versions.html" />
+        </parameters>
+      </extension>
     </build-extensions>
     <cleanup>
       <policy type="daysAndBuilds" cleanup-level="ARTIFACTS">
