@@ -3,19 +3,20 @@
   <webhooks enabled="true">
     <webhook url="https://zulip-auto.lp.luxoft.com/api/v1/external/teamcity?api_key=ufS4SAt9FVM85luUHwf31AHqNe7H83cb&amp;stream=CoC%20Qt%20Automotive&amp;topic=TeamCity" enabled="true" format="json" template="none">
       <states>
-        <state type="buildStarted" enabled="false" />
-        <state type="buildFinished" enabled="true" />
+        <state type="buildFailed" enabled="true" />
         <state type="responsibilityChanged" enabled="false" />
+        <state type="beforeBuildFinish" enabled="true" />
         <state type="buildSuccessful" enabled="true" />
         <state type="buildBroken" enabled="true" />
-        <state type="buildInterrupted" enabled="true" />
         <state type="changesLoaded" enabled="false" />
-        <state type="buildFailed" enabled="true" />
+        <state type="buildStarted" enabled="false" />
         <state type="buildFixed" enabled="true" />
-        <state type="beforeBuildFinish" enabled="true" />
+        <state type="buildInterrupted" enabled="true" />
+        <state type="buildFinished" enabled="true" />
       </states>
       <build-types enabled-for-all="false" enabled-for-subprojects="false">
         <build-type id="bt25" />
+        <build-type id="bt53" />
       </build-types>
     </webhook>
   </webhooks>
