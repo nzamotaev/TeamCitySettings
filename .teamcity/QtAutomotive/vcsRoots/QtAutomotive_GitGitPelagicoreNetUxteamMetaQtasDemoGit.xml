@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vcs-root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="e9a8b3e9-9208-4da9-944f-21db1efa011e" type="jetbrains.git" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/10.0/project-config.xsd">
-  <name>git@git.pelagicore.net:uxteam/meta-qtas-demo.git</name>
+  <name>git@github.com:Luxoft/meta-qt-auto-internal.git</name>
   <param name="agentCleanFilesPolicy" value="ALL_UNTRACKED" />
   <param name="agentCleanPolicy" value="ON_BRANCH_CHANGE" />
   <param name="authMethod" value="TEAMCITY_SSH_KEY" />
@@ -8,7 +8,7 @@
   <param name="ignoreKnownHosts" value="true" />
   <param name="submoduleCheckout" value="CHECKOUT" />
   <param name="teamcitySshKey" value="teamcity@camembert" />
-  <param name="url" value="git@git.pelagicore.net:uxteam/meta-qtas-demo.git" />
+  <param name="url" value="git@github.com:Luxoft/meta-qt-auto-internal.git" />
   <param name="useAlternates" value="true" />
   <param name="username" value="git" />
   <param name="usernameStyle" value="USERID" />
