@@ -22,6 +22,7 @@
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
 B2QT=`(cd meta-boot2qt;git describe --abbrev=7)`
+echo "##teamcity[buildNumber '$B2QT']"
 QTAS=`(cd meta-qtas-demo;git describe --abbrev=7)`
 echo "##teamcity[buildNumber '$B2QT_$QTAS']"]]></param>
           <param name="teamcity.step.mode" value="default" />
