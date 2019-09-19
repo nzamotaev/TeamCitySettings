@@ -24,7 +24,6 @@
 B2QT=`(cd meta-boot2qt;git describe --abbrev=7)`
 QTAS=`(cd meta-qtas-demo;git describe --abbrev=7)`
 echo "##teamcity[buildNumber '$B2QT_$QTAS']"]]></param>
-          <param name="teamcity.build.workingDir" value="meta-boot2qt" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
