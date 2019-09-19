@@ -18,6 +18,15 @@
       <param name="env.MACHINE" value="intel-corei7-64" spec="select description='Targer for image build' data_6='raspberrypi3' data_5='raspberrypi2' data_7='raspberrypi' display='normal' label='Machine' data_2='intel-corei7-64' data_1='apalis-imx6' data_4='raspberrypi0' data_3='jetson-tx2'" />
     </parameters>
     <build-runners>
+      <runner id="RUNNER_141" name="Build tagging" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[#!/bin/bash
+echo "##teamcity[buildNumber '`git describe --abbrev=7`']"]]></param>
+          <param name="teamcity.build.workingDir" value="meta-boot2qt" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
       <runner id="RUNNER_80" name="Get repo" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[export PATH=$HOME/bin/:$PATH
@@ -177,15 +186,6 @@ done]]></param>
           <param name="script.content" value="time rsync -rlptD sstate-cache/ /net/192.168.5.2/DataVolume/bitbake_exports/bitbake_sstate/" />
           <param name="teamcity.build.workingDir" value="build-%env.MACHINE%" />
           <param name="teamcity.step.mode" value="execute_if_failed" />
-          <param name="use.custom.script" value="true" />
-        </parameters>
-      </runner>
-      <runner id="RUNNER_141" name="Build tagging" type="simpleRunner">
-        <parameters>
-          <param name="script.content"><![CDATA[#!/bin/bash
-echo "##teamcity[buildNumber '`git describe --abbrev=7`']"]]></param>
-          <param name="teamcity.build.workingDir" value="meta-boot2qt" />
-          <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
