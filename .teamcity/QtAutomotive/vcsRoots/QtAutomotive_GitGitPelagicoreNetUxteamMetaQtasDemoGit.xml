@@ -9,6 +9,7 @@
   <param name="submoduleCheckout" value="CHECKOUT" />
   <param name="teamcitySshKey" value="teamcity@camembert" />
   <param name="url" value="git@github.com:Luxoft/meta-qt-auto-internal.git" />
+  <param name="useAlternates" value="true" />
   <param name="username" value="git" />
   <param name="usernameStyle" value="USERID" />
 </vcs-root>
