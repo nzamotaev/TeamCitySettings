@@ -10,7 +10,7 @@
           <param name="script.content"><![CDATA[#time rsync -rptD --safe-links sstate-cache/ /net/192.168.5.2/DataVolume/bitbake_exports/bitbake_sstate/
 pwd
 echo "ok"]]></param>
-          <param name="teamcity.build.workingDir" value="build-%dep.QtAutomotive_Documentation_SdkAndImages_Boot2QtSdkAndImage.env.MACHIN" />
+          <param name="teamcity.build.workingDir" value="build-%dep.QtAutomotive_Documentation_SdkAndImages_Boot2QtSdkAndImage.env.MACHINE%" />
           <param name="teamcity.step.mode" value="execute_if_failed" />
           <param name="use.custom.script" value="true" />
         </parameters>
