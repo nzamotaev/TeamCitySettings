@@ -24,6 +24,11 @@
         </parameters>
       </build-trigger>
     </build-triggers>
+    <build-extensions>
+      <extension id="perfmon" type="perfmon">
+        <parameters />
+      </extension>
+    </build-extensions>
     <dependencies>
       <depend-on sourceBuildTypeId="QtAutomotive_Documentation_SdkAndImages_Boot2QtSdkAndImage">
         <options>
