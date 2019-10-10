@@ -30,6 +30,11 @@ echo "ok"]]></param>
       <extension id="perfmon" type="perfmon">
         <parameters />
       </extension>
+      <extension id="BUILD_EXT_52" type="JetBrains.SharedResources">
+        <parameters>
+          <param name="locks-param" value="Bitbake_directory writeLock" />
+        </parameters>
+      </extension>
     </build-extensions>
     <dependencies>
       <depend-on sourceBuildTypeId="QtAutomotive_Documentation_SdkAndImages_Boot2QtSdkAndImage">
