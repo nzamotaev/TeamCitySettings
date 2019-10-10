@@ -8,6 +8,7 @@
       <runner id="RUNNER_142" name="Rsync sources directory" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[#time rsync -trp downloads/ ${HOME}/bitbake_downloads/
+pwd
 echo "ok"]]></param>
           <param name="teamcity.build.workingDir" value="build-%env.MACHINE%" />
           <param name="teamcity.step.mode" value="execute_if_failed" />
