@@ -21,6 +21,11 @@
       <extension id="perfmon" type="perfmon">
         <parameters />
       </extension>
+      <extension id="BUILD_EXT_51" type="JetBrains.SharedResources">
+        <parameters>
+          <param name="locks-param" value="Bitbake_directory writeLock" />
+        </parameters>
+      </extension>
     </build-extensions>
     <cleanup />
   </settings>
