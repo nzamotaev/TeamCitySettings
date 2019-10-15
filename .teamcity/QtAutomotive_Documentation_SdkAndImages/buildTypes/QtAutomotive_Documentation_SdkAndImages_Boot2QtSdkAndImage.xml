@@ -285,7 +285,7 @@ done]]></param>
       </extension>
       <extension id="BUILD_EXT_26" type="JetBrains.SharedResources">
         <parameters>
-          <param name="locks-param" value="Bitbake_directory writeLock" />
+          <param name="locks-param" value="Bitbake_directory readLock" />
         </parameters>
       </extension>
       <extension id="BUILD_EXT_46" type="BuildResultDecorator">
