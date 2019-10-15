@@ -9,7 +9,8 @@
         <parameters>
           <param name="script.content"><![CDATA[#time rsync -trp downloads/ ${HOME}/bitbake_downloads/
 pwd
-echo "ok"]]></param>
+echo "ok"
+ls -l]]></param>
           <param name="teamcity.build.workingDir" value="build-%dep.QtAutomotive_Documentation_SdkAndImages_Boot2QtSdkAndImage.env.MACHINE%" />
           <param name="teamcity.step.mode" value="execute_if_failed" />
           <param name="use.custom.script" value="true" />
