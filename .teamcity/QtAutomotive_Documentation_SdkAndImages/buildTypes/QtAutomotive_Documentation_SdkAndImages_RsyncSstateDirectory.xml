@@ -18,7 +18,9 @@ echo "ok"]]></param>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_Documentation_SdkAndImages_MetaBoot2Qt" />
-      <vcs-entry-ref root-id="QtAutomotive_GitGitPelagicoreNetUxteamMetaQtasDemoGit" />
+      <vcs-entry-ref root-id="QtAutomotive_GitGitPelagicoreNetUxteamMetaQtasDemoGit">
+        <checkout-rule rule="+:. =&gt; meta-qtas-demo" />
+      </vcs-entry-ref>
     </vcs-settings>
     <requirements />
     <build-triggers>
