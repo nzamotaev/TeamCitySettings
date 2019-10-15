@@ -16,7 +16,9 @@ echo "ok"]]></param>
         </parameters>
       </runner>
     </build-runners>
-    <vcs-settings />
+    <vcs-settings>
+      <vcs-entry-ref root-id="QtAutomotive_Documentation_SdkAndImages_MetaBoot2Qt" />
+    </vcs-settings>
     <requirements />
     <build-triggers>
       <build-trigger id="TRIGGER_20" type="buildDependencyTrigger">
