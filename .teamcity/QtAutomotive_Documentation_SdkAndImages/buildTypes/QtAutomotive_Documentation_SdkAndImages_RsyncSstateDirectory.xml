@@ -19,7 +19,7 @@ echo "ok"]]></param>
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_Documentation_SdkAndImages_MetaBoot2Qt" />
       <vcs-entry-ref root-id="QtAutomotive_GitGitPelagicoreNetUxteamMetaQtasDemoGit">
-        <checkout-rule rule="+:. =&gt; meta-qtas-demo" />
+        <checkout-rule rule="+:.=&gt;meta-qtas-demo" />
       </vcs-entry-ref>
     </vcs-settings>
     <requirements />
