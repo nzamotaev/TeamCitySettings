@@ -8,7 +8,7 @@
     </options>
     <parameters>
       <param name="BUILDARCH" value="armv7" spec="select data_5='x86' label_3='arm64' display='normal' label='Phone architecture' data_1='armv7' label_1='arm' data_3='arm64_v8a'" />
-      <param name="QT_VERSION" value="5.13.1" spec="select data_5='5.12.0' display='normal' label='Qt version' data_2='5.13.0' data_1='5.13.1' data_4='5.12.2' data_3='5.12.3'" />
+      <param name="QT_VERSION" value="5.14.0" spec="select data_5='5.12.0' display='normal' label='Qt version' data_2='5.13.1' data_1='5.14.0' data_4='5.12.5' data_3='5.13.0'" />
       <param name="env.ANDROID_SDK_ROOT" value="%env.ANDROID_HOME%" spec="text display='normal' readOnly='true' validationMode='any'" />
     </parameters>
     <build-runners>
