@@ -131,6 +131,7 @@ echo "##teamcity[progressFinish 'Building Image %bitbake_image% for %env.MACHINE
           <param name="script.content"><![CDATA[find `pwd`/build-%env.MACHINE%/tmp/deploy/images/%env.MACHINE%/ -type l -name *.wic|while read i;do 
     pbzip2 -k -f -9 "$i"
     echo "##teamcity[publishArtifacts '$i.bz2']"
+    test -e "$i.bmap" && echo "##teamcity[publishArtifacts '$i.bmap']"
 done
 find `pwd`/build-%env.MACHINE%/tmp/deploy/images/%env.MACHINE%/ -type l -name *.7z|while read i;do
     echo "##teamcity[publishArtifacts '$i']"
