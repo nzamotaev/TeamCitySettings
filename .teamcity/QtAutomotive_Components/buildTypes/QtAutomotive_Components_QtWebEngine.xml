@@ -16,8 +16,8 @@ echo "##teamcity[buildNumber '`git describe --abbrev=7`']"]]></param>
       </runner>
       <runner id="RUNNER_145" name="Docker" type="simpleRunner">
         <parameters>
-          <param name="script.content" value="./run.sh %system.teamcity.build.tempDir% `pwd`/../../../../ %teamcity.build.vcs.branch.QtAutomotive_Components_CodeQtIoQtQtiviGit% &quot;&quot;" />
-          <param name="teamcity.build.workingDir" value="Docker/QtAutomotive/Components/QtIVI" />
+          <param name="script.content" value="./run.sh %system.teamcity.build.tempDir% `pwd`/../../../../ %teamcity.build.vcs.branch.QtAutomotive_Components_HttpsCodeQtIoQtQtwebengineGit%" />
+          <param name="teamcity.build.workingDir" value="Docker/QtAutomotive/Components/QtWebEngine" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
