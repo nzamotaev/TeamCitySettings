@@ -4,7 +4,17 @@
   <description>Qt WebEngine module</description>
   <settings>
     <parameters />
-    <build-runners />
+    <build-runners>
+      <runner id="RUNNER_144" name="Build tagging" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[#!/bin/bash
+echo "##teamcity[buildNumber '`git describe --abbrev=7`']"]]></param>
+          <param name="teamcity.build.workingDir" value="sources" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+    </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="GithubComNzamotaevTeamCityDockerScriptsGit">
         <checkout-rule rule="+:. =&gt; Docker" />
