@@ -66,6 +66,15 @@ echo "##teamcity[buildNumber '`git describe --abbrev=7`']"]]></param>
         <artifact sourcePath="+:qt.tar.gz =&gt; Docker/QtAutomotive/Components/QtWebEngine/qt/" />
       </dependency>
     </artifact-dependencies>
+    <dependencies>
+      <depend-on sourceBuildTypeId="QtAutomotive_Components_Qt5">
+        <options>
+          <option name="run-build-if-dependency-failed" value="RUN_ADD_PROBLEM" />
+          <option name="take-started-build-with-same-revisions" value="true" />
+          <option name="take-successful-builds-only" value="true" />
+        </options>
+      </depend-on>
+    </dependencies>
     <cleanup />
   </settings>
 </build-type>
