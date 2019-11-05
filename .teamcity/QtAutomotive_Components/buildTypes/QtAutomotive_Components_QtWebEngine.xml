@@ -40,6 +40,12 @@ echo "##teamcity[buildNumber '`git describe --abbrev=7`']"]]></param>
       <extension id="perfmon" type="perfmon">
         <parameters />
       </extension>
+      <extension id="jetbrains.agent.free.space" type="jetbrains.agent.free.space">
+        <parameters>
+          <param name="free-space-fail-start" value="true" />
+          <param name="free-space-work" value="3gb" />
+        </parameters>
+      </extension>
     </build-extensions>
     <cleanup />
   </settings>
