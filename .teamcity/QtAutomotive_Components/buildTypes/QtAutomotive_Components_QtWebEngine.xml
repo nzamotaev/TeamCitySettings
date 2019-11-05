@@ -46,6 +46,16 @@ echo "##teamcity[buildNumber '`git describe --abbrev=7`']"]]></param>
           <param name="free-space-work" value="3gb" />
         </parameters>
       </extension>
+      <extension id="BUILD_EXT_53" type="BuildFailureOnMetric">
+        <parameters>
+          <param name="anchorBuild" value="lastSuccessful" />
+          <param name="metricKey" value="VisibleArtifactsSize" />
+          <param name="metricThreshold" value="1000" />
+          <param name="metricUnits" value="metricUnitsDefault" />
+          <param name="moreOrLess" value="less" />
+          <param name="withBuildAnchor" value="false" />
+        </parameters>
+      </extension>
     </build-extensions>
     <cleanup />
   </settings>
