@@ -31,7 +31,9 @@ echo "##teamcity[buildNumber '`git describe --abbrev=7`']"]]></param>
         <checkout-rule rule="+:. =&gt; sources" />
       </vcs-entry-ref>
     </vcs-settings>
-    <requirements />
+    <requirements>
+      <equals id="RQ_83" name="system.ubuntu.version" value="16.04" />
+    </requirements>
     <build-triggers />
     <build-extensions>
       <extension id="swabra" type="swabra">
