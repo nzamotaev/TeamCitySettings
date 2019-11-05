@@ -60,6 +60,12 @@ echo "##teamcity[buildNumber '`git describe --abbrev=7`']"]]></param>
         </parameters>
       </extension>
     </build-extensions>
+    <artifact-dependencies>
+      <dependency id="ARTIFACT_DEPENDENCY_31" sourceBuildTypeId="QtAutomotive_Components_Qt5" cleanDestination="true">
+        <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
+        <artifact sourcePath="+:qt.tar.gz =&gt; Docker/QtAutomotive/Components/QtWebEngine/qt/" />
+      </dependency>
+    </artifact-dependencies>
     <cleanup />
   </settings>
 </build-type>
