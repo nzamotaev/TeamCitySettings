@@ -10,7 +10,7 @@
   <param name="submoduleCheckout" value="IGNORE" />
   <param name="teamcity:branchSpec"><![CDATA[+:dev
 +:refs/heads/*]]></param>
-  <param name="url" value="https://code.qt.io/qt-apps/neptune3-ui.git" />
+  <param name="url" value="https://codereview.qt-project.org/qt-apps/neptune3-ui" />
   <param name="useAlternates" value="true" />
   <param name="username" value="yocto" />
   <param name="usernameStyle" value="USERID" />
