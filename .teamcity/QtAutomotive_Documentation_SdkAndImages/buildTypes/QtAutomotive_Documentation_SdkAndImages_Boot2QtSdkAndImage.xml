@@ -32,7 +32,7 @@ for i in qtivi qtapplicationmanager neptune3-ui;do
     if test -e meta-qtas-demo/_branches/$i; then
         BRANCH=`cat meta-qtas-demo/_branches/$i`
         if [ "x$BRANCH" != "x" ]; then
-            echo "##teamcity[addBuiltTag '${i}_${BRANCH}']"
+            echo "##teamcity[addBuildTag '${i}_${BRANCH}']"
         fi
     fi
 done]]></param>
