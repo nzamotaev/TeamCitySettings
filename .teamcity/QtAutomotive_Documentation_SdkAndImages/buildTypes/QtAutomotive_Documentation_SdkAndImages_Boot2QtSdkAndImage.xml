@@ -25,7 +25,16 @@ B2QT=`(cd meta-boot2qt;git describe --abbrev=7)`
 echo "##teamcity[buildNumber '$B2QT']"
 QTAS=`(cd meta-qtas-demo;git describe --abbrev=7 --always)`
 echo "##teamcity[buildNumber '${B2QT}_${QTAS}']"
-echo "##teamcity[addBuildTag '%env.MACHINE%']"]]></param>
+echo "##teamcity[addBuildTag '%env.MACHINE%']"
+
+for i in qtivi qtapplicationmanager neptune3-ui;do
+    if test -e meta-qtas-demo/_branches/$i; then
+        BRANCH=`cat meta-qtas-demo/_branches/$i`
+        if [ "x$BRANCH" != "x" ]; then
+            echo "##teamcity[addBuiltTag '${i}_${BRANCH}']"
+        fi
+    fi
+done]]></param>
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
