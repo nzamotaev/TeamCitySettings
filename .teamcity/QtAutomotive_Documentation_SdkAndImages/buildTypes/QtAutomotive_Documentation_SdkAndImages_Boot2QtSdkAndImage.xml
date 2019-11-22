@@ -68,8 +68,6 @@ fi]]></param>
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
 
-test -e build-%env.MACHINE%/conf/ && rm -rf build-%env.MACHINE%/conf
-
 if [ "%teamcity.build.branch%" == "warrior" ]; then
       ../meta-boot2qt/b2qt-init-build-env init --device ${MACHINE} --internal --reference `pwd`/../mirror/
 else
