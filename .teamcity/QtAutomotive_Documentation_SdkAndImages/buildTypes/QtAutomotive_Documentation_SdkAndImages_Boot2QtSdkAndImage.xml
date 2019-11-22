@@ -55,10 +55,12 @@ chmod a+x ~/bin/repo]]></param>
       </runner>
       <runner id="RUNNER_136" name="Create mirror if needed" type="simpleRunner">
         <parameters>
-          <param name="script.content"><![CDATA[if [ ! -d mirror ]; then
-   mkdir mirror
-   cd mirror
-   ../meta-boot2qt/b2qt-init-build-env mirror
+          <param name="script.content"><![CDATA[if [ "%teamcity.build.branch%" != "warrior" ]; then
+   if [ ! -d mirror ]; then
+      mkdir mirror
+      cd mirror
+      ../meta-boot2qt/b2qt-init-build-env mirror
+   fi
 fi]]></param>
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
