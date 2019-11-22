@@ -66,7 +66,13 @@ fi]]></param>
       </runner>
       <runner id="RUNNER_138" name="build init" type="simpleRunner">
         <parameters>
-          <param name="script.content" value="../meta-boot2qt/b2qt-init-build-env init --device ${MACHINE} --internal --reference `pwd`/../mirror/" />
+          <param name="script.content"><![CDATA[#!/bin/bash
+
+if [ "%teamcity.build.branch%" == "warrior" ]; then
+      ../meta-boot2qt/b2qt-init-build-env init --device ${MACHINE} --internal --reference `pwd`/../mirror/
+else
+      ../meta-boot2qt/b2qt-init-build-env init --device ${MACHINE} --reference `pwd`/../mirror/
+fi]]></param>
           <param name="teamcity.build.workingDir" value="build-%env.MACHINE%" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
