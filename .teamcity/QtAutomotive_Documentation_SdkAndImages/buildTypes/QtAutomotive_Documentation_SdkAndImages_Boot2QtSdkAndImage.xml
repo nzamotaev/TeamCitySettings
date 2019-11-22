@@ -83,6 +83,7 @@ fi]]></param>
       <runner id="RUNNER_106" name="Setup bitbake" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
+test -e build-%env.MACHINE%/conf/ && rm -rf build-%env.MACHINE%/conf
 source setup-environment.sh
 cat > conf/site.conf << EOF
 ICECC_PATH="/usr/bin/icecc"
