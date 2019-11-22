@@ -71,7 +71,7 @@ fi]]></param>
 if [ "%teamcity.build.branch%" == "warrior" ]; then
       ../meta-boot2qt/b2qt-init-build-env init --device ${MACHINE} --internal --reference `pwd`/../mirror/
 else
-      ../meta-boot2qt/b2qt-init-build-env init --device ${MACHINE} --reference `pwd`/../mirror/
+      ../meta-boot2qt/b2qt-init-build-env init --device ${MACHINE}
 fi]]></param>
           <param name="teamcity.build.workingDir" value="build-%env.MACHINE%" />
           <param name="teamcity.step.mode" value="default" />
