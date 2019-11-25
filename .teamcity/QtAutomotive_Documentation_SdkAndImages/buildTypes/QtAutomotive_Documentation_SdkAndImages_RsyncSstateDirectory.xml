@@ -26,7 +26,9 @@
     <build-triggers>
       <build-trigger id="TRIGGER_20" type="buildDependencyTrigger">
         <parameters>
-          <param name="branchFilter" value="+:&lt;default&gt;" />
+          <param name="branchFilter"><![CDATA[+:<default>
++:warrior
++:thud]]></param>
           <param name="dependsOn" value="QtAutomotive_Documentation_SdkAndImages_Boot2QtSdkAndImage" />
         </parameters>
       </build-trigger>
