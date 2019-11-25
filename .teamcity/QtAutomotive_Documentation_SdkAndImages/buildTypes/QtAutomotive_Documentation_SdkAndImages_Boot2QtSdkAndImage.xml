@@ -98,7 +98,7 @@ SOURCE_MIRROR_URL ?= "file://${HOME}/bitbake_downloads/"
 RM_OLD_IMAGE = "1"
 SSTATE_MIRRORS ?= "file://.* file:///net/192.168.5.2/DataVolume/bitbake_exports/bitbake_sstate/PATH"
 
-DISTRO_FEATURES_BACKFILL_append = " qtsaferenderer" 
+#DISTRO_FEATURES_BACKFILL_append = " qtsaferenderer" 
 
 BBMASK += "meta-qtas-demo/layers/b2qt/recipes-core/images/core-image-pelux-qtas-demo-dev.bb"
 BBMASK += "meta-qtas-demo/layers/b2qt/recipes-core/images/core-image-pelux-qtas-demo.bb"
