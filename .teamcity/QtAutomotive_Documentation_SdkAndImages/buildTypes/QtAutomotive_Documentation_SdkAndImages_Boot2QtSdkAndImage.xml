@@ -70,10 +70,10 @@ fi]]></param>
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
 
-if [ "%teamcity.build.branch%" == "warrior" ]; then
+if [ "%teamcity.build.branch%" != "warrior" ]; then
       ../meta-boot2qt/b2qt-init-build-env init --device ${MACHINE} --internal --reference `pwd`/../mirror/
 else
-      ../meta-boot2qt/b2qt-init-build-env init --device ${MACHINE}
+      ../meta-boot2qt/b2qt-init-build-env init --device ${MACHINE} 
 fi]]></param>
           <param name="teamcity.build.workingDir" value="build-%env.MACHINE%" />
           <param name="teamcity.step.mode" value="default" />
