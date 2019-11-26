@@ -73,6 +73,22 @@ fi]]></param>
 if [ "%teamcity.build.branch%" != "warrior" ]; then
       ../meta-boot2qt/b2qt-init-build-env init --device ${MACHINE} --internal --reference `pwd`/../mirror/
 else
+      (cd ../meta-boot2qt; patch -p1 < EOF
+diff --git a/scripts/setup-environment.sh b/scripts/setup-environment.sh
+index 7715412..ef46517 100755
+--- a/scripts/setup-environment.sh
++++ b/scripts/setup-environment.sh
+@@ -54,7 +54,7 @@ fi
+ 
+ BUILDDIRECTORY=${BUILDDIRECTORY:-build-${MACHINE}}
+ 
+-if [ ! -e ${PWD}/${BUILDDIRECTORY} ]; then
++if [ ! -e ${PWD}/${BUILDDIRECTORY}/conf ]; then
+   case ${MACHINE} in
+     apalis-*|colibri-*)
+       LAYERSCONF="bblayers.conf.toradex.sample"
+EOF
+)
       ../meta-boot2qt/b2qt-init-build-env init --device ${MACHINE} 
 fi]]></param>
           <param name="teamcity.build.workingDir" value="build-%env.MACHINE%" />
