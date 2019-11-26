@@ -74,10 +74,7 @@ fi]]></param>
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
 
-if [ "%teamcity.build.branch%" != "warrior" -o "%teamcity.build.branch.is_default%" != "true" ]; then
-      echo "Not warrior branch, not default branch"
-      ../meta-boot2qt/b2qt-init-build-env init --device ${MACHINE} --internal --reference `pwd`/../mirror/
-else
+if [ "%teamcity.build.branch%" == "warrior" -o "%teamcity.build.branch.is_default%" == "true" ]; then
       echo "Warrior branch or default branch"
       ../meta-boot2qt/b2qt-init-build-env init --device ${MACHINE} 
       echo "Init done, fixing setup-environment.sh"
@@ -87,6 +84,9 @@ else
          patch -p1 < ../meta-qtas-demo/warrior_fixup.patch
          popd
       fi
+else
+      echo "Not warrior branch, not default branch"
+      ../meta-boot2qt/b2qt-init-build-env init --device ${MACHINE} --internal --reference `pwd`/../mirror/
 fi]]></param>
           <param name="teamcity.build.workingDir" value="build-%env.MACHINE%" />
           <param name="teamcity.step.mode" value="default" />
