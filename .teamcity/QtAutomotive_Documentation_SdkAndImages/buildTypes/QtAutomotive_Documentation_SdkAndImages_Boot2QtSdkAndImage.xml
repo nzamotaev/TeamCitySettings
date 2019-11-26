@@ -78,10 +78,10 @@ if [ "%teamcity.build.branch%" != "warrior" -o "%teamcity.build.branch%" != "<de
       ../meta-boot2qt/b2qt-init-build-env init --device ${MACHINE} --internal --reference `pwd`/../mirror/
 else
       if [ -e ../meta-qtas-demo/warrior_fixup.patch ]; then
-         (cd ../meta-boot2qt;
-          git checkout scripts/setup-environment.sh;
-          patch -p1 < ../meta-qtas-demo/warrior_fixup.patch
-         )
+         pushd ../meta-boot2qt
+         git checkout scripts/setup-environment.sh
+         patch -p1 < ../meta-qtas-demo/warrior_fixup.patch
+         popd
       fi
       ../meta-boot2qt/b2qt-init-build-env init --device ${MACHINE} 
 fi]]></param>
