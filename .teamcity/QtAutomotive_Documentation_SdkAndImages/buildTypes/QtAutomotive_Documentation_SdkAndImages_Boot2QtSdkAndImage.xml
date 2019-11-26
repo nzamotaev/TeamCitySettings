@@ -77,13 +77,13 @@ fi]]></param>
 if [ "%teamcity.build.branch%" != "warrior" -o "%teamcity.build.branch%" != "<default>" ]; then
       ../meta-boot2qt/b2qt-init-build-env init --device ${MACHINE} --internal --reference `pwd`/../mirror/
 else
+      ../meta-boot2qt/b2qt-init-build-env init --device ${MACHINE} 
       if [ -e ../meta-qtas-demo/warrior_fixup.patch ]; then
          pushd ../meta-boot2qt
          git checkout scripts/setup-environment.sh
          patch -p1 < ../meta-qtas-demo/warrior_fixup.patch
          popd
       fi
-      ../meta-boot2qt/b2qt-init-build-env init --device ${MACHINE} 
 fi]]></param>
           <param name="teamcity.build.workingDir" value="build-%env.MACHINE%" />
           <param name="teamcity.step.mode" value="default" />
