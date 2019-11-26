@@ -75,7 +75,7 @@ if [ "%teamcity.build.branch%" != "warrior" ]; then
 else
       (cd ../meta-boot2qt;
        git checkout scripts/setup-environment.sh;
-       patch -p1 < EOF
+       patch -p1 << EOF
 diff --git a/scripts/setup-environment.sh b/scripts/setup-environment.sh
 index 7715412..ef46517 100755
 --- a/scripts/setup-environment.sh
