@@ -8,9 +8,7 @@
   <param name="ignoreKnownHosts" value="true" />
   <param name="reportTagRevisions" value="true" />
   <param name="submoduleCheckout" value="CHECKOUT" />
-  <param name="teamcity:branchSpec"><![CDATA[+:refs/heads/(*)
-+:refs/changes/(*)
--:refs/changes/(*/meta)]]></param>
+  <param name="teamcity:branchSpec" value="+:refs/heads/warrior" />
   <param name="url" value="https://codereview.qt-project.org/yocto/meta-boot2qt" />
   <param name="useAlternates" value="true" />
   <param name="usernameStyle" value="USERID" />
