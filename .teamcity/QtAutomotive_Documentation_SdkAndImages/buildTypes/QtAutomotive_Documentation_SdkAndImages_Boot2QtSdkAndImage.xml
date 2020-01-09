@@ -55,7 +55,8 @@ chmod a+x ~/bin/repo]]></param>
       </runner>
       <runner id="RUNNER_136" name="Create mirror if needed" type="simpleRunner">
         <parameters>
-          <param name="script.content"><![CDATA[if [ "%teamcity.build.branch%" == "warrior" ]; then
+          <param name="script.content"><![CDATA[#!/bin/bash
+if [ "%teamcity.build.branch%" == "warrior" ]; then
    exit 0
 fi
 if [ "%teamcity.build.branch.is_default%" == "true" ]; then
