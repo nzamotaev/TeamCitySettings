@@ -39,6 +39,14 @@ perl init-repository -f --module-subset=default,-qtwebkit,-qtwebkit-examples,-qt
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
+      <runner id="RUNNER_147" name="" type="simpleRunner">
+        <parameters>
+          <param name="script.content" value="../sources/qt5/configure -opensource -nomake examples -nomake tests -platform win32-g++ -make-tool make -confirm-license -opengl desktop" />
+          <param name="teamcity.build.workingDir" value="build" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="QtAutomotive_Components_CodeQtIoQtQt5git">
