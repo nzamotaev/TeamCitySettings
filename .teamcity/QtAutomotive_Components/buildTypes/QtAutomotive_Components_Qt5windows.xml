@@ -12,7 +12,6 @@
     </disabled-settings>
     <parameters>
       <param name="debug_release" value="" spec="select label_3='release' display='normal' description='debug_release switch' data_1='-debug' label_1='debug' data_3=''" />
-      <param name="env.CCACHE_PREFIX" value="icecc" />
     </parameters>
     <build-runners>
       <runner id="RUNNER_119" name="Build tagging" type="simpleRunner">
