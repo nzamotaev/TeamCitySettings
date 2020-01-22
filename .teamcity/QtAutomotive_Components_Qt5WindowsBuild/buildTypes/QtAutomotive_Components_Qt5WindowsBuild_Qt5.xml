@@ -55,7 +55,7 @@ REM SET PATH=<icupath>\lib;%%PATH%%
 SET _ROOT=
 SET QMAKE_MAKE=make.exe
 
-c:\msys64\usr\bin\env MSYSTEM=MINGW64 c:\msys64\usr\bin\bash -l ../sources/configure -opensource -nomake examples -nomake tests -platform win32-g++ -make-tool make -confirm-license -opengl desktop]]></param>
+c:\msys64\usr\bin\env MSYSTEM=MINGW64 c:\msys64\usr\bin\bash -l -c "cd %teamcity.build.checkoutDir%/build && %teamcity.build.checkoutDir%\sources\configure -opensource -nomake examples -nomake tests -platform win32-g++ -make-tool make -confirm-license -opengl desktop"]]></param>
           <param name="teamcity.build.workingDir" value="build" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
