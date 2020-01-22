@@ -32,7 +32,7 @@
       </runner>
       <runner id="RUNNER_146" name="" type="simpleRunner">
         <parameters>
-          <param name="script.content"><![CDATA[git submodule foreach --recursive git reset hard
+          <param name="script.content"><![CDATA[git submodule foreach --recursive git reset --hard
 perl init-repository -f --module-subset=default,-qtwebkit,-qtwebkit-examples,-qtwebengine,-qtdocgallery,-qtpim]]></param>
           <param name="teamcity.build.workingDir" value="sources" />
           <param name="teamcity.step.mode" value="default" />
