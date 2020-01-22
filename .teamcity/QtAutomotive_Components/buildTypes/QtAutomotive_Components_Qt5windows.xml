@@ -37,9 +37,6 @@ echo "##teamcity[buildNumber '`git describe --first-parent --abbrev=7`']"]]></pa
       <vcs-entry-ref root-id="QtAutomotive_Components_CodeQtIoQtQt5git">
         <checkout-rule rule="+:. =&gt; sources" />
       </vcs-entry-ref>
-      <vcs-entry-ref root-id="GithubComNzamotaevTeamCityDockerScriptsGit">
-        <checkout-rule rule="+:. =&gt; Docker" />
-      </vcs-entry-ref>
     </vcs-settings>
     <requirements>
       <equals id="RQ_71" name="env.WRAPPER_OS" value="windows" />
