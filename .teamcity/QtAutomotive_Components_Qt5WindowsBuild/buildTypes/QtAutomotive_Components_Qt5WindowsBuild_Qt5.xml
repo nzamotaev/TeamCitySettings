@@ -16,7 +16,10 @@
     <build-runners>
       <runner id="RUNNER_119" name="Build tagging" type="simpleRunner">
         <parameters>
-          <param name="script.content" value="echo &quot;##teamcity[buildNumber '`git describe --first-parent --abbrev=7`']&quot;" />
+          <param name="script.content"><![CDATA[git describe --first-parent --abbrev=7 > %env.TMP%\gitversion
+set /p GITVERSION= < %env.TMP%\gitversion
+del %env.TMP%\gitversion
+echo ##teamcity[buildNumber %%GITVERSION%%']]]></param>
           <param name="teamcity.build.workingDir" value="sources" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
