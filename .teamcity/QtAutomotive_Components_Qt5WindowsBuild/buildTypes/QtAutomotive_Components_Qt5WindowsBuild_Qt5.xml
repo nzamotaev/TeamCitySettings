@@ -16,9 +16,10 @@
     <build-runners>
       <runner id="RUNNER_119" name="Build tagging" type="simpleRunner">
         <parameters>
-          <param name="script.content"><![CDATA[FOR /F "tokens=* usebackq" %%%%G IN (`git describe --first-parent --abbrev=7`) DO echo %%%%G
-
-REM echo ##teamcity[buildNumber='%%GITVERSION%%']]]></param>
+          <param name="script.content"><![CDATA[git describe --first-parent --abbrev=7 > __query.tmp
+set /p result=<__query.tmp
+del __query.tmp
+echo ##teamcity[buildNumber '%%result%%.%build.counter%']]]></param>
           <param name="teamcity.build.workingDir" value="sources" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
