@@ -19,7 +19,7 @@
           <param name="script.content"><![CDATA[git describe --first-parent --abbrev=7 > __query.tmp
 set /p result=<__query.tmp
 del __query.tmp
-echo ##teamcity[buildNumber '%%result%%.%build.counter%']]]></param>
+echo ##teamcity[buildNumber '%%result%%']]]></param>
           <param name="teamcity.build.workingDir" value="sources" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
