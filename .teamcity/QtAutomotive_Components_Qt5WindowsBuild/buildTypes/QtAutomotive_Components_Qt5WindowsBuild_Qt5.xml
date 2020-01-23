@@ -58,7 +58,7 @@ REM SET PATH=<icupath>\lib;%%PATH%%
 SET _ROOT=
 SET QMAKE_MAKE=make.exe
 
-echo %teamcity.build.checkoutDir% |c:\msys64\usr\bin\tr.exe \\ />__checkout.tmp
+echo %teamcity.build.checkoutDir% |c:\msys64\usr\bin\tr.exe \\ /|c:\msys64\usr\bin\tr.exe -d " ">__checkout.tmp
 set /p CHECKOUTDIR=<__checkout.tmp
 del __checkout.tmp
 echo %%CHECKOUTDIR%%
