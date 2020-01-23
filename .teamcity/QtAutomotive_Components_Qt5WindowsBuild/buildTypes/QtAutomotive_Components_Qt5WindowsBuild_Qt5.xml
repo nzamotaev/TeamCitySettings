@@ -19,7 +19,7 @@
           <param name="script.content"><![CDATA[git describe --first-parent --abbrev=7 > %env.TMP%\gitversion
 set /p GITVERSION= < %env.TMP%\gitversion
 del %env.TMP%\gitversion
-echo ##teamcity[buildNumber %%GITVERSION%%']]]></param>
+echo ##teamcity[buildNumber='%%GITVERSION%%']]]></param>
           <param name="teamcity.build.workingDir" value="sources" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
