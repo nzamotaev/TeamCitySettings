@@ -16,13 +16,9 @@
     <build-runners>
       <runner id="RUNNER_119" name="Build tagging" type="simpleRunner">
         <parameters>
-          <param name="script.content"><![CDATA[git describe --first-parent --abbrev=7 > %env.TMP%\gitversion
-set /p GITVERSION=<%env.TMP%\gitversion
-REM del %env.TMP%\gitversion
-REM echo ##teamcity[buildNumber='%%GITVERSION%%']
-echo ##teamcity[buildNumber=%%GITVERSION%%]
-echo "##teamcity[buildNumber=%%GITVERSION%%]"
-type %env.TMP%\gitversion]]></param>
+          <param name="script.content"><![CDATA[FOR /F "tokens=*" %%%%G IN ('git describe --first-parent --abbrev=7') DO echo %%%%G
+
+REM echo ##teamcity[buildNumber='%%GITVERSION%%']]]></param>
           <param name="teamcity.build.workingDir" value="sources" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
