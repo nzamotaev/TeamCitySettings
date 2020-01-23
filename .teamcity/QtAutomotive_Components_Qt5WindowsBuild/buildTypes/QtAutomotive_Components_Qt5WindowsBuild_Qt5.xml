@@ -58,12 +58,13 @@ REM SET PATH=<icupath>\lib;%%PATH%%
 SET _ROOT=
 SET QMAKE_MAKE=make.exe
 
-echo %teamcity.build.checkoutDir% |c:\msys64\usr\bin\tr.exe \\ / > %env.TMP%\checkoutDir
-set /p CHECKOUTDIR= < %env.TMP%\checkoutDir
-del %env.TMP%\checkoutDir
+echo %teamcity.build.checkoutDir% |c:\msys64\usr\bin\tr.exe \\ / >__checkout.tmp
+set /p CHECKOUTDIR=<__checkout.tmp
+del __checkout.tmp
 echo %%CHECKOUTDIR%%
 
-c:\msys64\usr\bin\env MSYSTEM=MINGW64 c:\msys64\usr\bin\bash -l -c "cd '%%CHECKOUTDIR%%/build' && '%%CHECKOUTDIR%%/sources/configure' -opensource -nomake examples -nomake tests -platform win32-g++ -make-tool make -confirm-license -opengl desktop"]]></param>
+echo c:\msys64\usr\bin\env MSYSTEM=MINGW64 c:\msys64\usr\bin\bash -l -c "cd %%CHECKOUTDIR%%/build && %%CHECKOUTDIR%%/sources/configure -opensource -nomake examples -nomake tests -platform win32-g++ -make-tool make -confirm-license -opengl desktop"
+c:\msys64\usr\bin\env MSYSTEM=MINGW64 c:\msys64\usr\bin\bash -l -c "cd %%CHECKOUTDIR%%/build && %%CHECKOUTDIR%%/sources/configure -opensource -nomake examples -nomake tests -platform win32-g++ -make-tool make -confirm-license -opengl desktop"]]></param>
           <param name="teamcity.build.workingDir" value="build" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
