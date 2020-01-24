@@ -69,7 +69,7 @@ c:\msys64\usr\bin\env MSYSTEM=MINGW64 c:\msys64\usr\bin\bash -l -c "cd %%CHECKOU
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
-      <runner id="RUNNER_148" name="New build step" type="simpleRunner">
+      <runner id="RUNNER_148" name="Build" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[REM Edit this location to point to the source code of Qt
 SET _ROOT=..\sources\
