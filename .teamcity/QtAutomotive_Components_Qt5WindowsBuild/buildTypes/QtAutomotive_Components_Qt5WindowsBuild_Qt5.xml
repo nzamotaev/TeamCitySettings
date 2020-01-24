@@ -54,7 +54,7 @@ set /p CHECKOUTDIR=<__checkout.tmp
 del __checkout.tmp
 echo %%CHECKOUTDIR%%
 
-c:\msys64\usr\bin\env MSYSTEM=MINGW64 c:\msys64\usr\bin\bash -l -c "cd %%CHECKOUTDIR%%/build && %%CHECKOUTDIR%%/sources/configure -opensource -nomake examples -nomake tests -platform win32-g++ -pkg-config -make-tool make -confirm-license -opengl es2"]]></param>
+c:\msys64\usr\bin\env MSYSTEM=MINGW64 c:\msys64\usr\bin\bash -l -c "cd %%CHECKOUTDIR%%/build && %%CHECKOUTDIR%%/sources/configure -opensource -nomake examples -nomake tests -platform win32-g++ -pkg-config -make-tool make -confirm-license -opengl dynamic"]]></param>
           <param name="teamcity.build.workingDir" value="build" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
