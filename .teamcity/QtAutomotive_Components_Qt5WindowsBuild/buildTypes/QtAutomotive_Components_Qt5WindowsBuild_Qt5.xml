@@ -33,7 +33,7 @@ echo ##teamcity[buildNumber '%%result%%']]]></param>
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
-      <runner id="RUNNER_146" name="" type="simpleRunner">
+      <runner id="RUNNER_146" name="Fetch modules" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[git submodule foreach --recursive git reset --hard
 perl init-repository -f --module-subset=default,-qtwebkit,-qtwebkit-examples,-qtwebengine,-qtdocgallery,-qtpim]]></param>
