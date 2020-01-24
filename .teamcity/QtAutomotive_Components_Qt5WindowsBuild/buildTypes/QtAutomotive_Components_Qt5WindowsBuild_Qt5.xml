@@ -42,7 +42,7 @@ perl init-repository -f --module-subset=default,-qtwebkit,-qtwebkit-examples,-qt
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
-      <runner id="RUNNER_147" name="" type="simpleRunner">
+      <runner id="RUNNER_147" name="Configure" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[REM Edit this location to point to the source code of Qt
 SET _ROOT=..\sources\
@@ -63,7 +63,7 @@ set /p CHECKOUTDIR=<__checkout.tmp
 del __checkout.tmp
 echo %%CHECKOUTDIR%%
 
-c:\msys64\usr\bin\env MSYSTEM=MINGW64 c:\msys64\usr\bin\bash -l -c "cd %%CHECKOUTDIR%%/build && %%CHECKOUTDIR%%/sources/configure -opensource -nomake examples -nomake tests -platform win32-g++ -make-tool make -confirm-license -opengl es2"]]></param>
+c:\msys64\usr\bin\env MSYSTEM=MINGW64 c:\msys64\usr\bin\bash -l -c "cd %%CHECKOUTDIR%%/build && %%CHECKOUTDIR%%/sources/configure -opensource -nomake examples -nomake tests -platform win32-g++ -pkg-config -make-tool make -confirm-license -opengl es2"]]></param>
           <param name="teamcity.build.workingDir" value="build" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
