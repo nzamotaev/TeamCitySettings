@@ -228,7 +228,7 @@ done]]></param>
       <build-trigger id="TRIGGER_13" type="schedulingTrigger">
         <parameters>
           <param name="branchFilter"><![CDATA[+:warrior
-+:refs/heads/warrior]]></param>
++:<default>]]></param>
           <param name="cronExpression_dm" value="*" />
           <param name="cronExpression_dw" value="?" />
           <param name="cronExpression_hour" value="22" />
