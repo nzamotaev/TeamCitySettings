@@ -8,8 +8,8 @@
       <runner id="RUNNER_85" name="" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[#!/bin/bash
-/home/teamcity/bin/aptly repo add -force-replace=true qtauto_pc *.deb
-/home/teamcity/bin/aptly publish update --force-overwrite=true xenial qtauto_pc]]></param>
+/home/teamcity/bin/aptly repo add -force-replace=true qtauto_pc_bionic *.deb
+/home/teamcity/bin/aptly publish update --force-overwrite=true bionic qtauto_pc]]></param>
           <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%/debs/" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
