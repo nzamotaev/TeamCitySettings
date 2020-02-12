@@ -12,19 +12,26 @@
         <parameters>
           <param name="script.content"><![CDATA[. /opt/Boot2QtSDK/environment-setup-corei7-64-poky-linux
 echo "##teamcity[progressStart 'qmake']"
+cat >> qt-auto-extra-apps.pro << EOF
+ 
+QMAKE_EXTRA_TARGETS += package
+package.CONFIG = recursive
+EOF
+
 qmake
 echo "##teamcity[progressFinish 'qmake']"
 echo "##teamcity[progressStart 'applications build']"
 make -j %teamcity.agent.hardware.cpuCount%
 echo "##teamcity[progressFinish 'applications build']"
-for i in *;do
-   test -d "$i" && (
-       echo "##teamcity[progressStart 'Packaging $i']"
-       cd "$i"
-       make -j %teamcity.agent.hardware.cpuCount% package 
-       echo "##teamcity[progressFinish 'Packaging $i']"
-   )
-done]]></param>
+#for i in *;do
+#   test -d "$i" && (
+#       echo "##teamcity[progressStart 'Packaging $i']"
+#       cd "$i"
+#       make -j %teamcity.agent.hardware.cpuCount% package 
+#       echo "##teamcity[progressFinish 'Packaging $i']"
+#   )
+#done
+make package]]></param>
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
