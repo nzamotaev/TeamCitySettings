@@ -11,13 +11,18 @@
       <runner id="RUNNER_149" name="qmake" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[. /opt/Boot2QtSDK/environment-setup-corei7-64-poky-linux
+echo "##teamcity[progressStart 'qmake']"
 qmake
+echo "##teamcity[progressFinish 'qmake']"
+echo "##teamcity[progressStart 'applications build']"
 make -j %teamcity.agent.hardware.cpuCount%
+echo "##teamcity[progressFinish 'applications build']"
 for i in *;do
    test -d "$i" && (
+       echo "##teamcity[progressStart 'Packaging $i']"
        cd "$i"
-       echo "$i"
        make -j %teamcity.agent.hardware.cpuCount% package 
+       echo "##teamcity[progressFinish 'Packaging $i']"
    )
 done]]></param>
           <param name="teamcity.step.mode" value="default" />
