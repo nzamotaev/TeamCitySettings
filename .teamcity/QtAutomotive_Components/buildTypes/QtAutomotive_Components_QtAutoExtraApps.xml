@@ -34,6 +34,9 @@
           <param name="id" value="buildType:QtAutomotive_Components_QtAutoExtraApps" />
         </parameters>
       </extension>
+      <extension id="perfmon" type="perfmon">
+        <parameters />
+      </extension>
     </build-extensions>
     <cleanup />
   </settings>
