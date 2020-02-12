@@ -7,7 +7,9 @@
     <build-runners>
       <runner id="RUNNER_149" name="qmake" type="simpleRunner">
         <parameters>
-          <param name="script.content" value="qmake" />
+          <param name="script.content"><![CDATA[. /opt/Boot2QtSDK/environment-setup-corei7-64-poky-linux
+qmake
+make -j %teamcity.agent.hardware.cpuCount%]]></param>
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
