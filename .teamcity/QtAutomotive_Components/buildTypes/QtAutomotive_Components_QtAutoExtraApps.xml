@@ -26,6 +26,15 @@
         </parameters>
       </build-trigger>
     </build-triggers>
+    <build-extensions>
+      <extension id="swabra" type="swabra">
+        <parameters>
+          <param name="featureId" value="" />
+          <param name="featureType" value="swabra" />
+          <param name="id" value="buildType:QtAutomotive_Components_QtAutoExtraApps" />
+        </parameters>
+      </extension>
+    </build-extensions>
     <cleanup />
   </settings>
 </build-type>
