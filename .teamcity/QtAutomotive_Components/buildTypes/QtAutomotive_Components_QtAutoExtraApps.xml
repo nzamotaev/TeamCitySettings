@@ -9,7 +9,14 @@
         <parameters>
           <param name="script.content"><![CDATA[. /opt/Boot2QtSDK/environment-setup-corei7-64-poky-linux
 qmake
-make -j %teamcity.agent.hardware.cpuCount%]]></param>
+make -j %teamcity.agent.hardware.cpuCount%
+for i in *;do
+   test -d "$i" && (
+       cd "$i"
+       echo "$i"
+       make -j %teamcity.agent.hardware.cpuCount% package 
+   )
+done]]></param>
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
