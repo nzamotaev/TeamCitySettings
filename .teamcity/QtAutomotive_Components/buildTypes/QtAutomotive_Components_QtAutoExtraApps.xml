@@ -3,6 +3,9 @@
   <name>QtAuto Extra apps</name>
   <description>Neptune3-ui applications build for populating deployment server</description>
   <settings>
+    <options>
+      <option name="artifactRules" value="**/*.pkg" />
+    </options>
     <parameters />
     <build-runners>
       <runner id="RUNNER_149" name="qmake" type="simpleRunner">
