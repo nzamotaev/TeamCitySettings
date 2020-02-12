@@ -4,7 +4,7 @@
   <description>Neptune3-ui applications build for populating deployment server</description>
   <settings>
     <options>
-      <option name="artifactRules" value="**/*.pkg" />
+      <option name="artifactRules" value="**/*.pkg =&gt; ." />
     </options>
     <parameters />
     <build-runners>
