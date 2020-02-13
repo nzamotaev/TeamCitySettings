@@ -12,12 +12,6 @@
         <parameters>
           <param name="script.content"><![CDATA[. /opt/Boot2QtSDK/environment-setup-corei7-64-poky-linux
 echo "##teamcity[progressStart 'qmake']"
-cat >> qt-auto-extra-apps.pro << EOF
- 
-QMAKE_EXTRA_TARGETS += package
-package.CONFIG = recursive
-EOF
-
 qmake
 echo "##teamcity[progressFinish 'qmake']"
 echo "##teamcity[progressStart 'applications build']"
