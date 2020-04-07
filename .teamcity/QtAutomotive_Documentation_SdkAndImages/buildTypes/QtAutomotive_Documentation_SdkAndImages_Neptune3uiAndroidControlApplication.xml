@@ -22,7 +22,13 @@ echo "##teamcity[buildNumber '`git describe --tags --abbrev=7 --always`']"]]></p
       </runner>
       <runner id="RUNNER_121" name="Qmake configuration" type="simpleRunner">
         <parameters>
-          <param name="script.content" value="%env.ANDROID_QT_SDK%/%QT_VERSION%/android_%BUILDARCH%/bin/qmake %system.teamcity.build.checkoutDir%/settings_app_android.pro -spec android-clang" />
+          <param name="script.content"><![CDATA[#!/bin/bash
+set -e
+if [ test -x %env.ANDROID_QT_SDK%/%QT_VERSION%/android_%BUILDARCH%/bin/qmake  ] ; then 
+    %env.ANDROID_QT_SDK%/%QT_VERSION%/android_%BUILDARCH%/bin/qmake %system.teamcity.build.checkoutDir%/settings_app_android.pro -spec android-clang
+else
+    %env.ANDROID_QT_SDK%/%QT_VERSION%/android/bin/qmake %system.teamcity.build.checkoutDir%/settings_app_android.pro -spec android-clang
+fi]]></param>
           <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%/build/" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
