@@ -47,8 +47,13 @@ make INSTALL_ROOT=`pwd`/../install/ install]]></param>
       </runner>
       <runner id="RUNNER_124" name="Configuring android build" type="simpleRunner">
         <parameters>
-          <param name="script.content"><![CDATA[JSON_FILE=`find ./ -name \*-settings.json`
-%env.ANDROID_QT_SDK%/%QT_VERSION%/android_%BUILDARCH%/bin/androiddeployqt --input "${JSON_FILE}" --android-platform android-28 --output ../install --gradle]]></param>
+          <param name="script.content"><![CDATA[#!/bin/bash
+JSON_FILE=`find ./ -name \*-settings.json`
+if [ -x %env.ANDROID_QT_SDK%/%QT_VERSION%/android_%BUILDARCH%/bin/androiddeployqt ]; then
+    %env.ANDROID_QT_SDK%/%QT_VERSION%/android_%BUILDARCH%/bin/androiddeployqt --input "${JSON_FILE}" --android-platform android-28 --output ../install --gradle
+else
+    %env.ANDROID_QT_SDK%/%QT_VERSION%/android/bin/androiddeployqt --input "${JSON_FILE}" --android-platform android-28 --output ../install --gradle
+fi]]></param>
           <param name="teamcity.build.workingDir" value="%system.teamcity.build.tempDir%/build/" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
