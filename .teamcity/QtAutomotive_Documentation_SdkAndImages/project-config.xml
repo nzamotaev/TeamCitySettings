@@ -2,7 +2,7 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" parent-id="QtAutomotive" uuid="a78d5d6e-091d-45ca-bd0b-c85941e2b59f" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/10.0/project-config.xsd">
   <name>SDK_and_Images</name>
   <parameters>
-    <param name="Tracking branch" value="5.14" spec="text regexp='^(dev||5\.|[0-9|].*)$' display='hidden' validationMessage='invalid branch' description='Tracking branch for qtivi, neptune3-ui, application manager' label='Tracking branch' validationMode='regex'" />
+    <param name="Tracking branch" value="5.15" spec="text regexp='^(dev||5\.|[0-9|].*)$' display='hidden' validationMessage='invalid branch' description='Tracking branch for qtivi, neptune3-ui, application manager' label='Tracking branch' validationMode='regex'" />
   </parameters>
   <project-extensions>
     <extension id="PROJECT_EXT_5" type="JetBrains.SharedResources">
