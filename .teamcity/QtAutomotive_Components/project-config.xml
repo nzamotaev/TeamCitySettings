@@ -2,7 +2,7 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" parent-id="QtAutomotive" uuid="1151b427-2fd8-49bc-a433-fe68748da3d1" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/10.0/project-config.xsd">
   <name>Components</name>
   <parameters>
-    <param name="Tracking branch" value="5.14" />
+    <param name="Tracking branch" value="5.15" />
   </parameters>
   <cleanup>
     <policy type="days" cleanup-level="ARTIFACTS">
