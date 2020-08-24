@@ -308,8 +308,8 @@ done]]></param>
     <cleanup>
       <policy type="daysAndBuilds" cleanup-level="ARTIFACTS">
         <parameters>
-          <param name="keepBuilds.count" value="10" />
-          <param name="keepDays.count" value="30" />
+          <param name="keepBuilds.count" value="5" />
+          <param name="keepDays.count" value="15" />
         </parameters>
       </policy>
     </cleanup>
