@@ -160,8 +160,9 @@ done]]></param>
       </depend-on>
     </dependencies>
     <cleanup>
-      <policy type="daysAndBuilds" cleanup-level="HISTORY_ENTRY">
+      <policy type="daysAndBuilds" cleanup-level="ARTIFACTS">
         <parameters>
+          <param name="artifactPatterns" value="+:*/**" />
           <param name="keepBuilds.count" value="10" />
           <param name="keepDays.count" value="30" />
         </parameters>
